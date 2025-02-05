@@ -25,7 +25,7 @@ public class DetectNpcs : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(censorKey))
+        if(Input.GetKeyDown(censorKey) && selectedGuy != null)
         {
             npcsInArea.Remove(selectedGuy);
             selectedGuy.GetComponent<PersonTalking>().Censor();
@@ -75,7 +75,10 @@ public class DetectNpcs : MonoBehaviour
         {
             if (obj == null) continue;
 
-            float distance = Vector2.Distance(playerPosition, obj.transform.position);
+            if (obj.GetComponent<PersonTalking>().censored)
+                continue;
+
+                float distance = Vector2.Distance(playerPosition, obj.transform.position);
             if (distance < minDistance)
             {
                 minDistance = distance;
@@ -92,9 +95,6 @@ public class DetectNpcs : MonoBehaviour
     {
         int x = 1 << collision.gameObject.layer;
 
-
-
-        // Trigger Clown Falling
         if (x == npcLayer.value)
         {
             if(!collision.gameObject.GetComponent<PersonTalking>().censored) { npcsInArea.Add(collision.gameObject); }
