@@ -38,7 +38,7 @@ public class DetectNpcs : MonoBehaviour
         {
             if(selectedGuy != null)
             {
-                selectedGuy.GetComponent<SpriteRenderer>().material.SetFloat("_Thickness", 0f);
+                selectedGuy.GetComponent<PersonTalking>().spriteRenderer.material.SetFloat("_Thickness", 0f);
             }
             justDetected = Time.time;
             RemoveFarObjects(beatUpRadius + 5);
@@ -46,7 +46,7 @@ public class DetectNpcs : MonoBehaviour
 
             if (selectedGuy != null)
             {
-                selectedGuy.GetComponent<SpriteRenderer>().material.SetFloat("_Thickness", 10f);
+                selectedGuy.GetComponent<PersonTalking>().spriteRenderer.material.SetFloat("_Thickness", 10f);
             }
         }
 

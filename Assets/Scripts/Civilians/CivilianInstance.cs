@@ -28,6 +28,8 @@ public class CivilianInstance : MonoBehaviour
 
     private float _timeInCurrentState;
 
+    [SerializeField] private TalkingBubble _talkingBubble;
+
     private void Start()
     {
         if (_debug)
@@ -127,8 +129,10 @@ public class CivilianInstance : MonoBehaviour
                 _anim.SetTrigger(WALK_TRIGGER);
                 break;
             case CivilianState.Talking_Alone:
+                _talkingBubble.StartTalking();
                 break;
             case CivilianState.Talking_Group:
+                _talkingBubble.StartTalking();
                 break;
         }
     }

@@ -37,7 +37,7 @@ public class TalkingBubble : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         GetRandomHat();
         GetRandomBook();
-        StartTalking();
+        //StartTalking();
     }
 
     private void FixedUpdate()
@@ -91,5 +91,12 @@ public class TalkingBubble : MonoBehaviour
         (topicSprite, badTopic) = topicManager.GetRandomTopic();
         Debug.Log("talking: " + topicSprite.name);
         symbolPlace.sprite = topicSprite;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+
+        Gizmos.DrawWireSphere(transform.position, distanceToSeeConversation);
     }
 }

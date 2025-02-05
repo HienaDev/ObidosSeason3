@@ -77,8 +77,10 @@ public class CreateTopics : MonoBehaviour
 
         for (int i = currentForbiddenBook; i < forbiddenBookImages.Length; i++)
         {
-            forbiddenBookImages[currentForbiddenBook].gameObject.SetActive(false);
+            forbiddenBookImages[i].gameObject.SetActive(false);
         }
+
+        Debug.Log("currentForbiddenBook" + currentForbiddenBook);
 
         currentForbiddenBook = 0;
     }
@@ -131,7 +133,7 @@ public class CreateTopics : MonoBehaviour
 
         for (int i = currentForbiddenHat; i < forbiddenHatsImages.Length; i++)
         {
-            forbiddenHatsImages[currentForbiddenHat].gameObject.SetActive(false);
+            forbiddenHatsImages[i].gameObject.SetActive(false);
         }
 
         currentForbiddenHat = 0;
@@ -184,7 +186,7 @@ public class CreateTopics : MonoBehaviour
 
         for (int i = currentForbiddenWord; i < forbiddenWordsImages.Length; i++)
         {
-            forbiddenWordsImages[currentForbiddenWord].gameObject.SetActive(false);
+            forbiddenWordsImages[i].gameObject.SetActive(false);
         }
 
         currentForbiddenWord = 0;
