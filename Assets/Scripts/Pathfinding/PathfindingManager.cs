@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class PathfindingManager : MonoBehaviour
 {
     [SerializeField] private bool _showGrid;
+    [SerializeField] private LayerMask _wallLayer;
     [SerializeField] private Vector2Int _gridSize;
     [SerializeField] private Vector2 _tileSize;
 
@@ -20,7 +21,10 @@ public class PathfindingManager : MonoBehaviour
         _grid = GenerateGrid(_gridSize.x, _gridSize.y);
         _worldCenterGridOffset = new Vector2(_gridSize.x / 2f * _tileSize.x - _tileSize.x / 2f, _gridSize.y / 2f * _tileSize.y - _tileSize.y / 2f);
         foreach (Node n in _grid.nodes)
+        {
             n.WorldPosition = ConvertGridToWorldPosition(n);
+            n.walkable = Physics2D.OverlapBox(n.WorldPosition, _tileSize / 2f, 0, _wallLayer) == null;
+        }
     }
 
 
@@ -63,16 +67,24 @@ public class PathfindingManager : MonoBehaviour
         return Pathfinding.FindPath(_grid, new Point(from.gridX, from.gridY), new Point(to.gridX, to.gridY));
     }
 
-    
+
 
     private void OnDrawGizmos()
     {
         if (!Application.isPlaying || !_showGrid) return;
 
-        Gizmos.color = Color.gray;
         foreach (Node n in _grid.nodes)
         {
-            Gizmos.DrawWireCube(ConvertGridToWorldPosition(n), _tileSize);
+            if (!n.walkable)
+                Gizmos.color = Color.red;
+            else if (n.price == CivilianInstance.WALKING_NODE_HVALUE)
+                Gizmos.color = Color.green;
+            else if (n.price == CivilianInstance.OCCUPIED_NODE_HVALUE)
+                Gizmos.color = Color.blue;
+            else
+                Gizmos.color = Color.gray;
+
+            Gizmos.DrawWireCube(ConvertGridToWorldPosition(n), _tileSize * 0.9f);
         }
     }
 

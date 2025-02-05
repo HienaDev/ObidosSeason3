@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class CivilianInstance : MonoBehaviour
 {
-    private const int OCCUPIED_NODE_HVALUE = 3;
+    public const int OCCUPIED_NODE_HVALUE = 3;
+    public const int WALKING_NODE_HVALUE = 2;
     private const string IDLE_TRIGGER = "idle";
     private const string WALK_TRIGGER = "walk";
 
@@ -49,8 +50,12 @@ public class CivilianInstance : MonoBehaviour
 
     private void ChangeNode(Node newNode)
     {
-        _curNode.hCost = 0;
-        newNode.hCost = OCCUPIED_NODE_HVALUE - 1;
+        if (_curNode.price == WALKING_NODE_HVALUE)
+            _curNode.price = 0;
+
+        if (newNode.price != OCCUPIED_NODE_HVALUE)
+            newNode.price = WALKING_NODE_HVALUE;
+
         _curNode = newNode;
     }
 
@@ -66,9 +71,9 @@ public class CivilianInstance : MonoBehaviour
     {
         if (_targetFinalNode != default)
         {
-            _targetFinalNode.hCost = 0;
+            _targetFinalNode.price = 0;
         }
-        nodeToMoveTo.hCost = OCCUPIED_NODE_HVALUE;
+        nodeToMoveTo.price = OCCUPIED_NODE_HVALUE;
 
         _targetFinalNode = nodeToMoveTo;
         _curPath = _brain.PathfindingManager.FindPath(_curNode, _targetFinalNode);
@@ -126,8 +131,6 @@ public class CivilianInstance : MonoBehaviour
             case CivilianState.Traveling:
                 _anim.SetTrigger(WALK_TRIGGER);
                 break;
-            case CivilianState.Talking_Alone:
-                break;
             case CivilianState.Talking_Group:
                 break;
         }
@@ -152,8 +155,6 @@ public class CivilianInstance : MonoBehaviour
                     TravelToNextNode();
                 }
                 break;
-            case CivilianState.Talking_Alone:
-                break;
             case CivilianState.Talking_Group:
                 break;
         }
@@ -163,7 +164,6 @@ public class CivilianInstance : MonoBehaviour
     {
         Idle,
         Traveling,
-        Talking_Alone,
         Talking_Group,
 
     }
