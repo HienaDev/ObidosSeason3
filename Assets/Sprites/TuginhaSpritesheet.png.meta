@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 262b41b5dfc0ff5469b8c88673cfcaf9
+guid: 4d33dcc8a6295344498cda9838e77fb7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 684255452609855340
-    second: debug_tuga_0
+      213: -4195345631752540509
+    second: TuginhaSpritesheet_0
+  - first:
+      213: -4543036543921467831
+    second: TuginhaSpritesheet_1
+  - first:
+      213: -3859212208873807823
+    second: TuginhaSpritesheet_2
+  - first:
+      213: -716572261250971261
+    second: TuginhaSpritesheet_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,23 +109,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: debug_tuga_0
+      name: TuginhaSpritesheet_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 28
-        width: 185
-        height: 188
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 300
+        height: 329
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c6f3f6475b6fe7900800000000000000
-      internalID: 684255452609855340
+      spriteID: da6395176e2abb344aece83b6073ab45
+      internalID: 1474449053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TuginhaSpritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 329
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 946d7c832a012ae4bb7e7628c83d35ff
+      internalID: -137420068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TuginhaSpritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 329
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc0e6f12cadefe645870be150e9b74cb
+      internalID: -1081805830
       vertices: []
       indices: 
       edges: []
@@ -125,7 +178,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 657d3f229ee93fd4cba80db3e72a8d4a
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +188,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      debug_tuga_0: 684255452609855340
+      TuginhaSpritesheet_0: 1474449053
+      TuginhaSpritesheet_1: -137420068
+      TuginhaSpritesheet_2: -1081805830
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

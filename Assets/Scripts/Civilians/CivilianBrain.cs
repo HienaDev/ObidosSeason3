@@ -22,7 +22,7 @@ public class CivilianBrain : MonoBehaviour
 
     private IEnumerator C_ConstantSpawn()
     {
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 8; i++)
         {
             yield return new WaitForSeconds(.01f);
             CreateNewCivilian();

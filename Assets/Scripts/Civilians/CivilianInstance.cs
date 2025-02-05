@@ -1,16 +1,21 @@
 using System;
 using System.Collections.Generic;
 using NesScripts.Controls.PathFind;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class CivilianInstance : MonoBehaviour
 {
     private const int OCCUPIED_NODE_HVALUE = 3;
-    [SerializeField] private SpriteRenderer _maiSr;
-    [SerializeField] private SpriteRenderer[] _extraSpriteRenderers;
+    private const string IDLE_TRIGGER = "idle";
+    private const string WALK_TRIGGER = "walk";
+
+    [Header("Mechanic")]
     [SerializeField] private bool _debug;
     [SerializeField] private CivilianState _currentState;
+    [Header("Visuals")]
+    [SerializeField] private Animator _anim;
+    [SerializeField] private SpriteRenderer _maiSr;
+    [SerializeField] private SpriteRenderer[] _extraSpriteRenderers;
 
     private CivilianBrain _brain;
 
@@ -85,16 +90,20 @@ public class CivilianInstance : MonoBehaviour
         _curPathPointI++;
         Node nextTravelNode = _brain.PathfindingManager.Nodes[_curPath[_curPathPointI].x, _curPath[_curPathPointI].y];
         Vector2 dir = new Vector2(nextTravelNode.WorldPosition.x - transform.position.x, nextTravelNode.WorldPosition.y - transform.position.y).normalized;
-        Debug.Log(dir);
+
         _curTravelInfo = new NodeTravelingInfo(dir, nextTravelNode);
         ChangeNode(_curTravelInfo.TargetNode);
 
+        if (dir.x > 0)
+            _anim.transform.right = Vector2.right;
+        else
+            _anim.transform.right = Vector2.left;
     }
 
     private void UpdateVisuals()
     {
         // Update Y sorting
-        int newOrder = (int)Mathf.Ceil(transform.position.y - Camera.main.transform.position.y) * 2;
+        int newOrder = -(int)Mathf.Ceil(transform.position.y - Camera.main.transform.position.y) * 10;
         if (newOrder == _maiSr.sortingOrder) return;
 
         _maiSr.sortingOrder = newOrder;
@@ -106,7 +115,22 @@ public class CivilianInstance : MonoBehaviour
     {
         if (newState == _currentState) return;
         _currentState = newState;
+        _timeInCurrentState = 0;
         OnStateChanged?.Invoke(newState);
+
+        switch (newState)
+        {
+            case CivilianState.Idle:
+                _anim.SetTrigger(IDLE_TRIGGER);
+                break;
+            case CivilianState.Traveling:
+                _anim.SetTrigger(WALK_TRIGGER);
+                break;
+            case CivilianState.Talking_Alone:
+                break;
+            case CivilianState.Talking_Group:
+                break;
+        }
     }
 
     private void StateMachine(float delta)
