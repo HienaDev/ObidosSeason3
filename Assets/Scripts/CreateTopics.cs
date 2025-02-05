@@ -88,7 +88,7 @@ public class CreateTopics : MonoBehaviour
         {
             // Bad topic
             TalkingData.TalkingTopics badTopic = badTopics[randomTopic - goodTopics.Count - 1];    
-            return (badTopic.symbol, false);
+            return (badTopic.symbol, true);
         }
         else
         {

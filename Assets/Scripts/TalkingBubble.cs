@@ -14,7 +14,7 @@ public class TalkingBubble : MonoBehaviour
 
     private bool talking = false;
     //private bool topicIsFarAway = true;
-    private bool badTopic = false;
+    public bool badTopic = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     IEnumerator Start()

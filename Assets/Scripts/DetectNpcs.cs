@@ -28,7 +28,7 @@ public class DetectNpcs : MonoBehaviour
         if(Input.GetKeyDown(censorKey))
         {
             npcsInArea.Remove(selectedGuy);
-            Destroy(selectedGuy);
+            selectedGuy.GetComponent<PersonTalking>().Censor();
         }
     }
 
@@ -97,7 +97,8 @@ public class DetectNpcs : MonoBehaviour
         // Trigger Clown Falling
         if (x == npcLayer.value)
         {
-            npcsInArea.Add(collision.gameObject);
+            if(!collision.gameObject.GetComponent<PersonTalking>().censored) { npcsInArea.Add(collision.gameObject); }
+            
         }
     }
 
