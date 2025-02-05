@@ -41,8 +41,6 @@ MonoBehaviour:
     type: 1
   - symbol: {fileID: 21300000, guid: 23e5d9b5c40407f4f8ce6b3a13de9002, type: 3}
     type: 1
-  - symbol: {fileID: 21300000, guid: ba6dc9e2bb114aa46a392528f10c13d0, type: 3}
-    type: 1
   alwaysBadTopics: []
   hats:
   - symbol: {fileID: 21300000, guid: 99ca49fdb988ace44ad3d97ca8f5c0a0, type: 3}
@@ -54,4 +52,12 @@ MonoBehaviour:
   - symbol: {fileID: 21300000, guid: 1c6a3c5b90160d3489913ff82dcaffc1, type: 3}
     type: 2
   - symbol: {fileID: 21300000, guid: ea3caab6568e6714d976a4ab97aea187, type: 3}
+    type: 2
+  - symbol: {fileID: 21300000, guid: 70ca46f1fccb6e249b1384aef93f131e, type: 3}
+    type: 2
+  - symbol: {fileID: 21300000, guid: 753a8a0a258bf1a47a1445d24fe5e60c, type: 3}
+    type: 2
+  - symbol: {fileID: 21300000, guid: 8133142eee1df69499d933052a064a94, type: 3}
+    type: 2
+  - symbol: {fileID: 21300000, guid: f48651db65cf776499a69f8d60acfed9, type: 3}
     type: 2

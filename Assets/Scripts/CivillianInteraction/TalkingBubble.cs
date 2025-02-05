@@ -36,9 +36,9 @@ public class TalkingBubble : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
 
-        GetRandomHat(Random.Range(0, 100) < 40);
+        GetRandomHat(Random.Range(0, 100) < 20);
         GetRandomBook(Random.Range(0, 100) < 20);
-        StartTalking(Random.Range(0, 100) < 40);
+        //StartTalking(Random.Range(0, 100) < 20);
     }
 
     private void FixedUpdate()
