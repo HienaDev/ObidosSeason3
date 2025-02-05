@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 013802c3d36e9c44db836b563ddf7181
+guid: c9a5bea9145332f478cad3ae35b64682
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 832877967638892730
-    second: Elephant_0
+      213: 6897479667268090689
+    second: Demon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Elephant_0
+      name: Demon_0
       rect:
         serializedVersion: 2
         x: 39
         y: 37
-        width: 71
+        width: 67
         height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab09d5a491afe8b00800000000000000
-      internalID: 832877967638892730
+      spriteID: 14b7ef48635c8bf50800000000000000
+      internalID: 6897479667268090689
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Elephant_0: 832877967638892730
+      Demon_0: 6897479667268090689
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -21,25 +21,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fd387eecdee00d243a91552fb797ef47, type: 3}
   - {fileID: 21300000, guid: e3a1070e0616da64ba068efbbfe52e52, type: 3}
   topics:
-  - symbol: {fileID: 832877967638892730, guid: 013802c3d36e9c44db836b563ddf7181, type: 3}
+  - symbol: {fileID: 21300000, guid: 5095e68efec73114dbf80d2e38ecdda0, type: 3}
     type: 1
-  - symbol: {fileID: 21300000, guid: 63a9bd0d002bb4d598c276d9f5aabc30, type: 3}
+  - symbol: {fileID: 21300000, guid: a8110d4a545053642a7d3b6f42464033, type: 3}
     type: 1
-  - symbol: {fileID: 21300000, guid: 5c718c499137a4dc48bbf03037c806f6, type: 3}
+  - symbol: {fileID: 21300000, guid: c9a5bea9145332f478cad3ae35b64682, type: 3}
     type: 1
-  - symbol: {fileID: 21300000, guid: 1e7881f6af9ad4c0eb01def7f1b8a31b, type: 3}
+  - symbol: {fileID: 21300000, guid: 013802c3d36e9c44db836b563ddf7181, type: 3}
     type: 1
-  - symbol: {fileID: 21300000, guid: 7c1d940f1184e44269a954817b343570, type: 3}
+  - symbol: {fileID: 21300000, guid: 9b0b3cc21e76d5a449c3b60c2d161c4f, type: 3}
     type: 1
-  - symbol: {fileID: 21300000, guid: f618c5fe13b18994aa5aee8b97d8dca1, type: 3}
+  - symbol: {fileID: 21300000, guid: 23e5d9b5c40407f4f8ce6b3a13de9002, type: 3}
     type: 1
-  - symbol: {fileID: 21300000, guid: 11e6f279ade864c6d951e8db74c11b54, type: 3}
+  - symbol: {fileID: 21300000, guid: ba6dc9e2bb114aa46a392528f10c13d0, type: 3}
     type: 1
-  alwaysBadTopics:
-  - symbol: {fileID: 21300000, guid: cee9dbe90b270c944ae1dabf41c93b10, type: 3}
-    type: 0
-  - symbol: {fileID: 21300000, guid: 678095381d851334fb550c5032ba1a81, type: 3}
-    type: 0
+  alwaysBadTopics: []
   hats:
   - symbol: {fileID: 21300000, guid: 99ca49fdb988ace44ad3d97ca8f5c0a0, type: 3}
     type: 2
@@ -47,7 +43,7 @@ MonoBehaviour:
     type: 2
   - symbol: {fileID: 21300000, guid: 1f21190ca9d1e8540b2a3a2e46002685, type: 3}
     type: 2
-  - symbol: {fileID: 832877967638892730, guid: 013802c3d36e9c44db836b563ddf7181, type: 3}
+  - symbol: {fileID: 21300000, guid: a8110d4a545053642a7d3b6f42464033, type: 3}
     type: 2
   - symbol: {fileID: 21300000, guid: 950832395ec754ba48ab1cffa214cec0, type: 3}
     type: 2

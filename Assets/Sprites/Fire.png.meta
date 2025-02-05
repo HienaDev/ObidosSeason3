@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 013802c3d36e9c44db836b563ddf7181
+guid: 9b0b3cc21e76d5a449c3b60c2d161c4f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 832877967638892730
-    second: Elephant_0
+      213: 1098286324429101383
+    second: Fire_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Elephant_0
+      name: Fire_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 37
-        width: 71
-        height: 65
+        x: 49
+        y: 36
+        width: 47
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab09d5a491afe8b00800000000000000
-      internalID: 832877967638892730
+      spriteID: 7491445d795ed3f00800000000000000
+      internalID: 1098286324429101383
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Elephant_0: 832877967638892730
+      Fire_0: 1098286324429101383
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
