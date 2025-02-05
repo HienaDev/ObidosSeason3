@@ -134,7 +134,7 @@ public class CivilianInstance : MonoBehaviour
                 _anim.SetTrigger(WALK_TRIGGER);
                 break;
             case CivilianState.Talking_Group:
-                _talkingBubble.StartTalking();
+                _talkingBubble.StartTalking(UnityEngine.Random.Range(0, 100) < 40);
                 break;
         }
     }

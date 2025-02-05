@@ -35,9 +35,10 @@ public class TalkingBubble : MonoBehaviour
         player = FindAnyObjectByType<PlayerMovement>().gameObject.transform;
 
         yield return new WaitForSeconds(0.1f);
-        GetRandomHat();
-        GetRandomBook();
-        //StartTalking();
+
+        GetRandomHat(Random.Range(0, 100) < 40);
+        GetRandomBook(Random.Range(0, 100) < 20);
+        StartTalking(Random.Range(0, 100) < 40);
     }
 
     private void FixedUpdate()
@@ -63,16 +64,16 @@ public class TalkingBubble : MonoBehaviour
             }
     }
 
-    public void GetRandomHat()
+    public void GetRandomHat(bool badHatToggle)
     {
-        (hat, badHat) = topicManager.GetRandomHat();
+        (hat, badHat) = topicManager.GetRandomHat(badHatToggle);
 
         hatSprite.sprite = hat;
     }
 
-    public void GetRandomBook()
+    public void GetRandomBook(bool badBookToggle)
     {
-        (bookObject, badBook) = topicManager.GetRandomBook();
+        (bookObject, badBook) = topicManager.GetRandomBook(badBookToggle);
 
         if (bookObject.Item1 == null)
             return;
@@ -84,11 +85,11 @@ public class TalkingBubble : MonoBehaviour
         bookSymbol.sprite = bookObject.Item1;
     }
 
-    public void StartTalking()
+    public void StartTalking(bool badTopicToggle)
     {
         talking = true;
         bubbleParent.SetActive(true);
-        (topicSprite, badTopic) = topicManager.GetRandomTopic();
+        (topicSprite, badTopic) = topicManager.GetRandomTopic(badTopicToggle);
         Debug.Log("talking: " + topicSprite.name);
         symbolPlace.sprite = topicSprite;
     }

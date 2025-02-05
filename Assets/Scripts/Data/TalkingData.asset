@@ -20,6 +20,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bbeffbb1e0748a84b838331975ec45a5, type: 3}
   - {fileID: 21300000, guid: fd387eecdee00d243a91552fb797ef47, type: 3}
   - {fileID: 21300000, guid: e3a1070e0616da64ba068efbbfe52e52, type: 3}
+  footballTeamWinning:
+  - {fileID: 21300000, guid: e9feaafcc5f78a64d8d5fbf70702c951, type: 3}
+  - {fileID: 21300000, guid: d51bbe716334d5b409ba82ab30af3078, type: 3}
+  - {fileID: 21300000, guid: 66b4031e320925445a575c1b1a19aa31, type: 3}
+  footballTeamLogo:
+  - {fileID: 21300000, guid: dbbab4cce9966924e99676e351ad58f8, type: 3}
+  - {fileID: 21300000, guid: a5fc08c6c38892047b9cf4c0ebd4979a, type: 3}
+  - {fileID: 21300000, guid: 48ff546ba34dd384db1c481ec1f90df1, type: 3}
   topics:
   - symbol: {fileID: 21300000, guid: 5095e68efec73114dbf80d2e38ecdda0, type: 3}
     type: 1
@@ -39,11 +47,11 @@ MonoBehaviour:
   hats:
   - symbol: {fileID: 21300000, guid: 99ca49fdb988ace44ad3d97ca8f5c0a0, type: 3}
     type: 2
-  - symbol: {fileID: 3312446495073329038, guid: 4aaf938c6a775454a936529c1a372c9d, type: 3}
+  - symbol: {fileID: 21300000, guid: 259f06d9f75c95b4eb4a4b1438fed990, type: 3}
     type: 2
-  - symbol: {fileID: 21300000, guid: 1f21190ca9d1e8540b2a3a2e46002685, type: 3}
+  - symbol: {fileID: 21300000, guid: 07bb84ed29817ad49bb17d41b0438873, type: 3}
     type: 2
-  - symbol: {fileID: 21300000, guid: a8110d4a545053642a7d3b6f42464033, type: 3}
+  - symbol: {fileID: 21300000, guid: 1c6a3c5b90160d3489913ff82dcaffc1, type: 3}
     type: 2
-  - symbol: {fileID: 21300000, guid: 950832395ec754ba48ab1cffa214cec0, type: 3}
+  - symbol: {fileID: 21300000, guid: ea3caab6568e6714d976a4ab97aea187, type: 3}
     type: 2

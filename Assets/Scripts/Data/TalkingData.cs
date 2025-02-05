@@ -37,6 +37,8 @@ public class TalkingData : ScriptableObject
     public Color[] bookColors;
     public Sprite[] bookShapes;
 
+    public Sprite[] footballTeamWinning;
+    public Sprite[] footballTeamLogo;
     public TalkingTopics[] topics;
     public TalkingTopics[] alwaysBadTopics;
     public TalkingTopics[] hats;
