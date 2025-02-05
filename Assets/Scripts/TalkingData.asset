@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558587639ac60614b8018745b4ae918f, type: 3}
+  m_Name: TalkingData
+  m_EditorClassIdentifier: 
+  topics:
+  - symbol: {fileID: 21300000, guid: 8f03a52015a57491094416b25e8e9c18, type: 3}
+    type: 1
+  - symbol: {fileID: 21300000, guid: 63a9bd0d002bb4d598c276d9f5aabc30, type: 3}
+    type: 1
+  - symbol: {fileID: 21300000, guid: 5c718c499137a4dc48bbf03037c806f6, type: 3}
+    type: 1
+  - symbol: {fileID: 21300000, guid: 1e7881f6af9ad4c0eb01def7f1b8a31b, type: 3}
+    type: 1
+  - symbol: {fileID: 21300000, guid: 7c1d940f1184e44269a954817b343570, type: 3}
+    type: 1
+  - symbol: {fileID: 21300000, guid: f618c5fe13b18994aa5aee8b97d8dca1, type: 3}
+    type: 1
+  - symbol: {fileID: 21300000, guid: 11e6f279ade864c6d951e8db74c11b54, type: 3}
+    type: 1
+  alwaysBadTopics:
+  - symbol: {fileID: 21300000, guid: cee9dbe90b270c944ae1dabf41c93b10, type: 3}
+    type: 0
+  - symbol: {fileID: 21300000, guid: 678095381d851334fb550c5032ba1a81, type: 3}
+    type: 0

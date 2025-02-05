@@ -1,0 +1,111 @@
+using NUnit.Framework;
+using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.UIElements;
+
+public class DetectNpcs : MonoBehaviour
+{
+
+    [SerializeField] private KeyCode censorKey = KeyCode.Space;  
+
+    [SerializeField] private LayerMask npcLayer;
+
+    [SerializeField] private float detectionCooldown = 0.1f;
+    private float justDetected = 0f;
+    private List<GameObject> npcsInArea;
+
+    [SerializeField] private float beatUpRadius = 2f;
+    private GameObject selectedGuy = null;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        npcsInArea = new List<GameObject>();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(censorKey))
+        {
+            npcsInArea.Remove(selectedGuy);
+            selectedGuy.GetComponent<PersonTalking>().Censor();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (Time.time - justDetected > detectionCooldown)
+        {
+            if(selectedGuy != null)
+            {
+                selectedGuy.GetComponent<SpriteRenderer>().material.SetFloat("_Thickness", 0f);
+            }
+            justDetected = Time.time;
+            RemoveFarObjects(beatUpRadius + 5);
+            selectedGuy = GetClosestObject();
+
+            if (selectedGuy != null)
+            {
+                selectedGuy.GetComponent<SpriteRenderer>().material.SetFloat("_Thickness", 10f);
+            }
+        }
+
+    }
+
+
+    void RemoveFarObjects(float radius)
+    {
+        Vector2 playerPosition = transform.position;
+        npcsInArea.RemoveAll(obj => obj == null || Vector2.Distance(playerPosition, obj.transform.position) > radius);
+    }
+
+
+    GameObject GetClosestObject()
+    {
+        if (npcsInArea == null || npcsInArea.Count == 0)
+        {
+            return null;
+        }
+
+        GameObject nearest = null;
+        float minDistance = beatUpRadius; // Only consider objects within this range
+        Vector2 playerPosition = transform.position;
+
+        foreach (GameObject obj in npcsInArea)
+        {
+            if (obj == null) continue;
+
+            float distance = Vector2.Distance(playerPosition, obj.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearest = obj;
+            }
+        }
+
+        return nearest; // Returns null if no object is within range
+    }
+
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        int x = 1 << collision.gameObject.layer;
+
+
+
+        // Trigger Clown Falling
+        if (x == npcLayer.value)
+        {
+            if(!collision.gameObject.GetComponent<PersonTalking>().censored) { npcsInArea.Add(collision.gameObject); }
+            
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(transform.position, beatUpRadius);
+    }
+}
