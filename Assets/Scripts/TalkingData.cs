@@ -9,9 +9,22 @@ public class TalkingData : ScriptableObject
     public enum TypeOfConversation
     {
         Football,
-        RandomTopics
+        RandomTopics,
+        Hat,
+        Book
 
     }
+
+    public enum BookShape
+    {
+        Triangle,
+        Ball,
+        Square
+
+    }
+
+
+
 
     [Serializable]
     public struct TalkingTopics
@@ -20,6 +33,12 @@ public class TalkingData : ScriptableObject
         public TypeOfConversation type;
     }
 
+
+    public Color[] bookColors;
+    public Sprite[] bookShapes;
+
     public TalkingTopics[] topics;
     public TalkingTopics[] alwaysBadTopics;
+    public TalkingTopics[] hats;
+    
 }

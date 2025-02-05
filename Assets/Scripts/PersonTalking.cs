@@ -21,10 +21,11 @@ public class PersonTalking : MonoBehaviour
 
     public void Censor()
     {
-        if(talkingBubble.badTopic)
+        if(talkingBubble.badTopic || talkingBubble.badHat || talkingBubble.badBook)
             GetComponent<SpriteRenderer>().color = Color.blue;
-        else if (!talkingBubble.badTopic)
+        else 
             GetComponent<SpriteRenderer>().color = Color.green;
+
         censored = true;
         Debug.Log("I've been censored!!");
     }

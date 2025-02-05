@@ -12,8 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558587639ac60614b8018745b4ae918f, type: 3}
   m_Name: TalkingData
   m_EditorClassIdentifier: 
+  bookColors:
+  - {r: 0.9137255, g: 0.47058824, b: 0.93333334, a: 1}
+  - {r: 0.15686275, g: 0.69803923, b: 0.19607843, a: 1}
+  - {r: 0.9098039, g: 0.8235294, b: 0.13725491, a: 1}
+  bookShapes:
+  - {fileID: 21300000, guid: bbeffbb1e0748a84b838331975ec45a5, type: 3}
+  - {fileID: 21300000, guid: fd387eecdee00d243a91552fb797ef47, type: 3}
+  - {fileID: 21300000, guid: e3a1070e0616da64ba068efbbfe52e52, type: 3}
   topics:
-  - symbol: {fileID: 21300000, guid: 8f03a52015a57491094416b25e8e9c18, type: 3}
+  - symbol: {fileID: 832877967638892730, guid: 013802c3d36e9c44db836b563ddf7181, type: 3}
     type: 1
   - symbol: {fileID: 21300000, guid: 63a9bd0d002bb4d598c276d9f5aabc30, type: 3}
     type: 1
@@ -32,3 +40,14 @@ MonoBehaviour:
     type: 0
   - symbol: {fileID: 21300000, guid: 678095381d851334fb550c5032ba1a81, type: 3}
     type: 0
+  hats:
+  - symbol: {fileID: 21300000, guid: 99ca49fdb988ace44ad3d97ca8f5c0a0, type: 3}
+    type: 2
+  - symbol: {fileID: 3312446495073329038, guid: 4aaf938c6a775454a936529c1a372c9d, type: 3}
+    type: 2
+  - symbol: {fileID: 21300000, guid: 1f21190ca9d1e8540b2a3a2e46002685, type: 3}
+    type: 2
+  - symbol: {fileID: 832877967638892730, guid: 013802c3d36e9c44db836b563ddf7181, type: 3}
+    type: 2
+  - symbol: {fileID: 21300000, guid: 950832395ec754ba48ab1cffa214cec0, type: 3}
+    type: 2
