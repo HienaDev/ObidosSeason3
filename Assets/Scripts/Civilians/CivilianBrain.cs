@@ -58,7 +58,7 @@ public class CivilianBrain : MonoBehaviour
             y = Random.Range(0, PathfindingManager.Nodes.GetLength(0)); // Rows
             i++;
 
-        } while (PathfindingManager.Nodes[x, y].gCost == CivilianInstance.OCCUPIED_NODE_GVALUE && i < 5);
+        } while ((PathfindingManager.Nodes[x, y].gCost == CivilianInstance.OCCUPIED_NODE_GVALUE && i < 5) || !PathfindingManager.Nodes[x, y].walkable);
 
         return PathfindingManager.Nodes[x, y];
     }
