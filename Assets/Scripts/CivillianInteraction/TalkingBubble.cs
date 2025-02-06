@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class TalkingBubble : MonoBehaviour
@@ -27,7 +28,20 @@ public class TalkingBubble : MonoBehaviour
     [SerializeField] private SpriteRenderer bookSymbol;
     private (Sprite, Color) bookObject;
     public bool badBook = false;
-    private CivilianFaultType _civilianFaultType;
+    public CivilianFaultType _civilianFaultType;
+
+    [field: Header("Talking animations")]
+    [SerializeField] private float talkingPopUpAnimation = 0.3f;
+    [SerializeField] private float timeSpentTalking = 4f;
+    [SerializeField] private float timeTalkingRandomOffset = 1f;
+    private float currentTimeToTalk = 0f;
+    [SerializeField] private float talkingCooldown = 1f;
+    private float currentTalkingCooldown = 0f;
+
+    private Vector3 initialbubbleScale = Vector3.one;
+
+    private Coroutine bubblePopCoroutine = null;
+
     public void Initialize(CivilianFaultType type)
     {
         _civilianFaultType = type;
@@ -35,6 +49,20 @@ public class TalkingBubble : MonoBehaviour
         player = FindAnyObjectByType<PlayerMovement>().gameObject.transform;
         GetRandomHat(type == CivilianFaultType.Fashion);
         GetRandomBook(type == CivilianFaultType.Item);
+        GetRandomTopic(type == CivilianFaultType.Talking);
+
+        InitalizerSpeakingBubble();
+    }
+
+    private void InitalizerSpeakingBubble()
+    {
+        initialbubbleScale = bubbleParent.transform.localScale;
+        bubbleParent.transform.localScale = Vector3.zero;
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape)) { }
     }
 
     private void FixedUpdate()
@@ -81,22 +109,70 @@ public class TalkingBubble : MonoBehaviour
         bookSymbol.sprite = bookObject.Item1;
     }
 
+
+    public void GetRandomTopic(bool badTopicToggle)
+    {
+        (topicSprite, badTopic) = topicManager.GetRandomTopic(badTopicToggle);
+        Debug.Log("talking: " + topicSprite.name);
+        symbolPlace.sprite = topicSprite;
+    }
+
     public void StartTalking()
     {
         talking = true;
         bubbleParent.SetActive(true);
-        (topicSprite, badTopic) = topicManager.GetRandomTopic(_civilianFaultType == CivilianFaultType.Talking);
-        Debug.Log("talking: " + topicSprite.name);
-        symbolPlace.sprite = topicSprite;
+
+        if (bubblePopCoroutine != null)
+            StopCoroutine(bubblePopCoroutine);
+
+        bubblePopCoroutine = StartCoroutine(TalkingAnimation());
+    }
+
+    private IEnumerator TalkingAnimation()
+    {
+        currentTimeToTalk = timeSpentTalking + Random.Range(-timeTalkingRandomOffset, timeTalkingRandomOffset);
+
+        float lerpValue = 0;
+        
+
+        while (lerpValue < 1)
+        {
+            lerpValue += Time.deltaTime / talkingPopUpAnimation;
+            bubbleParent.transform.localScale = Vector3.Lerp(Vector3.zero, initialbubbleScale, lerpValue);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(currentTimeToTalk);
+
+        lerpValue = 0;
+
+        while (lerpValue < 1)
+        {
+            lerpValue += Time.deltaTime / talkingPopUpAnimation;
+            bubbleParent.transform.localScale = Vector3.Lerp(initialbubbleScale, Vector3.zero, lerpValue);
+            yield return null;
+        }
+
+        currentTalkingCooldown = talkingCooldown + Random.Range(-0.5f, 0.5f);
+
+        yield return new WaitForSeconds(currentTalkingCooldown);
+
+        bubblePopCoroutine = StartCoroutine(TalkingAnimation());
     }
 
     public void StopTalking()
     {
         talking = false;
         bubbleParent.SetActive(false);
+
+        if(bubblePopCoroutine != null)
+            StopCoroutine(bubblePopCoroutine);
+
+        bubbleParent.transform.localScale = initialbubbleScale;
     }
 
-    private void OnDrawGizmos()
+
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
 
