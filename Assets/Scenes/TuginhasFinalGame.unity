@@ -279,14 +279,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5111427339993506994, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
-      propertyPath: numberOfColors
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5111427339993506994, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
-      propertyPath: chanceOfFootballTopic
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 7084095096469588665, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -418,7 +410,7 @@ MonoBehaviour:
   _showGrid: 1
   _wallLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   _gridSize: {x: 20, y: 20}
   _tileSize: {x: 1, y: 1}
 --- !u!4 &1039110913

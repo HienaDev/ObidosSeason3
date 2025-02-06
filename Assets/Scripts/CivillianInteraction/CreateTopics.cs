@@ -50,11 +50,17 @@ public class CreateTopics : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        CreateNewTopics();
-        CreateNewHats();
-        CreateNewBooks();
+        //CreateNewTopics();
+        //CreateNewHats();
+        //CreateNewBooks();
     }
 
+    public void SetNumberOfFaultTypes(int amountBadTopics,  int amountBadHats, int amountOfBadBooks)
+    {
+        numberOfBadTopics = amountBadTopics;
+        numberOfBadHats = amountBadHats;
+        numberOfBadBooks = amountOfBadBooks;
+    }
 
     public void CreateNewBooks()
     {
