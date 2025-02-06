@@ -122,6 +122,9 @@ public class TalkingBubble : MonoBehaviour
         talking = true;
         bubbleParent.SetActive(true);
 
+        if (bubblePopCoroutine != null)
+            StopCoroutine(bubblePopCoroutine);
+
         bubblePopCoroutine = StartCoroutine(TalkingAnimation());
     }
 
