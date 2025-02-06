@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator _animator;
 
+    [SerializeField] private AudioClip[] _pencilHitGroundClips;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -60,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(slap))
         {
             _animator.SetTrigger("slap");
+            AudioSystem.PlaySound(_pencilHitGroundClips);
         }
 
         if (walking)

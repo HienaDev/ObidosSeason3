@@ -83,6 +83,11 @@ MonoBehaviour:
   movSped: 5
   rb: {fileID: 5205742841750071416}
   _animator: {fileID: 2259826617084238838}
+  _pencilHitGroundClips:
+  - {fileID: 8300000, guid: 78c6851fb5da5ad4db06804f5ea02ddf, type: 3}
+  - {fileID: 8300000, guid: ebe35ab540fddac47a70b8f344432017, type: 3}
+  - {fileID: 8300000, guid: e5d545b2dc155ce4999558fc17e4abbb, type: 3}
+  - {fileID: 8300000, guid: 6869b25e1bf3c3e48b30935eaf9f5d56, type: 3}
 --- !u!58 &5993431544512723045
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5229,6 +5234,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7880d7b723940449879bc3782c9cb24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stepSounds:
+  - {fileID: 8300000, guid: 169d07aa0691d0942bf0762b6f456eaa, type: 3}
+  - {fileID: 8300000, guid: 44e84c88c96f6e34aa878a1d7a2df25d, type: 3}
+  - {fileID: 8300000, guid: d98fa4ee16d5ef648a11653cf1152e99, type: 3}
+  - {fileID: 8300000, guid: 73a1137551a02f74ea0c48f51cd91e0a, type: 3}
   _hitPs: {fileID: 5070769775105076466}
 --- !u!114 &3826010701970359496
 MonoBehaviour:
