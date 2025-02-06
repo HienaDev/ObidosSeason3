@@ -13,22 +13,26 @@ public class CivilianFault : MonoBehaviour
 
     [SerializeField] private Color censoredColor;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [field: Header("Runtime")]
+    [field: SerializeField] public CivilianFaultType FaultType { get; private set; }
+
+    public void Initialize(CivilianFaultType type)
     {
+        FaultType = type;
     }
 
 
     public void Censor()
     {
-        bool correctlyCensored = talkingBubble.badTopic || talkingBubble.badHat || talkingBubble.badBook;
-        if(correctlyCensored)
+        bool correctlyCensored = talkingBubble.badTopic || talkingBubble.badHat || talkingBubble.badBook || _linkedCivilians.Count > 4;
+        if (correctlyCensored)
             spriteRenderer.color = censoredColor;
-        else 
+        else
             spriteRenderer.color = Color.green;
 
         censored = true;
         Debug.Log("I've been censored!! Topic: " + talkingBubble.badTopic + " Hat " + talkingBubble.badHat + " Book " + talkingBubble.badBook);
+        talkingBubble.StopTalking();
         OnCensored?.Invoke(correctlyCensored);
     }
 

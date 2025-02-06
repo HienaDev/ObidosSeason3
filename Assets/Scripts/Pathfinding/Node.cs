@@ -1,5 +1,6 @@
 ﻿
 
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -30,6 +31,7 @@ namespace NesScripts.Controls.PathFind
         // calculated values while finding path
         public int gCost;
         public int hCost;
+        public List<CivilianInstance> civs;
         public Node parent;
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace NesScripts.Controls.PathFind
             price = _price;
             gridX = _gridX;
             gridY = _gridY;
+            civs = new List<CivilianInstance>();
         }
 
         /// <summary>
@@ -58,6 +61,7 @@ namespace NesScripts.Controls.PathFind
             price = _walkable ? 1f : 0f;
             gridX = _gridX;
             gridY = _gridY;
+            civs = new List<CivilianInstance>();
         }
 
         /// <summary>
