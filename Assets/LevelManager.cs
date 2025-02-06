@@ -60,6 +60,9 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI reasonTextUI;
 
+
+    private bool restarted = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -148,6 +151,13 @@ public class LevelManager : MonoBehaviour
         {
             isRunning = false;
             EndDay();
+        }
+
+        if(isRunning == false && anomaliesCount > 0 && !restarted)
+        {
+            restarted =  true;
+            reasonTextUI.text = "Time ran out...";
+            RestartDay(false);
         }
 
         if (isRunning)
@@ -286,6 +296,8 @@ public class LevelManager : MonoBehaviour
 
         isRunning = true;
         timeRemaining = levels[level].timer;
+
+        restarted = false;
     }
 
     private void InitalizeAvailableSpots(int amount)
