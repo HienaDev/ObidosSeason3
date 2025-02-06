@@ -580,6 +580,14 @@ PrefabInstance:
       propertyPath: levels.Array.data[4].maximumAnomaliesActive
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 5111427339993506994, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: goodJobObject
+      value: 
+      objectReference: {fileID: 1117433657}
+    - target: {fileID: 5111427339993506994, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: revolutionObject
+      value: 
+      objectReference: {fileID: 710666662}
     - target: {fileID: 5751737271263862325, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -657,6 +665,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b5970fc147b4343aae4f71a05df433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &710666662 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4729204013926754550, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+  m_PrefabInstance: {fileID: 626739285}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &755490164
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,6 +833,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab07803acd50a5d46aa716e1659ec3de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1117433657 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8217989536565932811, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+  m_PrefabInstance: {fileID: 626739285}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1515062563
 GameObject:
   m_ObjectHideFlags: 0
