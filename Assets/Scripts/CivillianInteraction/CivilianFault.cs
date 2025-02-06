@@ -40,12 +40,12 @@ public class CivilianFault : MonoBehaviour
         censored = true;
         Debug.Log("I've been censored!! Topic: " + talkingBubble.badTopic + " Hat " + talkingBubble.badHat + " Book " + talkingBubble.badBook);
         talkingBubble.StopTalking();
-        
 
-        if(customEvent == null)
-            OnCensored?.Invoke(correctlyCensored);
-        else
-            customEvent.Invoke();
+        customEvent.Invoke();
+
+        OnCensored?.Invoke(correctlyCensored);
+
+        
     }
 
     public event Action<bool> OnCensored;
