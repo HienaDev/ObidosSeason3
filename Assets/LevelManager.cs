@@ -39,6 +39,8 @@ public class LevelManager : MonoBehaviour
     private bool isRunning = false;
     private float timeRemaining = 0f;
 
+    [SerializeField] private CivilianBrain civilianBrainScript;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -54,7 +56,7 @@ public class LevelManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.P))
         {
-            StartLevel(2);
+            StartLevel(1);
         }
 
         if(spawning && Time.time - justSpawned > levels[currentLevel].spawnRate)
@@ -69,11 +71,13 @@ public class LevelManager : MonoBehaviour
                 {
                     // Spawn Bad Civillian
                     Debug.Log("Bad Civillian Spawned");
+                    civilianBrainScript.CreateNewCivilian(CivilianFaultType.Talking);
                 }
                 else
                 {
                     // Spawn Good Civillian
                     Debug.Log("Good Civillian Spawned");
+                    civilianBrainScript.CreateNewCivilian(CivilianFaultType.None);
                 }
             }
 

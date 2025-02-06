@@ -279,6 +279,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: civilianBrainScript
+      value: 
+      objectReference: {fileID: 755490165}
     - target: {fileID: 7084095096469588665, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
