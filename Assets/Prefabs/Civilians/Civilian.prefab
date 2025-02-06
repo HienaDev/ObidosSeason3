@@ -541,7 +541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _debug: 0
   _currentState: 0
-  _fault: {fileID: 7166362936567230444}
+  _fault: {fileID: 0}
   _anim: {fileID: 6023548719345424905}
   _maiSr: {fileID: 3279880894714010622}
   _extraSpriteRenderers:
