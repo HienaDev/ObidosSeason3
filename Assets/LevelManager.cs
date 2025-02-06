@@ -60,6 +60,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI reasonTextUI;
 
+    [SerializeField] private GameObject[] tabUI;
 
     private bool restarted = false;
 
@@ -241,6 +242,12 @@ public class LevelManager : MonoBehaviour
 
     public void StartLevel(int level)
     {
+
+        foreach (GameObject go in tabUI)
+        {
+            go.SetActive(false);
+        }
+
         civilianBrainScript.ClearCivillians();
         createTopicsScript.badgeCover1.SetActive(false);
         createTopicsScript.badgeCover2.SetActive(false);
