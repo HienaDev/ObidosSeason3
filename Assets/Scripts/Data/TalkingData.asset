@@ -61,3 +61,14 @@ MonoBehaviour:
     type: 2
   - symbol: {fileID: 21300000, guid: f48651db65cf776499a69f8d60acfed9, type: 3}
     type: 2
+  - symbol: {fileID: 21300000, guid: f4f8422250ef71f469fe16553beec855, type: 3}
+    type: 2
+  - symbol: {fileID: 21300000, guid: 8382d8f744ce33745a546dc80c7940e5, type: 3}
+    type: 2
+  - symbol: {fileID: 21300000, guid: f4f8422250ef71f469fe16553beec855, type: 3}
+    type: 2
+  - symbol: {fileID: 21300000, guid: f4f8422250ef71f469fe16553beec855, type: 3}
+    type: 2
+  specialItem: {fileID: 21300000, guid: 4fa31bffc0a764940bf05dc33542c5e6, type: 3}
+  specialHat: {fileID: 21300000, guid: 6b78187416e7b294e891542a8982dd64, type: 3}
+  specialTopic: {fileID: 21300000, guid: 4fa31bffc0a764940bf05dc33542c5e6, type: 3}

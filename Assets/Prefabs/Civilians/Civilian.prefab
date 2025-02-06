@@ -199,6 +199,14 @@ MonoBehaviour:
   bookCover: {fileID: 4354370506113814539}
   bookSymbol: {fileID: 2297951035027391174}
   badBook: 0
+  _civilianFaultType: 0
+  talkingPopUpAnimation: 0.3
+  timeSpentTalking: 4
+  timeTalkingRandomOffset: 1
+  talkingCooldown: 1
+  chanceToWhistle: 5
+  whistleParent: {fileID: 6133008431839093747}
+  whistlePrefab: {fileID: 8464586828764585133, guid: 677e318ddbb823b4e85b5de033fa1903, type: 3}
 --- !u!1 &2762665624974265612
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +288,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.87, y: 0.54}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -525,6 +533,7 @@ Transform:
   - {fileID: 1025369337441981260}
   - {fileID: 5493535783316932632}
   - {fileID: 6531795216227084676}
+  - {fileID: 8983067437915362132}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8786568346786347302
@@ -727,6 +736,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6133008431839093747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8983067437915362132}
+  m_Layer: 0
+  m_Name: Whistling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8983067437915362132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6133008431839093747}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.67, y: 1.47, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2896303646536079172}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6556859024377431037
 GameObject:
   m_ObjectHideFlags: 0

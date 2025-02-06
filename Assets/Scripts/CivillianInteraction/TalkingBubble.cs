@@ -26,6 +26,7 @@ public class TalkingBubble : MonoBehaviour
     [SerializeField] private GameObject book;
     [SerializeField] private SpriteRenderer bookCover;
     [SerializeField] private SpriteRenderer bookSymbol;
+    [SerializeField] private SpriteRenderer bookOutline;
     private (Sprite, Color) bookObject;
     public bool badBook = false;
     public CivilianFaultType _civilianFaultType;
@@ -42,14 +43,23 @@ public class TalkingBubble : MonoBehaviour
 
     private Coroutine bubblePopCoroutine = null;
 
+    [SerializeField] private int chanceToWhistle = 10;
+    [SerializeField] private GameObject whistleParent;
+    [SerializeField] private GameObject whistlePrefab;
+    
     public void Initialize(CivilianFaultType type)
     {
         _civilianFaultType = type;
         topicManager = FindAnyObjectByType<CreateTopics>();
         player = FindAnyObjectByType<PlayerMovement>().gameObject.transform;
-        GetRandomHat(type == CivilianFaultType.Fashion);
+        GetRandomHat(type == CivilianFaultType.Fashion, topicManager.specialDay);
         GetRandomBook(type == CivilianFaultType.Item);
         GetRandomTopic(type == CivilianFaultType.Talking);
+
+        if(Random.Range(0, 100) < chanceToWhistle)
+        {
+            Instantiate(whistlePrefab, whistleParent.transform);
+        }
 
         InitalizerSpeakingBubble();
     }
@@ -88,37 +98,49 @@ public class TalkingBubble : MonoBehaviour
             }
     }
 
-    public void GetRandomHat(bool badHatToggle)
+    public void GetRandomHat(bool badHatToggle, bool special = false)
     {
-        (hat, badHat) = topicManager.GetRandomHat(badHatToggle);
+        (hat, badHat) = topicManager.GetRandomHat(badHatToggle, special);
 
         hatSprite.sprite = hat;
     }
 
-    public void GetRandomBook(bool badBookToggle)
+    public void GetRandomBook(bool badBookToggle, bool special = false)
     {
-        (bookObject, badBook) = topicManager.GetRandomBook(badBookToggle);
+        (bookObject, badBook) = topicManager.GetRandomBook(badBookToggle, special);
 
         if (bookObject.Item1 == null)
             return;
 
         book.SetActive(true);
 
-        bookCover.color = bookObject.Item2;
-        bookSymbol.color = bookObject.Item2;
-        bookSymbol.sprite = bookObject.Item1;
+        if(special)
+        {
+            bookOutline.gameObject.SetActive(false);
+            bookCover.gameObject.SetActive(false );
+            bookSymbol.color = bookObject.Item2;
+            bookSymbol.sprite = bookObject.Item1;
+        }
+        else
+        {
+            bookCover.color = bookObject.Item2;
+            bookSymbol.color = bookObject.Item2;
+            bookSymbol.sprite = bookObject.Item1;
+        }
+
     }
 
 
-    public void GetRandomTopic(bool badTopicToggle)
+    public void GetRandomTopic(bool badTopicToggle, bool special = false)
     {
-        (topicSprite, badTopic) = topicManager.GetRandomTopic(badTopicToggle);
+        (topicSprite, badTopic) = topicManager.GetRandomTopic(badTopicToggle, special);
         Debug.Log("talking: " + topicSprite.name);
         symbolPlace.sprite = topicSprite;
     }
 
     public void StartTalking()
     {
+        whistleParent.SetActive(false);
         talking = true;
         bubbleParent.SetActive(true);
 
@@ -162,6 +184,9 @@ public class TalkingBubble : MonoBehaviour
 
     public void StopTalking()
     {
+
+        whistleParent.SetActive(true);
+
         talking = false;
         bubbleParent.SetActive(false);
 

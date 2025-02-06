@@ -19,6 +19,10 @@ public class LevelManager : MonoBehaviour
         public int badBooksNumber;
         public int badTopicsNumber;
         public int badHatsNumber;
+
+        public bool specialLevel;
+        public int initialChance;
+        public int chanceIncrease;
     }
 
     [SerializeField] private FaultManager faultManager;
@@ -65,28 +69,44 @@ public class LevelManager : MonoBehaviour
         if(spawning && Time.time - justSpawned > levels[currentLevel].spawnRate)
         {
 
+            if (levels[currentLevel].specialLevel)
+            {
+                int chanceOfspawn = UnityEngine.Random.Range(0, 100);
 
-            if (numberOfPeopleSpawned >= levels[currentLevel].numberOfPeople)
-            {
-                spawning = false;
-            }
-            else
-            {
-                if(indexOfFaults.Contains(numberOfPeopleSpawned))
+                if(chanceOfspawn < levels[currentLevel].initialChance)
                 {
-                    // Spawn Bad Civillian
-                    Debug.Log("Bad Civillian Spawned");
                     CivilianFaultType randomFault = faultTypes[UnityEngine.Random.Range(0, faultTypes.Count)];
                     civilianBrainScript.CreateNewCivilian(randomFault);
                     faultManager.AddFault();
                 }
+
+                levels[currentLevel].initialChance += levels[currentLevel].chanceIncrease;
+            }
+            else
+            {
+                if (numberOfPeopleSpawned >= levels[currentLevel].numberOfPeople)
+                {
+                    spawning = false;
+                }
                 else
                 {
-                    // Spawn Good Civillian
-                    Debug.Log("Good Civillian Spawned");
-                    civilianBrainScript.CreateNewCivilian(CivilianFaultType.None);
+                    if (indexOfFaults.Contains(numberOfPeopleSpawned))
+                    {
+                        // Spawn Bad Civillian
+                        Debug.Log("Bad Civillian Spawned");
+                        CivilianFaultType randomFault = faultTypes[UnityEngine.Random.Range(0, faultTypes.Count)];
+                        civilianBrainScript.CreateNewCivilian(randomFault);
+                        faultManager.AddFault();
+                    }
+                    else
+                    {
+                        // Spawn Good Civillian
+                        Debug.Log("Good Civillian Spawned");
+                        civilianBrainScript.CreateNewCivilian(CivilianFaultType.None);
+                    }
                 }
             }
+
             numberOfPeopleSpawned++;
             justSpawned = Time.time;
 
@@ -118,6 +138,10 @@ public class LevelManager : MonoBehaviour
 
     public void StartLevel(int level)
     {
+
+        if (levels[currentLevel].specialLevel)
+            createTopicsScript.ActivateSpecialDay();
+
         // turn level from number to index
         currentLevel = level - 1;
         numberOfPeopleSpawned = 0;

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 01b6f0940f2f603439066149f163a955
+guid: 6b78187416e7b294e891542a8982dd64
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7632292786504573332
-    second: dot_0
+      213: 3979488478795837160
+    second: Cravo_Cabeca_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 135
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dot_0
+      name: Cravo_Cabeca_0
       rect:
         serializedVersion: 2
-        x: 307
-        y: 298
-        width: 92
-        height: 93
+        x: 84
+        y: 193
+        width: 98
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6e5e96f526a41690800000000000000
-      internalID: -7632292786504573332
+      spriteID: 8eea26eefabf93730800000000000000
+      internalID: 3979488478795837160
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      dot_0: -7632292786504573332
+      Cravo_Cabeca_0: 3979488478795837160
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
