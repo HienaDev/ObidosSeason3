@@ -207,7 +207,12 @@ public class CivilianInstance : MonoBehaviour
 
     private void StopMoving()
     {
+        Debug.Log("Stop moving");
         if (_fault.FaultType == CivilianFaultType.Talking || _fault.FaultType == CivilianFaultType.Group && !_fault.censored)
+        {
+            ChangeState(CivilianState.Group);
+        }
+        else if(UnityEngine.Random.Range(0, 100) < 10)
         {
             ChangeState(CivilianState.Group);
         }

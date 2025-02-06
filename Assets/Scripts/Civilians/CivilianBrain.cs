@@ -15,8 +15,8 @@ public class CivilianBrain : MonoBehaviour
         PathfindingManager = FindFirstObjectByType<PathfindingManager>();
         ActiveCivilians = new List<CivilianInstance>();
 
-        CreateNewCivilian(default);
-        StartCoroutine(C_ConstantSpawn());
+        //CreateNewCivilian(default);
+        //StartCoroutine(C_ConstantSpawn());
     }
 
 
@@ -69,7 +69,7 @@ public class CivilianBrain : MonoBehaviour
         CivilianInstance newCI = Instantiate(_civilianPrefab);
 
         ActiveCivilians.Add(newCI);
-        newCI.Initialize(this, spawnNode, (CivilianFaultType)Random.Range(0, 5));
+        newCI.Initialize(this, spawnNode, civilianFaultType);
         newCI.name = "Civ " + UnityEngine.Random.Range(-9999, 9999);
     }
 

@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
         public int badHatsNumber;
     }
 
+    [SerializeField] private FaultManager faultManager;
 
     [SerializeField] private Level[] levels;
     private int currentLevel;
@@ -41,12 +42,14 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private CivilianBrain civilianBrainScript;
 
+    private List<CivilianFaultType> faultTypes;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         availableSlots = new List<int>();
         indexOfFaults = new List<int>();
-
+        faultTypes = new List<CivilianFaultType> ();
 
     }
 
@@ -61,6 +64,8 @@ public class LevelManager : MonoBehaviour
 
         if(spawning && Time.time - justSpawned > levels[currentLevel].spawnRate)
         {
+
+
             if (numberOfPeopleSpawned >= levels[currentLevel].numberOfPeople)
             {
                 spawning = false;
@@ -71,7 +76,9 @@ public class LevelManager : MonoBehaviour
                 {
                     // Spawn Bad Civillian
                     Debug.Log("Bad Civillian Spawned");
-                    civilianBrainScript.CreateNewCivilian(CivilianFaultType.Talking);
+                    CivilianFaultType randomFault = faultTypes[UnityEngine.Random.Range(0, faultTypes.Count)];
+                    civilianBrainScript.CreateNewCivilian(randomFault);
+                    faultManager.AddFault();
                 }
                 else
                 {
@@ -80,9 +87,9 @@ public class LevelManager : MonoBehaviour
                     civilianBrainScript.CreateNewCivilian(CivilianFaultType.None);
                 }
             }
-
             numberOfPeopleSpawned++;
             justSpawned = Time.time;
+
         }
 
         if(isRunning)
@@ -114,7 +121,8 @@ public class LevelManager : MonoBehaviour
         // turn level from number to index
         currentLevel = level - 1;
         numberOfPeopleSpawned = 0;
-        
+
+        faultTypes.Clear();
         indexOfFaults.Clear();
 
         InitalizeAvailableSpots(levels[currentLevel].numberOfPeople);
@@ -132,6 +140,17 @@ public class LevelManager : MonoBehaviour
         createTopicsScript.CreateNewTopics();
         createTopicsScript.CreateNewHats();
         createTopicsScript.CreateNewBooks();
+
+
+        if (levels[currentLevel].badTopicsNumber > 0)
+            faultTypes.Add(CivilianFaultType.Talking);
+
+        if (levels[currentLevel].badHatsNumber > 0)
+            faultTypes.Add(CivilianFaultType.Fashion);
+
+        if (levels[currentLevel].badBooksNumber > 0)
+            faultTypes.Add(CivilianFaultType.Item);
+
 
         spawning = true;
 
