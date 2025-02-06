@@ -28,7 +28,7 @@ public class DetectNpcs : MonoBehaviour
         if(Input.GetKeyDown(censorKey) && selectedGuy != null)
         {
             npcsInArea.Remove(selectedGuy);
-            selectedGuy.GetComponent<PersonTalking>().Censor();
+            selectedGuy.GetComponent<CivilianFault>().Censor();
         }
     }
 
@@ -38,7 +38,7 @@ public class DetectNpcs : MonoBehaviour
         {
             if(selectedGuy != null)
             {
-                selectedGuy.GetComponent<PersonTalking>().spriteRenderer.material.SetFloat("_Thickness", 0f);
+                selectedGuy.GetComponent<CivilianFault>().spriteRenderer.material.SetFloat("_Thickness", 0f);
             }
             justDetected = Time.time;
             RemoveFarObjects(beatUpRadius + 5);
@@ -46,7 +46,7 @@ public class DetectNpcs : MonoBehaviour
 
             if (selectedGuy != null)
             {
-                selectedGuy.GetComponent<PersonTalking>().spriteRenderer.material.SetFloat("_Thickness", 10f);
+                selectedGuy.GetComponent<CivilianFault>().spriteRenderer.material.SetFloat("_Thickness", 10f);
             }
         }
 
@@ -75,7 +75,7 @@ public class DetectNpcs : MonoBehaviour
         {
             if (obj == null) continue;
 
-            if (obj.GetComponent<PersonTalking>().censored)
+            if (obj.GetComponent<CivilianFault>().censored)
                 continue;
 
                 float distance = Vector2.Distance(playerPosition, obj.transform.position);
@@ -97,7 +97,7 @@ public class DetectNpcs : MonoBehaviour
 
         if (x == npcLayer.value)
         {
-            if(!collision.gameObject.GetComponent<PersonTalking>().censored) { npcsInArea.Add(collision.gameObject); }
+            if(!collision.gameObject.GetComponent<CivilianFault>().censored) { npcsInArea.Add(collision.gameObject); }
             
         }
     }

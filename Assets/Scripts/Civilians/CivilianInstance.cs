@@ -39,7 +39,7 @@ public class CivilianInstance : MonoBehaviour
         }
     }
 
-    public void Initialize(CivilianBrain brain, Node startNode)
+    public void Initialize(CivilianBrain brain, Node startNode, CivilianFaultType faultType)
     {
         _currentState = CivilianState.Idle;
         _brain = brain;
