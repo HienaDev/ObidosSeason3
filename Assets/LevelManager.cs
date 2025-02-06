@@ -48,6 +48,8 @@ public class LevelManager : MonoBehaviour
 
     private List<CivilianFaultType> faultTypes;
 
+    [SerializeField] private FadeBlackScreen fadeScreen;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -139,6 +141,7 @@ public class LevelManager : MonoBehaviour
     public void StartLevel(int level)
     {
 
+        fadeScreen.FadeIn();
         if (levels[currentLevel].specialLevel)
             createTopicsScript.ActivateSpecialDay();
 

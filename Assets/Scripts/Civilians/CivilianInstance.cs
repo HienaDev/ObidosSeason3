@@ -208,7 +208,7 @@ public class CivilianInstance : MonoBehaviour
     private void StopMoving()
     {
         Debug.Log("Stop moving");
-        if (_fault.FaultType == CivilianFaultType.Talking || _fault.FaultType == CivilianFaultType.Group && !_fault.censored)
+        if ((_fault.FaultType == CivilianFaultType.Talking || _fault.FaultType == CivilianFaultType.Group) && !_fault.censored)
         {
             ChangeState(CivilianState.Group);
         }
