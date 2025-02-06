@@ -132,6 +132,8 @@ public class LevelManager : MonoBehaviour
 
     private void EndDay()
     {
+        civilianBrainScript.ClearCivillians();
+        currentLevel++;
         StartLevel(currentLevel);
     }
 
@@ -162,7 +164,7 @@ public class LevelManager : MonoBehaviour
     {
 
         fadeScreen.Fade(false);
-        fadeScreen.SetDay((21 - level).ToString(), true);
+        fadeScreen.SetDay((21 + level).ToString(), true);
         yield return new WaitForSeconds(3f);
         fadeScreen.Fade(true);
 
@@ -170,8 +172,6 @@ public class LevelManager : MonoBehaviour
         if (levels[currentLevel].specialLevel)
             createTopicsScript.ActivateSpecialDay();
 
-        // turn level from number to index
-        currentLevel = level - 1;
         numberOfPeopleSpawned = 0;
 
         faultTypes.Clear();

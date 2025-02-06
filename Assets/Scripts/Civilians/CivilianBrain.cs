@@ -78,4 +78,13 @@ public class CivilianBrain : MonoBehaviour
         return PathfindingManager.GetCiviliansInDirection(from, dx, dy);
     }
 
+    public void ClearCivillians()
+    {
+        foreach(CivilianInstance civillian in ActiveCivilians)
+        {
+            Destroy(civillian.gameObject);
+        }
+
+        ActiveCivilians.Clear();
+    }
 }

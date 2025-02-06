@@ -476,6 +476,62 @@ PrefabInstance:
       propertyPath: civilianBrainScript
       value: 
       objectReference: {fileID: 755490165}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[0].spawnRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[1].spawnRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[2].spawnRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[3].spawnRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[1].badHatsNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[2].badHatsNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[3].badHatsNumber
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[4].badHatsNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[1].badBooksNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[2].badBooksNumber
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[3].badBooksNumber
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[4].badBooksNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[1].badTopicsNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[3].badTopicsNumber
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5751737271263862325, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1976,7 +2032,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
