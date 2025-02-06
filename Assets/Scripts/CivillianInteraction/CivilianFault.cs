@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CivilianFault : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class CivilianFault : MonoBehaviour
 
     [SerializeField] private Color censoredColor;
 
-
+    [SerializeField] private UnityEvent customEvent;
 
     [field: Header("Runtime")]
     [field: SerializeField] public CivilianFaultType FaultType { get; private set; }
@@ -38,7 +40,12 @@ public class CivilianFault : MonoBehaviour
         censored = true;
         Debug.Log("I've been censored!! Topic: " + talkingBubble.badTopic + " Hat " + talkingBubble.badHat + " Book " + talkingBubble.badBook);
         talkingBubble.StopTalking();
-        OnCensored?.Invoke(correctlyCensored);
+        
+
+        if(customEvent == null)
+            OnCensored?.Invoke(correctlyCensored);
+        else
+            customEvent.Invoke();
     }
 
     public event Action<bool> OnCensored;

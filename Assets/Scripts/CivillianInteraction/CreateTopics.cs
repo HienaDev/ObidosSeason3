@@ -204,7 +204,7 @@ public class CreateTopics : MonoBehaviour
 
         if (badHatToggle)
         {
-            int randomHat = Random.Range(0, badBooks.Count);
+            int randomHat = Random.Range(0, badHats.Count);
             // Bad Hat
             TalkingData.TalkingTopics badHat = badHats[randomHat];
             return (badHat.symbol, true);
