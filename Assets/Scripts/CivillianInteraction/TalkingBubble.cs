@@ -53,8 +53,8 @@ public class TalkingBubble : MonoBehaviour
         topicManager = FindAnyObjectByType<CreateTopics>();
         player = FindAnyObjectByType<PlayerMovement>().gameObject.transform;
         GetRandomHat(type == CivilianFaultType.Fashion, topicManager.specialDay);
-        GetRandomBook(type == CivilianFaultType.Item);
-        GetRandomTopic(type == CivilianFaultType.Talking);
+        GetRandomBook(type == CivilianFaultType.Item, topicManager.specialDay);
+        GetRandomTopic(type == CivilianFaultType.Talking, topicManager.specialDay);
 
         if(Random.Range(0, 100) < chanceToWhistle)
         {
@@ -123,6 +123,8 @@ public class TalkingBubble : MonoBehaviour
         }
         else
         {
+            bookOutline.gameObject.SetActive(true);
+            bookCover.gameObject.SetActive(true);
             bookCover.color = bookObject.Item2;
             bookSymbol.color = bookObject.Item2;
             bookSymbol.sprite = bookObject.Item1;

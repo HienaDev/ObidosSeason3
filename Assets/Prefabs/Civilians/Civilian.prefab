@@ -198,6 +198,7 @@ MonoBehaviour:
   book: {fileID: 8977955451547696831}
   bookCover: {fileID: 4354370506113814539}
   bookSymbol: {fileID: 2297951035027391174}
+  bookOutline: {fileID: 8794381027755911518}
   badBook: 0
   _civilianFaultType: 0
   talkingPopUpAnimation: 0.3
@@ -380,6 +381,9 @@ MonoBehaviour:
   talkingBubble: {fileID: 22867557146091401}
   spriteRenderer: {fileID: 3279880894714010622}
   censoredColor: {r: 0.1254902, g: 0.23921569, b: 0.59607846, a: 1}
+  customEvent:
+    m_PersistentCalls:
+      m_Calls: []
   <FaultType>k__BackingField: 0
 --- !u!1 &3925394482246722266
 GameObject:

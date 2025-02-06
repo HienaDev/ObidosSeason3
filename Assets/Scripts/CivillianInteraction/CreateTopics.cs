@@ -190,6 +190,8 @@ public class CreateTopics : MonoBehaviour
             
             forbiddenHatsImages[currentForbiddenHat].sprite = data.specialHat;
             forbiddenHatsImages[currentForbiddenHat].color = Color.white;
+            forbiddenHatsImages[currentForbiddenHat].gameObject.SetActive(true);
+            modelsForHats[currentForbiddenHat].gameObject.SetActive(true);
             currentForbiddenHat++;
         }
 
@@ -257,6 +259,7 @@ public class CreateTopics : MonoBehaviour
 
             forbiddenWordsImages[currentForbiddenWord].sprite = data.specialTopic;
             forbiddenWordsImages[currentForbiddenWord].color = Color.white;
+            forbiddenWordsImages[currentForbiddenWord].gameObject.SetActive(true);
             currentForbiddenWord++;
         }
 
