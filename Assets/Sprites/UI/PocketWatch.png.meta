@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PocketWatch_0: 8463360345394094220
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

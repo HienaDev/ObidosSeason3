@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 694c1173e59b1fb4eb39e76970a82d29
+guid: 0c29fedccb980f548b6c07c42052f406
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2592644925029541660
-    second: PonteiroHoras_0
+      213: -9221505809417190377
+    second: musician_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.25}
+  spritePixelsToUnits: 125
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,40 +96,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PonteiroHoras_0
+      name: musician_0
       rect:
         serializedVersion: 2
-        x: 497
-        y: 457
-        width: 33
-        height: 102
+        x: 58
+        y: 69
+        width: 185
+        height: 220
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4e815e65d23150cd0800000000000000
-      internalID: -2592644925029541660
+      spriteID: 714cc7fe251a60080800000000000000
+      internalID: -9221505809417190377
       vertices: []
       indices: 
       edges: []
@@ -138,8 +125,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PonteiroHoras_0: -2592644925029541660
+      musician_0: -9221505809417190377
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
