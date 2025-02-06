@@ -33,6 +33,8 @@ public class CreateTopics : MonoBehaviour
     [SerializeField] private int numberOfBadBooks = 2;
 
     [Header("UI")]
+    [SerializeField] private Image[] modelsForHats;
+    [SerializeField] private Sprite[] spritesModelsForHats;
     [SerializeField] private Image[] forbiddenWordsImages;
     private int currentForbiddenWord = 0;
 
@@ -93,7 +95,7 @@ public class CreateTopics : MonoBehaviour
             books.Remove(badBook);
             badBooks.Add(badBook);
             forbiddenBookImages[currentForbiddenBook].gameObject.SetActive(true);
-            forbiddenBookCovers[currentForbiddenBook].color = badBook.Item2;
+            forbiddenBookImages[currentForbiddenBook].color = badBook.Item2;
             forbiddenBookShapes[currentForbiddenBook].color = badBook.Item2;
             forbiddenBookShapes[currentForbiddenBook].sprite = badBook.Item1;
             currentForbiddenBook++;
@@ -171,6 +173,7 @@ public class CreateTopics : MonoBehaviour
             badHats.Add(badHat);
             forbiddenHatsImages[currentForbiddenHat].sprite = badHat.symbol;
             forbiddenHatsImages[currentForbiddenHat].color = Color.white;
+            modelsForHats[currentForbiddenHat].sprite = spritesModelsForHats[Random.Range(0, spritesModelsForHats.Length)];
             currentForbiddenHat++;
         }
 
@@ -185,6 +188,7 @@ public class CreateTopics : MonoBehaviour
         for (int i = currentForbiddenHat; i < forbiddenHatsImages.Length; i++)
         {
             forbiddenHatsImages[i].gameObject.SetActive(false);
+            modelsForHats[i].gameObject.SetActive(false);
         }
 
         currentForbiddenHat = 0;
