@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
 using TMPro;
+using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private CreateTopics createTopicsScript;
 
     [SerializeField] private TextMeshProUGUI timerText;
-    private bool isRunning = false;
+    public bool isRunning = false;
     private float timeRemaining = 0f;
 
     [SerializeField] private CivilianBrain civilianBrainScript;
@@ -49,6 +50,8 @@ public class LevelManager : MonoBehaviour
     private List<CivilianFaultType> faultTypes;
 
     [SerializeField] private FadeBlackScreen fadeScreen;
+
+    public int anomaliesCount = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -94,6 +97,7 @@ public class LevelManager : MonoBehaviour
                 {
                     if (indexOfFaults.Contains(numberOfPeopleSpawned))
                     {
+                        indexOfFaults.Remove(numberOfPeopleSpawned);
                         // Spawn Bad Civillian
                         Debug.Log("Bad Civillian Spawned");
                         CivilianFaultType randomFault = faultTypes[UnityEngine.Random.Range(0, faultTypes.Count)];
@@ -114,10 +118,21 @@ public class LevelManager : MonoBehaviour
 
         }
 
+        if(indexOfFaults.Count <= 0 && anomaliesCount <= 0 && isRunning)
+        {
+            isRunning = false;
+            EndDay();
+        }
+
         if(isRunning)
         {
             UpdateTimer();
         }
+    }
+
+    private void EndDay()
+    {
+        StartLevel(currentLevel);
     }
 
     void UpdateTimer()
@@ -140,8 +155,18 @@ public class LevelManager : MonoBehaviour
 
     public void StartLevel(int level)
     {
+        StartCoroutine(StartLevelCR(level));
+    }
 
-        fadeScreen.FadeIn();
+    public IEnumerator StartLevelCR(int level)
+    {
+
+        fadeScreen.Fade(false);
+        fadeScreen.SetDay((21 - level).ToString(), true);
+        yield return new WaitForSeconds(3f);
+        fadeScreen.Fade(true);
+
+
         if (levels[currentLevel].specialLevel)
             createTopicsScript.ActivateSpecialDay();
 

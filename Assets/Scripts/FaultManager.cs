@@ -20,6 +20,8 @@ public class FaultManager : MonoBehaviour
     private int currentLine = 0;
     [SerializeField] private TextMeshProUGUI faultCounterUI;
 
+    [SerializeField] private LevelManager levelManager;
+
     public static FaultManager Instance { get; private set; }
 
     private void Awake()
@@ -80,14 +82,14 @@ public class FaultManager : MonoBehaviour
     public void AddFault()
     {
         faultCounter++;
-
+        levelManager.anomaliesCount = faultCounter;
         faultCounterUI.text = faultCounter.ToString();
     }
 
     public void RemoveFault()
     {
         faultCounter--;
-
+        levelManager.anomaliesCount = faultCounter;
         faultCounterUI.text = faultCounter.ToString();
     }
 
@@ -123,4 +125,6 @@ public class FaultManager : MonoBehaviour
         RemoveFault();
 
     }
+
+
 }

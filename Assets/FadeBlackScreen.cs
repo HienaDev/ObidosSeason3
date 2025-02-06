@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class FadeBlackScreen : MonoBehaviour
@@ -7,6 +8,8 @@ public class FadeBlackScreen : MonoBehaviour
     [SerializeField] private GameObject fadeMask;
     private Vector3 initialScale;
     [SerializeField] private float fadeSpeed = 1f;
+
+    [SerializeField] private TextMeshProUGUI dayText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +23,12 @@ public class FadeBlackScreen : MonoBehaviour
     {
         if(fadeIn) StartCoroutine(FadeIn());
         else StartCoroutine(FadeOut());
+    }
+
+    public void SetDay(string day, bool toggle)
+    {
+        dayText.gameObject.SetActive(toggle);
+        dayText.text = day + " April 1974";
     }
 
     public IEnumerator FadeIn()
