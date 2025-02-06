@@ -74,6 +74,9 @@ public class CreateTopics : MonoBehaviour
 
     public void CreateNewBooks()
     {
+
+        currentForbiddenBook = 0;
+
         books = new List<(Sprite, Color)>();
         badBooks = new List<(Sprite, Color)>();
 
@@ -158,6 +161,9 @@ public class CreateTopics : MonoBehaviour
 
     public void CreateNewHats()
     {
+
+        currentForbiddenHat = 0;
+
         goodHats = new List<TalkingData.TalkingTopics>();
         badHats = new List<TalkingData.TalkingTopics>();
 
@@ -174,6 +180,8 @@ public class CreateTopics : MonoBehaviour
             forbiddenHatsImages[currentForbiddenHat].sprite = badHat.symbol;
             forbiddenHatsImages[currentForbiddenHat].color = Color.white;
             modelsForHats[currentForbiddenHat].sprite = spritesModelsForHats[Random.Range(0, spritesModelsForHats.Length)];
+            forbiddenHatsImages[currentForbiddenHat].gameObject.SetActive(true);
+            modelsForHats[currentForbiddenHat].gameObject.SetActive(true);
             currentForbiddenHat++;
         }
 
@@ -222,6 +230,7 @@ public class CreateTopics : MonoBehaviour
 
     public void CreateNewTopics()
     {
+        currentForbiddenWord = 0;
         goodTopics = new List<TalkingData.TalkingTopics>();
         badTopics = new List<TalkingData.TalkingTopics>();
 
@@ -239,6 +248,7 @@ public class CreateTopics : MonoBehaviour
             badTopics.Add(badTopic);
             forbiddenWordsImages[currentForbiddenWord].sprite = badTopic.symbol;
             forbiddenWordsImages[currentForbiddenWord].color = Color.white;
+            forbiddenWordsImages[currentForbiddenWord].gameObject.SetActive(true);
             currentForbiddenWord++;
         }
 

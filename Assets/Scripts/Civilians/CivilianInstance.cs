@@ -285,6 +285,7 @@ public class CivilianInstance : MonoBehaviour
 
     private void OnCensored(bool correctlyCensored)
     {
+        Debug.Log("Censored on instance civillian");
         Node newNode;
         if (correctlyCensored)
         {

@@ -2123,7 +2123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c34a6e4112afc4badba5bbdc4410af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _debug: 0
+  _debug: 1
   _currentState: 0
   _fault: {fileID: 7166362937330905177}
   _anim: {fileID: 6023548717895288252}
