@@ -60,7 +60,7 @@ public class CivilianBrain : MonoBehaviour
         CivilianInstance newCI = Instantiate(_civilianPrefab);
 
         ActiveCivilians.Add(newCI);
-        newCI.Initialize(this, spawnNode);
+        newCI.Initialize(this, spawnNode, CivilianFaultType.None);
     }
 
 }
