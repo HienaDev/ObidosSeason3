@@ -5,6 +5,7 @@ using System.Linq;
 using Unity.Mathematics;
 using TMPro;
 using System.Collections;
+using static LevelManager;
 
 public class LevelManager : MonoBehaviour
 {
@@ -58,7 +59,7 @@ public class LevelManager : MonoBehaviour
     {
         availableSlots = new List<int>();
         indexOfFaults = new List<int>();
-        faultTypes = new List<CivilianFaultType> ();
+        faultTypes = new List<CivilianFaultType>();
 
     }
 
@@ -66,23 +67,28 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             StartLevel(1);
         }
 
-        if(spawning && Time.time - justSpawned > levels[currentLevel].spawnRate)
+        if (spawning && Time.time - justSpawned > levels[currentLevel].spawnRate)
         {
 
             if (levels[currentLevel].specialLevel)
             {
                 int chanceOfspawn = UnityEngine.Random.Range(0, 100);
 
-                if(chanceOfspawn < levels[currentLevel].initialChance)
+                if (chanceOfspawn < levels[currentLevel].initialChance)
                 {
                     CivilianFaultType randomFault = faultTypes[UnityEngine.Random.Range(0, faultTypes.Count)];
                     civilianBrainScript.CreateNewCivilian(randomFault);
                     faultManager.AddFault();
+                }
+                else
+                {
+                    Debug.Log("Good Civillian Spawned");
+                    civilianBrainScript.CreateNewCivilian(CivilianFaultType.None);
                 }
 
                 levels[currentLevel].initialChance += levels[currentLevel].chanceIncrease;
@@ -118,21 +124,50 @@ public class LevelManager : MonoBehaviour
 
         }
 
-        if(indexOfFaults.Count <= 0 && anomaliesCount <= 0 && isRunning)
+        if (indexOfFaults.Count <= 0 && anomaliesCount <= 0 && isRunning)
         {
             isRunning = false;
             EndDay();
         }
 
-        if(isRunning)
+        if (isRunning)
         {
             UpdateTimer();
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            currentLevel = 0;
+            StartLevel(0);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            currentLevel = 1;
+            StartLevel(1);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            currentLevel = 2;
+            StartLevel(2);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            currentLevel = 3;
+            StartLevel(3);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            currentLevel = 4;
+            StartLevel(4);
         }
     }
 
     private void EndDay()
     {
-        civilianBrainScript.ClearCivillians();
         currentLevel++;
         StartLevel(currentLevel);
     }
@@ -157,6 +192,8 @@ public class LevelManager : MonoBehaviour
 
     public void StartLevel(int level)
     {
+        civilianBrainScript.ClearCivillians();
+
         StartCoroutine(StartLevelCR(level));
     }
 
@@ -169,7 +206,7 @@ public class LevelManager : MonoBehaviour
         fadeScreen.Fade(true);
 
 
-        if (levels[currentLevel].specialLevel)
+        if (levels[level].specialLevel)
             createTopicsScript.ActivateSpecialDay();
 
         numberOfPeopleSpawned = 0;
@@ -177,37 +214,37 @@ public class LevelManager : MonoBehaviour
         faultTypes.Clear();
         indexOfFaults.Clear();
 
-        InitalizeAvailableSpots(levels[currentLevel].numberOfPeople);
+        InitalizeAvailableSpots(levels[level].numberOfPeople);
 
-        for (int i = 0; i < levels[currentLevel].numberOfFaults; i++)
+        for (int i = 0; i < levels[level].numberOfFaults; i++)
         {
             indexOfFaults.Add(availableSlots[i]);
         }
 
 
-        createTopicsScript.SetNumberOfFaultTypes(levels[currentLevel].badTopicsNumber,
-                                                 levels[currentLevel].badHatsNumber,
-                                                 levels[currentLevel].badBooksNumber);
+        createTopicsScript.SetNumberOfFaultTypes(levels[level].badTopicsNumber,
+                                                 levels[level].badHatsNumber,
+                                                 levels[level].badBooksNumber);
 
         createTopicsScript.CreateNewTopics();
         createTopicsScript.CreateNewHats();
         createTopicsScript.CreateNewBooks();
 
 
-        if (levels[currentLevel].badTopicsNumber > 0)
+        if (levels[level].badTopicsNumber > 0)
             faultTypes.Add(CivilianFaultType.Talking);
 
-        if (levels[currentLevel].badHatsNumber > 0)
+        if (levels[level].badHatsNumber > 0)
             faultTypes.Add(CivilianFaultType.Fashion);
 
-        if (levels[currentLevel].badBooksNumber > 0)
+        if (levels[level].badBooksNumber > 0)
             faultTypes.Add(CivilianFaultType.Item);
 
 
         spawning = true;
 
         isRunning = true;
-        timeRemaining = levels[currentLevel].timer;
+        timeRemaining = levels[level].timer;
     }
 
     private void InitalizeAvailableSpots(int amount)
@@ -215,7 +252,7 @@ public class LevelManager : MonoBehaviour
 
         availableSlots.Clear();
 
-        for (int i = 0;i < amount;i++)
+        for (int i = 0; i < amount; i++)
         {
             availableSlots.Add(i);
         }
@@ -229,7 +266,7 @@ public class LevelManager : MonoBehaviour
         for (int i = n - 1; i > 0; i--)
         {
             int swapIndex = random.Next(0, i + 1);
-            (list[i], list[swapIndex]) = (list[swapIndex], list[i]); 
+            (list[i], list[swapIndex]) = (list[swapIndex], list[i]);
         }
     }
 }
