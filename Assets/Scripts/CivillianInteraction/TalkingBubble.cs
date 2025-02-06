@@ -27,18 +27,14 @@ public class TalkingBubble : MonoBehaviour
     [SerializeField] private SpriteRenderer bookSymbol;
     private (Sprite, Color) bookObject;
     public bool badBook = false;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    IEnumerator Start()
+    private CivilianFaultType _civilianFaultType;
+    public void Initialize(CivilianFaultType type)
     {
+        _civilianFaultType = type;
         topicManager = FindAnyObjectByType<CreateTopics>();
         player = FindAnyObjectByType<PlayerMovement>().gameObject.transform;
-
-        yield return new WaitForSeconds(0.1f);
-
-        GetRandomHat(Random.Range(0, 100) < 20);
-        GetRandomBook(Random.Range(0, 100) < 20);
-        //StartTalking(Random.Range(0, 100) < 20);
+        GetRandomHat(type == CivilianFaultType.Fashion);
+        GetRandomBook(type == CivilianFaultType.Item);
     }
 
     private void FixedUpdate()
@@ -85,11 +81,11 @@ public class TalkingBubble : MonoBehaviour
         bookSymbol.sprite = bookObject.Item1;
     }
 
-    public void StartTalking(bool badTopicToggle)
+    public void StartTalking()
     {
         talking = true;
         bubbleParent.SetActive(true);
-        (topicSprite, badTopic) = topicManager.GetRandomTopic(badTopicToggle);
+        (topicSprite, badTopic) = topicManager.GetRandomTopic(_civilianFaultType == CivilianFaultType.Talking);
         Debug.Log("talking: " + topicSprite.name);
         symbolPlace.sprite = topicSprite;
     }

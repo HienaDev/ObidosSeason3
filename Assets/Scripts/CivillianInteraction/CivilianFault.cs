@@ -18,6 +18,7 @@ public class CivilianFault : MonoBehaviour
 
     public void Initialize(CivilianFaultType type)
     {
+        talkingBubble.Initialize(type);
         FaultType = type;
     }
 
