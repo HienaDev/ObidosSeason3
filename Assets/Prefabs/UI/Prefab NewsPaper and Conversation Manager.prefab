@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 20 April 1974
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 217a5dc4cef1fc3438a0580526059040, type: 2}
   m_sharedMaterial: {fileID: -7756316614460330907, guid: 217a5dc4cef1fc3438a0580526059040, type: 2}
@@ -3492,7 +3492,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Stop any suspicious activity
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 217a5dc4cef1fc3438a0580526059040, type: 2}
   m_sharedMaterial: {fileID: -7756316614460330907, guid: 217a5dc4cef1fc3438a0580526059040, type: 2}

@@ -132,8 +132,16 @@ public class LevelManager : MonoBehaviour
 
         if(anomaliesCount > levels[currentLevel].maximumAnomaliesActive)
         {
-            reasonTextUI.text = "Too many suspects active...";
-            RestartDay(false);
+            if(levels[currentLevel].specialLevel)
+            {
+                createTopicsScript.revolutionObject.SetActive(true);
+            }
+            else
+            {
+                reasonTextUI.text = "Too many suspects active...";
+                RestartDay(false);
+            }
+
         }
 
         if (indexOfFaults.Count <= 0 && anomaliesCount <= 0 && isRunning)
@@ -181,6 +189,8 @@ public class LevelManager : MonoBehaviour
     private void EndDay()
     {
         currentLevel++;
+        reasonTextUI.text = "Stop any suspicious activity";
+        createTopicsScript.goodJobObject.SetActive(true);
         StartLevel(currentLevel);
     }
 
@@ -232,7 +242,7 @@ public class LevelManager : MonoBehaviour
 
         fadeScreen.Fade(false);
         fadeScreen.SetDay((21 + level).ToString(), true);
-        reasonTextUI.text = "Stop any suspecious activity";
+
         yield return new WaitForSeconds(3f);
         fadeScreen.Fade(true);
 
