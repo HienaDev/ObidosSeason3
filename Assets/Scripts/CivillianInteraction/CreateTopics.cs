@@ -49,6 +49,13 @@ public class CreateTopics : MonoBehaviour
     [SerializeField] private Image winningTeam;
     [SerializeField] private Image losingTeam;
 
+    public GameObject badgeCover1;
+    public GameObject badgeCover2;
+
+
+    public GameObject goodJobObject;
+    public GameObject revolutionObject;
+
     public bool specialDay = false;
 
     public void ActivateSpecialDay()

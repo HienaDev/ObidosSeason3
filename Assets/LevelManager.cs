@@ -22,6 +22,8 @@ public class LevelManager : MonoBehaviour
         public int badTopicsNumber;
         public int badHatsNumber;
 
+        public int maximumAnomaliesActive;
+
         public bool specialLevel;
         public int initialChance;
         public int chanceIncrease;
@@ -53,6 +55,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private FadeBlackScreen fadeScreen;
 
     public int anomaliesCount = 0;
+
+    [SerializeField] private GameObject pointerPivot;
+
+    [SerializeField] private TextMeshProUGUI reasonTextUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -124,6 +130,12 @@ public class LevelManager : MonoBehaviour
 
         }
 
+        if(anomaliesCount > levels[currentLevel].maximumAnomaliesActive)
+        {
+            reasonTextUI.text = "Too many suspects active...";
+            RestartDay(false);
+        }
+
         if (indexOfFaults.Count <= 0 && anomaliesCount <= 0 && isRunning)
         {
             isRunning = false;
@@ -172,6 +184,21 @@ public class LevelManager : MonoBehaviour
         StartLevel(currentLevel);
     }
 
+    public void RestartDay(bool died)
+    {
+        if(died)
+        {
+            if(currentLevel == 4)
+            {
+                reasonTextUI.text = "";
+                createTopicsScript.revolutionObject.SetActive(true);
+            }
+            else
+                reasonTextUI.text = "Stop censoring the innocent!";
+        }
+        StartLevel(currentLevel);
+    }
+
     void UpdateTimer()
     {
 
@@ -185,6 +212,8 @@ public class LevelManager : MonoBehaviour
             isRunning = false;
         }
 
+        pointerPivot.transform.localEulerAngles = new Vector3 (0f, 0f, Mathf.Lerp(0, 360, timeRemaining/ levels[currentLevel].timer));
+
         int minutes = Mathf.FloorToInt(timeRemaining / 60);
         int seconds = Mathf.FloorToInt(timeRemaining % 60);
         timerText.text = $"{minutes:00}:{seconds:00}"; // Format as MM:SS
@@ -193,7 +222,8 @@ public class LevelManager : MonoBehaviour
     public void StartLevel(int level)
     {
         civilianBrainScript.ClearCivillians();
-
+        createTopicsScript.badgeCover1.SetActive(false);
+        createTopicsScript.badgeCover2.SetActive(false);
         StartCoroutine(StartLevelCR(level));
     }
 
@@ -202,6 +232,7 @@ public class LevelManager : MonoBehaviour
 
         fadeScreen.Fade(false);
         fadeScreen.SetDay((21 + level).ToString(), true);
+        reasonTextUI.text = "Stop any suspecious activity";
         yield return new WaitForSeconds(3f);
         fadeScreen.Fade(true);
 

@@ -477,8 +477,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 755490165}
     - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[0].timer
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[1].timer
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[2].timer
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[3].timer
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[4].timer
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
       propertyPath: levels.Array.data[0].spawnRate
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
       propertyPath: levels.Array.data[1].spawnRate
@@ -536,6 +556,26 @@ PrefabInstance:
       propertyPath: levels.Array.data[3].badTopicsNumber
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[0].maximumAnomaliesActive
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[1].maximumAnomaliesActive
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[2].maximumAnomaliesActive
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[3].maximumAnomaliesActive
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[4].maximumAnomaliesActive
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 5751737271263862325, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -544,6 +584,10 @@ PrefabInstance:
       propertyPath: dayText
       value: 
       objectReference: {fileID: 1548924292}
+    - target: {fileID: 6220029791095574981, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7084095096469588665, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -598,6 +642,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7782470705112365256, guid: bf63273496872fa4c82a52436fd2cdc8, type: 3}
   m_PrefabInstance: {fileID: 1592850302}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &705594384 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5111427339993506994, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+  m_PrefabInstance: {fileID: 626739285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b5970fc147b4343aae4f71a05df433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &755490164
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +1051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 851fea46f8c78654cbf58af1dce7d531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topicManager: {fileID: 705594384}
   bubbleParent: {fileID: 6075176567523356261}
   distanceToSeeConversation: 10
   cantSeeSprite: {fileID: 8658898960651096819}
@@ -2062,6 +2118,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   <FaultType>k__BackingField: 0
+  menuButton: 1
 --- !u!1 &8273775105032324988
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,7 +2179,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5544220106444674356}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66c34a6e4112afc4badba5bbdc4410af, type: 3}
   m_Name: 

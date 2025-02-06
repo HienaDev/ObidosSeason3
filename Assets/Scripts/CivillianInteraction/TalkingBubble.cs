@@ -5,7 +5,7 @@ using UnityEngine;
 public class TalkingBubble : MonoBehaviour
 {
 
-    private CreateTopics topicManager;
+    public CreateTopics topicManager;
     private Sprite topicSprite;
     private Transform player;
     [SerializeField] private GameObject bubbleParent;
