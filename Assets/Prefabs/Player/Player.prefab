@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 7782470705112365256}
   - component: {fileID: 5205742841750071416}
   - component: {fileID: 7061288993023264098}
-  - component: {fileID: 8762294694828196794}
+  - component: {fileID: 7375687052087475862}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -168,7 +168,7 @@ MonoBehaviour:
   right: 100
   movSped: 2
   rb: {fileID: 5205742841750071416}
---- !u!114 &8762294694828196794
+--- !u!114 &7375687052087475862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,9 +177,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 393533661424538930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b885eeffa71b03944a50a3395265fd5c, type: 3}
+  m_Script: {fileID: 11500000, guid: 46d0cd6bc3c0b2549add520ee05ee426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maiSr: {fileID: 4583700525118365698}
+  _extraSpriteRenderers:
+  - {fileID: 7847712325111122927}
+  - {fileID: 5844052792906190373}
+  - {fileID: 4700055497676158}
+  - {fileID: 7365444733274155083}
 --- !u!1 &838159750159323206
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +830,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.0055417707
+  m_Mass: 0.022167083
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -1150,7 +1156,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.0055417707
+  m_Mass: 0.022167083
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1

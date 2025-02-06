@@ -66,6 +66,9 @@ public class CivilianInstance : MonoBehaviour
         _timeInCurrentState += delta;
 
         StateMachine(delta);
+    }
+    public void I_LateUpdate(float delta)
+    {
         UpdateVisuals();
     }
 
@@ -110,12 +113,16 @@ public class CivilianInstance : MonoBehaviour
     private void UpdateVisuals()
     {
         // Update Y sorting
-        int newOrder = -(int)Mathf.Ceil(transform.position.y - Camera.main.transform.position.y) * 10;
-        if (newOrder == _maiSr.sortingOrder) return;
-
-        _maiSr.sortingOrder = newOrder;
+        float newOrderZ = (transform.position.y - Camera.main.transform.position.y) * .01f;
+        Vector3 newPos = _maiSr.transform.position;
+        newPos.z = newOrderZ;
+        _maiSr.transform.position = newPos;
         foreach (SpriteRenderer sr in _extraSpriteRenderers)
-            sr.sortingOrder = newOrder + 1;
+        {
+            newPos = sr.transform.position;
+            newPos.z = newOrderZ + 0.001f;
+            sr.transform.position = newPos;
+        }
     }
 
     private void ChangeState(CivilianState newState)

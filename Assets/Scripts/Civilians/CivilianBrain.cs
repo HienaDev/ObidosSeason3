@@ -38,6 +38,15 @@ public class CivilianBrain : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        float delta = Time.deltaTime;
+        foreach (CivilianInstance ci in ActiveCivilians)
+        {
+            ci.I_LateUpdate(delta);
+        }
+    }
+
     public Node GetFreeCivilianSpot()
     {
         int x = Random.Range(0, PathfindingManager.Nodes.GetLength(1)); // Columns
