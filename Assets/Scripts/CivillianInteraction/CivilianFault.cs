@@ -13,6 +13,8 @@ public class CivilianFault : MonoBehaviour
 
     [SerializeField] private Color censoredColor;
 
+
+
     [field: Header("Runtime")]
     [field: SerializeField] public CivilianFaultType FaultType { get; private set; }
 
@@ -30,6 +32,8 @@ public class CivilianFault : MonoBehaviour
             spriteRenderer.color = censoredColor;
         else
             spriteRenderer.color = Color.green;
+
+        FaultManager.Instance.ClearFault(talkingBubble._civilianFaultType);
 
         censored = true;
         Debug.Log("I've been censored!! Topic: " + talkingBubble.badTopic + " Hat " + talkingBubble.badHat + " Book " + talkingBubble.badBook);

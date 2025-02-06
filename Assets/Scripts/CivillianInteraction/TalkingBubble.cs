@@ -28,7 +28,7 @@ public class TalkingBubble : MonoBehaviour
     [SerializeField] private SpriteRenderer bookSymbol;
     private (Sprite, Color) bookObject;
     public bool badBook = false;
-    private CivilianFaultType _civilianFaultType;
+    public CivilianFaultType _civilianFaultType;
 
     [field: Header("Talking animations")]
     [SerializeField] private float talkingPopUpAnimation = 0.3f;
