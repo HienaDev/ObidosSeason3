@@ -1169,7 +1169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8824474552505628261
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1604,7 +1604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4538299409709217514
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3123,56 +3123,56 @@ MonoBehaviour:
   levels:
   - numberOfPeople: 20
     numberOfFaults: 2
-    spawnRate: 1
-    timer: 300
+    spawnRate: 1.5
+    timer: 90
     badBooksNumber: 0
     badTopicsNumber: 2
     badHatsNumber: 1
-    maximumAnomaliesActive: 0
+    maximumAnomaliesActive: 3
     specialLevel: 0
     initialChance: 10
     chanceIncrease: 1
   - numberOfPeople: 40
     numberOfFaults: 4
-    spawnRate: 0.1
-    timer: 300
-    badBooksNumber: 4
-    badTopicsNumber: 3
-    badHatsNumber: 4
-    maximumAnomaliesActive: 0
+    spawnRate: 2
+    timer: 120
+    badBooksNumber: 2
+    badTopicsNumber: 2
+    badHatsNumber: 1
+    maximumAnomaliesActive: 4
     specialLevel: 0
     initialChance: 0
     chanceIncrease: 0
   - numberOfPeople: 60
     numberOfFaults: 8
-    spawnRate: 0.1
-    timer: 300
+    spawnRate: 2
+    timer: 180
     badBooksNumber: 4
     badTopicsNumber: 3
-    badHatsNumber: 4
-    maximumAnomaliesActive: 0
+    badHatsNumber: 3
+    maximumAnomaliesActive: 6
     specialLevel: 0
     initialChance: 0
     chanceIncrease: 0
   - numberOfPeople: 80
     numberOfFaults: 10
-    spawnRate: 0.1
-    timer: 300
-    badBooksNumber: 4
-    badTopicsNumber: 3
-    badHatsNumber: 4
-    maximumAnomaliesActive: 0
+    spawnRate: 2
+    timer: 240
+    badBooksNumber: 5
+    badTopicsNumber: 5
+    badHatsNumber: 5
+    maximumAnomaliesActive: 7
     specialLevel: 0
     initialChance: 0
     chanceIncrease: 0
   - numberOfPeople: 80
     numberOfFaults: 10
     spawnRate: 1
-    timer: 300
-    badBooksNumber: 4
+    timer: 500
+    badBooksNumber: 3
     badTopicsNumber: 3
-    badHatsNumber: 4
-    maximumAnomaliesActive: 0
+    badHatsNumber: 3
+    maximumAnomaliesActive: 35
     specialLevel: 1
     initialChance: 10
     chanceIncrease: 1
@@ -3183,7 +3183,7 @@ MonoBehaviour:
   fadeScreen: {fileID: 5927627308647798259}
   anomaliesCount: 0
   pointerPivot: {fileID: 2330920609422932401}
-  reasonTextUI: {fileID: 0}
+  reasonTextUI: {fileID: 985833118419062678}
 --- !u!1 &4329564905257791476
 GameObject:
   m_ObjectHideFlags: 0
@@ -3864,7 +3864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &212861095206765847
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4213,7 +4213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2822667838947821670
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5953,8 +5953,8 @@ MonoBehaviour:
   losingTeam: {fileID: 6512272913810120821}
   badgeCover1: {fileID: 8568559648855020096}
   badgeCover2: {fileID: 8762928481564175587}
-  goodJobObject: {fileID: 0}
-  revolutionObject: {fileID: 0}
+  goodJobObject: {fileID: 8217989536565932811}
+  revolutionObject: {fileID: 4729204013926754550}
   specialDay: 0
 --- !u!114 &77129712394873906
 MonoBehaviour:
@@ -6451,7 +6451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeMask: {fileID: 4547644026906861641}
   fadeSpeed: 1
-  dayText: {fileID: 0}
+  dayText: {fileID: 1967919915872033497}
 --- !u!1 &8849928012853929512
 GameObject:
   m_ObjectHideFlags: 0
