@@ -67,7 +67,13 @@ public class PathfindingManager : MonoBehaviour
         return Pathfinding.FindPath(_grid, new Point(from.gridX, from.gridY), new Point(to.gridX, to.gridY));
     }
 
-
+    public List<CivilianInstance> GetCiviliansInDirection(Node from, int dx, int dy)
+    {
+        if (from.gridY + dy >= _gridSize.y || from.gridX + dx >= _gridSize.x ||
+            from.gridY + dy < 0 || from.gridX + dx < 0)
+            return null;
+        return _grid.nodes[from.gridX + dx, from.gridY + dy].civs;
+    }
 
     private void OnDrawGizmos()
     {
@@ -77,9 +83,9 @@ public class PathfindingManager : MonoBehaviour
         {
             if (!n.walkable)
                 Gizmos.color = Color.red;
-            else if (n.price == CivilianInstance.WALKING_NODE_HVALUE)
+            else if (n.price == CivilianInstance.WALKING_NODE_GVALUE)
                 Gizmos.color = Color.green;
-            else if (n.price == CivilianInstance.OCCUPIED_NODE_HVALUE)
+            else if (n.price == CivilianInstance.OCCUPIED_NODE_GVALUE)
                 Gizmos.color = Color.blue;
             else
                 Gizmos.color = Color.gray;

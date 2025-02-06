@@ -94,6 +94,12 @@ public class TalkingBubble : MonoBehaviour
         symbolPlace.sprite = topicSprite;
     }
 
+    public void StopTalking()
+    {
+        talking = false;
+        bubbleParent.SetActive(false);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

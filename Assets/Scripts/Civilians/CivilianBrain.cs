@@ -15,17 +15,17 @@ public class CivilianBrain : MonoBehaviour
         PathfindingManager = FindFirstObjectByType<PathfindingManager>();
         ActiveCivilians = new List<CivilianInstance>();
 
-        CreateNewCivilian();
+        CreateNewCivilian(default);
         StartCoroutine(C_ConstantSpawn());
     }
 
 
     private IEnumerator C_ConstantSpawn()
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 50; i++)
         {
             yield return new WaitForSeconds(.01f);
-            CreateNewCivilian();
+            CreateNewCivilian(default);
         }
     }
 
@@ -49,18 +49,33 @@ public class CivilianBrain : MonoBehaviour
 
     public Node GetFreeCivilianSpot()
     {
-        int x = Random.Range(0, PathfindingManager.Nodes.GetLength(1)); // Columns
-        int y = Random.Range(0, PathfindingManager.Nodes.GetLength(0)); // Rows
+        int x; // Columns
+        int y; // Rows
+        int i = 0;
+        do
+        {
+            x = Random.Range(0, PathfindingManager.Nodes.GetLength(1)); // Columns
+            y = Random.Range(0, PathfindingManager.Nodes.GetLength(0)); // Rows
+            i++;
+
+        } while (PathfindingManager.Nodes[x, y].gCost == CivilianInstance.OCCUPIED_NODE_GVALUE && i < 5);
+
         return PathfindingManager.Nodes[x, y];
     }
 
-    public void CreateNewCivilian()
+    public void CreateNewCivilian(CivilianFaultType civilianFaultType)
     {
         Node spawnNode = GetFreeCivilianSpot();
         CivilianInstance newCI = Instantiate(_civilianPrefab);
 
         ActiveCivilians.Add(newCI);
-        newCI.Initialize(this, spawnNode);
+        newCI.Initialize(this, spawnNode, (CivilianFaultType)Random.Range(0, 5));
+        newCI.name = "Civ " + UnityEngine.Random.Range(-9999, 9999);
+    }
+
+    public List<CivilianInstance> GetCiviliansInDirection(Node from, int dx, int dy)
+    {
+        return PathfindingManager.GetCiviliansInDirection(from, dx, dy);
     }
 
 }

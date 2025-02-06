@@ -367,10 +367,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d852da298bfca41b9132ed04a1e852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _linkedCivilians: []
   censored: 0
   talkingBubble: {fileID: 22867557146091401}
   spriteRenderer: {fileID: 3279880894714010622}
   censoredColor: {r: 0.1254902, g: 0.23921569, b: 0.59607846, a: 1}
+  <FaultType>k__BackingField: 0
 --- !u!1 &3925394482246722266
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,6 +541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _debug: 0
   _currentState: 0
+  _fault: {fileID: 7166362936567230444}
   _anim: {fileID: 6023548719345424905}
   _maiSr: {fileID: 3279880894714010622}
   _extraSpriteRenderers:
@@ -1235,7 +1238,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.2222223, y: 2.437037}
+  m_Size: {x: 1.6074075, y: 1.7777778}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
