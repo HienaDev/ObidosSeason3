@@ -6424,6 +6424,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: forceLoadScene
+      value: 
+      objectReference: {fileID: 1978343575889024577}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
       propertyPath: civilianBrainScript
       value: 
       objectReference: {fileID: 755490165}
@@ -20956,6 +20960,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 350346293}
   m_SourcePrefab: {fileID: 100100000, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+--- !u!114 &1978343575889024577 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6627267446352572964, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+  m_PrefabInstance: {fileID: 1978343575889024576}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058852995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ade318b974c8334dbc7cb4e919a9cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &2029958313901177433
 SpriteRenderer:
   m_ObjectHideFlags: 0

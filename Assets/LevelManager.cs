@@ -67,6 +67,8 @@ public class LevelManager : MonoBehaviour
 
     public bool revolution = false;
 
+    [SerializeField] private ForceLoadScene forceLoadScene;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -141,6 +143,7 @@ public class LevelManager : MonoBehaviour
         {
             if(levels[currentLevel].specialLevel)
             {
+                StartCoroutine(LoadRevolutionCR());
                 createTopicsScript.revolutionObject.SetActive(true);
                 revolution = true;
             }
@@ -199,6 +202,14 @@ public class LevelManager : MonoBehaviour
             currentLevel = 4;
             StartLevel(4);
         }
+    }
+
+
+    private IEnumerator LoadRevolutionCR()
+    {
+        yield return new WaitForSeconds(5f);
+
+        forceLoadScene.LoadRevolution();
     }
 
     private void EndDay()

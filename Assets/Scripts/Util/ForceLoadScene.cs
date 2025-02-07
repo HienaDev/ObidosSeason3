@@ -8,7 +8,12 @@ public class ForceLoadScene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-            SceneManager.LoadScene("REVOLUTION");
+            LoadRevolution();
         }
+    }
+
+    public void LoadRevolution()
+    {
+        SceneManager.LoadScene("REVOLUTION");
     }
 }
