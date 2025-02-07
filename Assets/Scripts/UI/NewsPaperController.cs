@@ -5,6 +5,9 @@ public class NewsPaperController : MonoBehaviour
     [SerializeField] private KeyCode toggleNewspaper = KeyCode.Tab;
     [SerializeField] private GameObject newsPaper;
 
+    [SerializeField] private AudioClip[] openJournal;
+    [SerializeField] private AudioClip[] closeJournal;
+
     private LevelManager levelManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,6 +22,14 @@ public class NewsPaperController : MonoBehaviour
         if(Input.GetKeyDown(toggleNewspaper) && levelManager.isRunning)
         {
             newsPaper.SetActive(!newsPaper.activeSelf);
+            if(newsPaper.activeSelf)
+            {
+                AudioSystem.PlaySound(openJournal);
+            }
+            else
+            {
+                AudioSystem.PlaySound(closeJournal);
+            }
         }
     }
 }

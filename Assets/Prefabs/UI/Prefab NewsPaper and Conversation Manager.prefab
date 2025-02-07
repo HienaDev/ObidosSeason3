@@ -330,6 +330,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggleNewspaper: 9
   newsPaper: {fileID: 6220029791095574981}
+  openJournal: []
+  closeJournal: []
 --- !u!1 &621845023411708946
 GameObject:
   m_ObjectHideFlags: 0
@@ -3074,6 +3076,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggleNewspaper: 9
   newsPaper: {fileID: 1654093819508737031}
+  openJournal: []
+  closeJournal: []
 --- !u!1 &3905046202158601805
 GameObject:
   m_ObjectHideFlags: 0
@@ -3184,6 +3188,7 @@ MonoBehaviour:
   anomaliesCount: 0
   pointerPivot: {fileID: 2330920609422932401}
   reasonTextUI: {fileID: 985833118419062678}
+  tabUI: []
 --- !u!1 &4329564905257791476
 GameObject:
   m_ObjectHideFlags: 0
@@ -4003,6 +4008,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggleNewspaper: 9
   newsPaper: {fileID: 5751737271263862325}
+  openJournal: []
+  closeJournal: []
 --- !u!1 &5799534003832155399
 GameObject:
   m_ObjectHideFlags: 0
@@ -6606,6 +6613,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggleNewspaper: 9
   newsPaper: {fileID: 2535680824763660772}
+  openJournal:
+  - {fileID: 8300000, guid: abc73683bcdc535458fabb62b66c32c2, type: 3}
+  closeJournal:
+  - {fileID: 8300000, guid: 58ce2881584932a40bab6d4c46b574a0, type: 3}
 --- !u!1 &8876231586145675066
 GameObject:
   m_ObjectHideFlags: 0

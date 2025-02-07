@@ -35,49 +35,11 @@ public class FaultManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Update()
+    public void ResetFaults()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            AddFault();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            ClearFault(CivilianFaultType.None);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            ClearFault(CivilianFaultType.Group);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            ClearFault(CivilianFaultType.Talking);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            ClearFault(CivilianFaultType.Fashion);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            ClearFault(CivilianFaultType.Item);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-
-        }
+        faultCounter = 0;
+        levelManager.anomaliesCount = faultCounter;
     }
-
 
     public void AddFault()
     {

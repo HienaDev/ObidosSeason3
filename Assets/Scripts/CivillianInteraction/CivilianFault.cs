@@ -24,6 +24,8 @@ public class CivilianFault : MonoBehaviour
 
     [SerializeField] private bool menuButton = false;
 
+    [SerializeField] private AudioClip[] cryClips;
+
     public void Initialize(CivilianFaultType type)
     {
         talkingBubble.Initialize(type);
@@ -63,7 +65,7 @@ public class CivilianFault : MonoBehaviour
         Debug.Log("I've been censored!! Topic: " + talkingBubble.badTopic + " Hat " + talkingBubble.badHat + " Book " + talkingBubble.badBook);
         talkingBubble.StopTalking();
 
-
+        AudioSystem.PlaySound(cryClips);
 
         OnCensored?.Invoke(correctlyCensored);
 

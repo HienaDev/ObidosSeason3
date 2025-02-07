@@ -46,7 +46,8 @@ public class TalkingBubble : MonoBehaviour
     [SerializeField] private int chanceToWhistle = 10;
     [SerializeField] private GameObject whistleParent;
     [SerializeField] private GameObject whistlePrefab;
-    
+
+    [SerializeField] private AudioClip[] convoSounds;
     public void Initialize(CivilianFaultType type)
     {
         _civilianFaultType = type;
@@ -165,7 +166,7 @@ public class TalkingBubble : MonoBehaviour
             bubbleParent.transform.localScale = Vector3.Lerp(Vector3.zero, initialbubbleScale, lerpValue);
             yield return null;
         }
-
+        AudioSystem.PlaySound(convoSounds, 0.3f);
         yield return new WaitForSeconds(currentTimeToTalk);
 
         lerpValue = 0;

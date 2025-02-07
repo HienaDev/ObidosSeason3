@@ -2540,6 +2540,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2304853850054775156}
     m_Modifications:
+    - target: {fileID: 2503709496296033886, guid: c974fb2d32ea8a54f869effcb512b68d, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 26c640eadb99cbc44bf8723baf246419, type: 3}
+    - target: {fileID: 2503709496296033886, guid: c974fb2d32ea8a54f869effcb512b68d, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 26c640eadb99cbc44bf8723baf246419, type: 3}
     - target: {fileID: 5069366672710826127, guid: c974fb2d32ea8a54f869effcb512b68d, type: 3}
       propertyPath: m_Name
       value: Musician

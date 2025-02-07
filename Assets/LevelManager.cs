@@ -248,6 +248,8 @@ public class LevelManager : MonoBehaviour
             go.SetActive(false);
         }
 
+        FaultManager.Instance.ResetFaults();
+
         civilianBrainScript.ClearCivillians();
         createTopicsScript.badgeCover1.SetActive(false);
         createTopicsScript.badgeCover2.SetActive(false);

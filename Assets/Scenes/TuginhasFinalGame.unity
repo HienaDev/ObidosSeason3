@@ -1027,6 +1027,7 @@ MonoBehaviour:
   chanceToWhistle: 5
   whistleParent: {fileID: 6133008432212606022}
   whistlePrefab: {fileID: 8464586828764585133, guid: 677e318ddbb823b4e85b5de033fa1903, type: 3}
+  convoSounds: []
 --- !u!95 &330147005755436940
 Animator:
   serializedVersion: 7
@@ -2074,6 +2075,11 @@ MonoBehaviour:
         m_CallState: 2
   <FaultType>k__BackingField: 0
   menuButton: 1
+  cryClips:
+  - {fileID: 8300000, guid: 276be84c86ff9f44fac3711e5a54c277, type: 3}
+  - {fileID: 8300000, guid: e65c553065be73748b8823ad5b7b057f, type: 3}
+  - {fileID: 8300000, guid: bd389a65c77db1244acc6fdfc6586e91, type: 3}
+  - {fileID: 8300000, guid: eecaab2d1cb993b4990eeeb88b77ed03, type: 3}
 --- !u!1 &8273775105032324988
 GameObject:
   m_ObjectHideFlags: 0
