@@ -677,7 +677,7 @@ MonoBehaviour:
   _wallLayer:
     serializedVersion: 2
     m_Bits: 8
-  _gridSize: {x: 20, y: 20}
+  _gridSize: {x: 40, y: 40}
   _tileSize: {x: 1, y: 1}
 --- !u!4 &1039110913
 Transform:
@@ -898,6 +898,108 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf63273496872fa4c82a52436fd2cdc8, type: 3}
+--- !u!1 &2058852995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2427296756495063499, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+  m_PrefabInstance: {fileID: 1978343575889024576}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2058852997
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058852995}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8e954622a45ae1945a3921e803b04ceb, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8e954622a45ae1945a3921e803b04ceb, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &22867558984941628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1201,6 +1303,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 976772295078895933, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 976772295078895933, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 976772295078895933, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2304853850054775156, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1245,10 +1359,97 @@ PrefabInstance:
       propertyPath: m_Name
       value: World
       objectReference: {fileID: 0}
+    - target: {fileID: 2767201208537535492, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_Name
+      value: Main Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729148131419243504, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_Name
+      value: 'Main Sprite '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835174503814526152, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835174503814526152, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835174503814526152, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891961225964265916, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_Name
+      value: Main Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272563806059196896, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272563806059196896, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272563806059196896, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113793368390154549, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_Name
+      value: Main Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638551562680835505, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638551562680835505, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638551562680835505, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152043387289912137, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152043387289912137, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152043387289912137, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819799393140564856, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_Name
+      value: Main Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334604023111025260, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_Name
+      value: Main Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585235989465465824, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585235989465465824, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585235989465465824, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2427296756495063499, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2058852997}
   m_SourcePrefab: {fileID: 100100000, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
 --- !u!212 &2297951036414090611
 SpriteRenderer:

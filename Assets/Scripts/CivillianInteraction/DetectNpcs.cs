@@ -17,15 +17,19 @@ public class DetectNpcs : MonoBehaviour
     [SerializeField] private float beatUpRadius = 2f;
     private GameObject selectedGuy = null;
 
+    private LevelManager levelManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         npcsInArea = new List<GameObject>();
+
+        levelManager = FindAnyObjectByType<LevelManager>();
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(censorKey) && selectedGuy != null)
+        if(Input.GetKeyDown(censorKey) && selectedGuy != null && !levelManager.revolution)
         {
             npcsInArea.Remove(selectedGuy);
             selectedGuy.GetComponent<CivilianFault>().Censor();

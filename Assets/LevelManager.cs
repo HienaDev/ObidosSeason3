@@ -6,6 +6,7 @@ using Unity.Mathematics;
 using TMPro;
 using System.Collections;
 using static LevelManager;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -64,6 +65,8 @@ public class LevelManager : MonoBehaviour
 
     private bool restarted = false;
 
+    public bool revolution = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -77,9 +80,9 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R))
         {
-            StartLevel(1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         if (spawning && Time.time - justSpawned > levels[currentLevel].spawnRate)
@@ -213,6 +216,7 @@ public class LevelManager : MonoBehaviour
             {
                 reasonTextUI.text = "";
                 createTopicsScript.revolutionObject.SetActive(true);
+                revolution = true;
             }
             else
                 reasonTextUI.text = "Stop censoring the innocent!";
