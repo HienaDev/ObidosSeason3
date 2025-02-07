@@ -10,6 +10,16 @@ public class ForceLoadScene : MonoBehaviour
         {
             LoadRevolution();
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            LoadFirstScene();
+        }
+    }
+
+    public void LoadFirstScene()
+    {
+        SceneManager.LoadScene("TuginhasFinalGame");
     }
 
     public void LoadRevolution()
