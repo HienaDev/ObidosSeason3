@@ -22,7 +22,7 @@ public class CivilianFault : MonoBehaviour
     [field: Header("Runtime")]
     [field: SerializeField] public CivilianFaultType FaultType { get; private set; }
 
-    [SerializeField] private bool menuButton = false;
+    [SerializeField] public bool menuButton = false;
 
     [SerializeField] private AudioClip[] cryClips;
 

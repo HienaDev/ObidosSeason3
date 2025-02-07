@@ -31,7 +31,9 @@ public class DetectNpcs : MonoBehaviour
     {
         if(Input.GetKeyDown(censorKey) && selectedGuy != null && !levelManager.revolution)
         {
-            npcsInArea.Remove(selectedGuy);
+            if(!selectedGuy.GetComponent<CivilianFault>().menuButton)
+                npcsInArea.Remove(selectedGuy);
+                
             selectedGuy.GetComponent<CivilianFault>().Censor();
         }
     }
