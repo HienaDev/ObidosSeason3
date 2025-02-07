@@ -5429,7 +5429,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   detectionCooldown: 0.1
-  beatUpRadius: 2
+  beatUpRadius: 2.8
 --- !u!1 &5646448004008077984
 GameObject:
   m_ObjectHideFlags: 0

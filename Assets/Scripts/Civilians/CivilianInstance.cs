@@ -301,6 +301,8 @@ public class CivilianInstance : MonoBehaviour
             civ.ProxyCensored(correctlyCensored);
         }
 
+        _anim.SetTrigger("censored");
+
         DisbandLinkedActivity(true, true);
 
         SetNewFinalNode(newNode, true);
