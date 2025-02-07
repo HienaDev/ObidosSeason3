@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      light-gray-blur-texture-vector_0: -8974832961371250256
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

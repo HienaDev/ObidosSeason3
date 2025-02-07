@@ -86,5 +86,10 @@ public class CivilianBrain : MonoBehaviour
         }
 
         ActiveCivilians.Clear();
+
+        foreach (Node n in PathfindingManager.Nodes)
+        {
+            n.gCost = 0;
+        }
     }
 }
