@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6092792509577036055}
   - component: {fileID: 3754050606719233162}
   m_Layer: 3
-  m_Name: horizontal_wall_0
+  m_Name: horizontal_wall_0 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5bc1cdb368f5a5a4793a0aff6b2be350, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 61aa3a92f4c7f7e45b8047e15f6b2805, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,8 +126,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 1.42}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.49845463, y: 0.25}
-    oldSize: {x: 5.12, y: 5.12}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.121647, y: 7.7525}
     newSize: {x: 17.066668, y: 17.066668}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -135,11 +135,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.9928732, y: -0.27500093}
-      - {x: -1.9629229, y: -1.0551597}
-      - {x: -1.7559108, y: -1.2439377}
-      - {x: 1.7045702, y: -1.2558492}
-      - {x: 1.7480313, y: -0.2617433}
+    - - {x: -1.8477498, y: -0.88879824}
+      - {x: -1.6151433, y: -1.2183437}
+      - {x: 1.9093227, y: -1.2046611}
+      - {x: 1.8887986, y: -0.888798}
   m_UseDelaunayMesh: 0
 --- !u!114 &3754050606719233162
 MonoBehaviour:

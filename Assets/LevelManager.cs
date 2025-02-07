@@ -142,6 +142,7 @@ public class LevelManager : MonoBehaviour
             if(levels[currentLevel].specialLevel)
             {
                 createTopicsScript.revolutionObject.SetActive(true);
+                revolution = true;
             }
             else
             {

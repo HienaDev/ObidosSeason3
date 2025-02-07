@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 82c6ea41122b61244a3ce3eed4d08a8d
+guid: 61044fb738e2c8d4099c96d4a099141f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7110134370309661697
-    second: spatula_0
+      213: 3701863441621397366
+    second: IMG_8604_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,7 +50,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.47768852, y: 0.1720214}
+  spritePivot: {x: 0.49845457, y: 0.22768855}
   spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spatula_0
+      name: IMG_8604_0
       rect:
         serializedVersion: 2
-        x: 650
-        y: 335
-        width: 676
-        height: 1393
+        x: 215
+        y: 133
+        width: 1573
+        height: 1173
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1046a97e9854ca260800000000000000
-      internalID: 7110134370309661697
+      spriteID: 67f29d4df29af5330800000000000000
+      internalID: 3701863441621397366
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spatula_0: 7110134370309661697
+      IMG_8604_0: 3701863441621397366
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

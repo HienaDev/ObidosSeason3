@@ -17,7 +17,7 @@ public class DetectNpcs : MonoBehaviour
     [SerializeField] private float beatUpRadius = 2f;
     private GameObject selectedGuy = null;
 
-    private LevelManager levelManager;
+     private LevelManager levelManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
