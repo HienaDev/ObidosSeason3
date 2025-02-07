@@ -37,6 +37,12 @@ public class FaultManager : MonoBehaviour
 
     public void ResetFaults()
     {
+
+        foreach(TextMeshProUGUI text in noteBookLines)
+        {
+            text.text = "";
+        }
+        currentLine = 0;
         faultCounter = 0;
         levelManager.anomaliesCount = faultCounter;
     }

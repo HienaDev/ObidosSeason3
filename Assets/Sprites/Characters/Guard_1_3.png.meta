@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 62de75aa11df57143b0c732969e0d013
+guid: c82b44202a3113647a9caa1f59bc8cb6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6560163996268461879
-    second: Guard_1_0_0
+      213: -4190173285629470664
+    second: Guard_1_3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Guard_1_0_0
+      name: Guard_1_3_0
       rect:
         serializedVersion: 2
         x: 779
         y: 616
-        width: 672
+        width: 676
         height: 798
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 73f73e9b5626a0b50800000000000000
-      internalID: 6560163996268461879
+      spriteID: 83859b2e89389d5c0800000000000000
+      internalID: -4190173285629470664
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Guard_1_0_0: 6560163996268461879
+      Guard_1_3_0: -4190173285629470664
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

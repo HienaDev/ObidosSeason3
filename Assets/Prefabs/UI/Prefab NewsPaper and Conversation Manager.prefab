@@ -3128,7 +3128,7 @@ MonoBehaviour:
   - numberOfPeople: 20
     numberOfFaults: 2
     spawnRate: 1.5
-    timer: 90
+    timer: 120
     badBooksNumber: 0
     badTopicsNumber: 2
     badHatsNumber: 1
@@ -3188,7 +3188,11 @@ MonoBehaviour:
   anomaliesCount: 0
   pointerPivot: {fileID: 2330920609422932401}
   reasonTextUI: {fileID: 985833118419062678}
-  tabUI: []
+  tabUI:
+  - {fileID: 1654093819508737031}
+  - {fileID: 6220029791095574981}
+  - {fileID: 2535680824763660772}
+  - {fileID: 5751737271263862325}
 --- !u!1 &4329564905257791476
 GameObject:
   m_ObjectHideFlags: 0

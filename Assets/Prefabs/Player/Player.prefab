@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5205742841750071416}
   - component: {fileID: 7061288993023264098}
   - component: {fileID: 5993431544512723045}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8147561636028674600}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 1307662714244267398}
   - component: {fileID: 5070769775105076466}
   - component: {fileID: 3636483904666159197}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hit PS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5026,7 +5026,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8838428826137567866}
   - component: {fileID: 3691577436729212955}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5176,7 +5176,7 @@ GameObject:
   - component: {fileID: 2259826617084238838}
   - component: {fileID: 204835845785798081}
   - component: {fileID: 3826010701970359496}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5266,7 +5266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2213197164477863116}
   - component: {fileID: 6441750258285466710}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5354,7 +5354,7 @@ GameObject:
   - component: {fileID: 5217299724477574925}
   - component: {fileID: 924521819198915347}
   - component: {fileID: 5220730642682633759}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NPC Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5411,7 +5411,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 6
+  m_Radius: 3
 --- !u!114 &5220730642682633759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5441,7 +5441,7 @@ GameObject:
   - component: {fileID: 4758158782277455878}
   - component: {fileID: 5569275648939700689}
   - component: {fileID: 486460172315917709}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10331,7 +10331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186369185712973251}
   - component: {fileID: 3277147025648218905}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10418,7 +10418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4371202520902420543}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pencil Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
