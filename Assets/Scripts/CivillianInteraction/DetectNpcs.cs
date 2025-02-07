@@ -58,6 +58,11 @@ public class DetectNpcs : MonoBehaviour
 
     }
 
+    public void RemoveAllObject()
+    {
+        npcsInArea.Clear();
+    }
+
 
     void RemoveFarObjects(float radius)
     {
