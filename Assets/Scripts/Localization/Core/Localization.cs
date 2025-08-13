@@ -20,7 +20,7 @@ namespace LocalizationSystem.Core
 
 		private void UpdateLocalization(Language language)
         {
-            _localizedInfo = LocalizedInfo.GetLocalizationOfLanguage(language, _localizations);
+            _localizedInfo = LocalizedInfo.GetLocalization(language, _localizations, this);
             Localize(_localizedInfo);
         }
 

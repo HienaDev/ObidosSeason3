@@ -26,7 +26,7 @@ namespace LocalizationSystem.Core
             _sprite = texture;
         }
 
-        public static LocalizedInfo GetLocalizationOfLanguage(Language language, LocalizedInfo[] infos, UnityEngine.Object o = default)
+        public static LocalizedInfo GetLocalization(Language language, LocalizedInfo[] infos, UnityEngine.Object o = default)
         {
             if (infos == default || infos.Length == 0)
             {
@@ -40,6 +40,11 @@ namespace LocalizationSystem.Core
 
             Debug.LogWarning("Trying to get localized info of nonexisting language: " + language.ToString() + "\n Defaulting to array [0].", o);
             return infos[0];
+        }
+
+        public static LocalizedInfo GetLocalization(LocalizedInfo[] infos, UnityEngine.Object o = default)
+        {
+            return GetLocalization(LocalizationManager.Language, infos, o);
         }
     }
 
