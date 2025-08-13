@@ -5,9 +5,9 @@ namespace LocalizationSystem.Core
     [System.Serializable]
     public class LocalizedInfo
     {
-        [SerializeField] private Language _language;
         [SerializeField] private string _text;
         [SerializeField] private Sprite _sprite;
+        [SerializeField] private Language _language;
 
         public string Text => _text;
         public Sprite Sprite => _sprite;
