@@ -31,5 +31,10 @@ public class NewsPaperController : MonoBehaviour
                 AudioSystem.PlaySound(closeJournal);
             }
         }
+
+        if (levelManager.isRunning == false)
+        {
+            newsPaper.SetActive(false);
+        }
     }
 }
