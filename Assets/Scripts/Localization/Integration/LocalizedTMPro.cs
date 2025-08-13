@@ -22,6 +22,11 @@ namespace LocalizationSystem.Integration
         void Reset()
         {
             _tmPro = GetComponent<TMP_Text>();
+            if (_tmPro)
+            {
+                _localizations = new LocalizedInfo[1];
+                _localizations[0] = new LocalizedInfo(Language.pt_pt, _tmPro.text);
+            }
         }
     }
 }

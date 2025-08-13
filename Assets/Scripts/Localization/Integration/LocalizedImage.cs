@@ -22,6 +22,11 @@ namespace LocalizationSystem.Integration
         void Reset()
         {
             _i = GetComponent<Image>();
+            if (_i)
+            {
+                _localizations = new LocalizedInfo[1];
+                _localizations[0] = new LocalizedInfo(Language.pt_pt, _i.sprite);
+            }
         }
     }
 }
