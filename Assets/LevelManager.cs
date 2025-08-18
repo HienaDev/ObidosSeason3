@@ -22,6 +22,8 @@ public class LevelManager : MonoBehaviour
         public int badBooksNumber;
         public int badTopicsNumber;
         public int badHatsNumber;
+        public bool badSinging;
+        public bool badRadio;
 
         public int maximumAnomaliesActive;
 
@@ -315,6 +317,18 @@ public class LevelManager : MonoBehaviour
 
         if (levels[level].badBooksNumber > 0)
             faultTypes.Add(CivilianFaultType.Item);
+
+        if (levels[level].badSinging)
+        {
+            createTopicsScript.CreateSinging();
+            faultTypes.Add(CivilianFaultType.Singing);
+        }
+
+        if (levels[level].badRadio)
+        {
+            createTopicsScript.CreateRadio();
+            faultTypes.Add(CivilianFaultType.Radio);
+        }
 
 
         spawning = true;

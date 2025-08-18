@@ -34,6 +34,8 @@ public class CreateTopics : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Image[] modelsForHats;
     [SerializeField] private Sprite[] spritesModelsForHats;
+    [SerializeField] private Image forbiddenSingingImage;
+    [SerializeField] private Image forbiddenRadioImage;
     [SerializeField] private Image[] forbiddenWordsImages;
     private int currentForbiddenWord = 0;
 
@@ -329,5 +331,17 @@ public class CreateTopics : MonoBehaviour
 
         }
 
+    }
+
+    public void CreateSinging()
+    {
+        forbiddenSingingImage.gameObject.SetActive(true);
+        forbiddenSingingImage.sprite = data.singing;
+    }
+
+    public void CreateRadio()
+    {
+        forbiddenRadioImage.gameObject.SetActive(true);
+        forbiddenRadioImage.sprite = data.radio;
     }
 }

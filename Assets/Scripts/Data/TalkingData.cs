@@ -43,6 +43,8 @@ public class TalkingData : ScriptableObject
     public TalkingTopics[] alwaysBadTopics;
     public TalkingTopics[] hats;
 
+    public Sprite singing;
+    public Sprite radio;
     public Sprite specialItem;
     public Sprite specialHat;
     public Sprite specialTopic;

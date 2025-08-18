@@ -21,8 +21,10 @@ public class TalkingBubble : MonoBehaviour
     public bool badTopic = false;
 
     public bool badHat = false;
+    public bool badSinging = false;
+    public bool badRadio = false;
 
-
+    [SerializeField] private GameObject radio;
     [SerializeField] private GameObject book;
     [SerializeField] private SpriteRenderer bookCover;
     [SerializeField] private SpriteRenderer bookSymbol;
@@ -48,6 +50,9 @@ public class TalkingBubble : MonoBehaviour
     [SerializeField] private GameObject whistlePrefab;
 
     [SerializeField] private AudioClip[] convoSounds;
+
+    private bool singing = false;
+
     public void Initialize(CivilianFaultType type)
     {
         _civilianFaultType = type;
@@ -57,10 +62,19 @@ public class TalkingBubble : MonoBehaviour
         GetRandomBook(type == CivilianFaultType.Item, topicManager.specialDay);
         GetRandomTopic(type == CivilianFaultType.Talking, topicManager.specialDay);
 
-        if(Random.Range(0, 100) < chanceToWhistle)
+        //if(Random.Range(0, 100) < chanceToWhistle)
+        if (type == CivilianFaultType.Singing)
         {
+            badSinging = true;
             Instantiate(whistlePrefab, whistleParent.transform);
         }
+
+        if (type == CivilianFaultType.Radio)
+        {
+            badRadio = true;
+            ActivateRadio();
+        }
+        
 
         InitalizerSpeakingBubble();
     }
@@ -133,11 +147,17 @@ public class TalkingBubble : MonoBehaviour
 
     }
 
+    private void ActivateRadio()
+    {
+        radio.SetActive(true);
+    }
+
 
     public void GetRandomTopic(bool badTopicToggle, bool special = false)
     {
         (topicSprite, badTopic) = topicManager.GetRandomTopic(badTopicToggle, special);
         Debug.Log("talking: " + topicSprite.name);
+       
         symbolPlace.sprite = topicSprite;
     }
 
