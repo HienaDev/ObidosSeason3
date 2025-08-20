@@ -43,8 +43,6 @@ MonoBehaviour:
     type: 1
   - symbol: {fileID: 21300000, guid: f4865072760a9df48a1d9a1d12831c5a, type: 3}
     type: 1
-  - symbol: {fileID: -1902478006, guid: 7b2674533ce789240a5310ac71f82ffd, type: 3}
-    type: 1
   alwaysBadTopics: []
   hats:
   - symbol: {fileID: 21300000, guid: 99ca49fdb988ace44ad3d97ca8f5c0a0, type: 3}
