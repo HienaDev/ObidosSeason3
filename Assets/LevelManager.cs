@@ -71,6 +71,9 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private ForceLoadScene forceLoadScene;
 
+    [SerializeField]
+    private GameObject musicianNPC;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -268,7 +271,16 @@ public class LevelManager : MonoBehaviour
 
         FaultManager.Instance.ResetFaults();
 
-        civilianBrainScript.ClearCivillians();
+        if (levels[currentLevel].specialLevel)
+        {
+            musicianNPC.SetActive(true);
+        }
+        else
+        {
+            musicianNPC.SetActive(false);
+        }
+
+            civilianBrainScript.ClearCivillians();
         createTopicsScript.badgeCover1.SetActive(false);
         createTopicsScript.badgeCover2.SetActive(false);
         StartCoroutine(StartLevelCR(level));
@@ -320,14 +332,22 @@ public class LevelManager : MonoBehaviour
 
         if (levels[level].badSinging)
         {
-            createTopicsScript.CreateSinging();
+            createTopicsScript.CreateSinging(true);
             faultTypes.Add(CivilianFaultType.Singing);
+        }
+        else
+        {
+            createTopicsScript.CreateSinging(false);
         }
 
         if (levels[level].badRadio)
         {
-            createTopicsScript.CreateRadio();
+            createTopicsScript.CreateRadio(true);
             faultTypes.Add(CivilianFaultType.Radio);
+        }
+        else
+        {
+            createTopicsScript.CreateRadio(false);
         }
 
 

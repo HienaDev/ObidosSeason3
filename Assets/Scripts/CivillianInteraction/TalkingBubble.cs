@@ -68,13 +68,28 @@ public class TalkingBubble : MonoBehaviour
             badSinging = true;
             Instantiate(whistlePrefab, whistleParent.transform);
         }
+        else
+        {
+            //This is for some NPCs to sing even on days where singing is not censurable
+            if (topicManager.GetRandomSinging() && Random.Range(0, 100) < chanceToWhistle)
+            {
+                Instantiate(whistlePrefab, whistleParent.transform);
+            }
+        }
 
         if (type == CivilianFaultType.Radio)
         {
             badRadio = true;
             ActivateRadio();
         }
-        
+        else
+        {
+            //This is for some NPCs to carry radios even on days where radios are not censurable
+            if (topicManager.GetRandomRadio() && Random.Range(0, 100) < chanceToWhistle && bookObject.Item1 == null)
+            {
+                ActivateRadio();
+            }
+        }
 
         InitalizerSpeakingBubble();
     }

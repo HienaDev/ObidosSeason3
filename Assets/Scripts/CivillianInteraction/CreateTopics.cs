@@ -59,6 +59,9 @@ public class CreateTopics : MonoBehaviour
 
     public bool specialDay = false;
 
+    private bool badSinging = false;
+    private bool badRadio = false;
+
     public void ActivateSpecialDay()
     {
         specialDay = true;
@@ -328,20 +331,52 @@ public class CreateTopics : MonoBehaviour
                 TalkingData.TalkingTopics goodTopic = goodTopics[randomTopic];
                 return (goodTopic.symbol, false);
             }
-
         }
-
     }
 
-    public void CreateSinging()
+    public void CreateSinging(bool badSinging)
     {
-        forbiddenSingingImage.gameObject.SetActive(true);
+        forbiddenSingingImage.gameObject.SetActive(badSinging);
         forbiddenSingingImage.sprite = data.singing;
+        this.badSinging = badSinging;
     }
 
-    public void CreateRadio()
+    public void CreateRadio(bool badRadio)
     {
-        forbiddenRadioImage.gameObject.SetActive(true);
+        forbiddenRadioImage.gameObject.SetActive(badRadio);
         forbiddenRadioImage.sprite = data.radio;
+        this.badRadio = badRadio;
+    }
+
+    /// <summary>
+    /// This method returns true to allow for NPCS to sing only if its not a day with censurable singing.
+    /// </summary>
+    /// <returns></returns>
+    public bool GetRandomSinging()
+    {
+        if (!badSinging)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /// <summary>
+    /// This method returns true to allow for NPCS to have radios only if its not a day with censurable radio.
+    /// </summary>
+    /// <returns></returns>
+    public bool GetRandomRadio()
+    {
+        if (!badRadio)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
