@@ -10,7 +10,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-
     [Serializable]
     public struct Level
     {
@@ -30,6 +29,9 @@ public class LevelManager : MonoBehaviour
         public bool specialLevel;
         public int initialChance;
         public int chanceIncrease;
+
+        [Range(0, 1)]
+        public float initialGreyscale;
     }
 
     [SerializeField] private FaultManager faultManager;
@@ -74,6 +76,13 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject musicianNPC;
 
+    [SerializeField]
+    private Material spritesGreyscaleMaterial;
+    [SerializeField]
+    private Material groundGreyscaleMaterial;
+
+    private float specialLevelGreyscale = 1f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -81,6 +90,8 @@ public class LevelManager : MonoBehaviour
         indexOfFaults = new List<int>();
         faultTypes = new List<CivilianFaultType>();
 
+        spritesGreyscaleMaterial.SetFloat("_GrayscaleAmount", 0);
+        groundGreyscaleMaterial.SetFloat("_Greyscale", 0);
     }
 
     // Update is called once per frame
@@ -207,6 +218,19 @@ public class LevelManager : MonoBehaviour
             currentLevel = 4;
             StartLevel(4);
         }
+
+        if (levels[currentLevel].specialLevel)
+        {
+            specialLevelGreyscale -= (1/levels[currentLevel].timer) * Time.deltaTime * 3;
+
+            if (specialLevelGreyscale < 0)
+            {
+                specialLevelGreyscale = 0;
+            }
+
+            spritesGreyscaleMaterial.SetFloat("_GrayscaleAmount", specialLevelGreyscale);
+            groundGreyscaleMaterial.SetFloat("_Greyscale", specialLevelGreyscale);
+        }
     }
 
 
@@ -271,16 +295,7 @@ public class LevelManager : MonoBehaviour
 
         FaultManager.Instance.ResetFaults();
 
-        if (levels[currentLevel].specialLevel)
-        {
-            musicianNPC.SetActive(true);
-        }
-        else
-        {
-            musicianNPC.SetActive(false);
-        }
-
-            civilianBrainScript.ClearCivillians();
+        civilianBrainScript.ClearCivillians();
         createTopicsScript.badgeCover1.SetActive(false);
         createTopicsScript.badgeCover2.SetActive(false);
         StartCoroutine(StartLevelCR(level));
@@ -293,6 +308,17 @@ public class LevelManager : MonoBehaviour
         fadeScreen.SetDay((21 + level).ToString(), true);
 
         yield return new WaitForSeconds(3f);
+        spritesGreyscaleMaterial.SetFloat("_GrayscaleAmount", levels[currentLevel].initialGreyscale);
+        groundGreyscaleMaterial.SetFloat("_Greyscale", levels[currentLevel].initialGreyscale);
+        if (levels[currentLevel].specialLevel)
+        {
+            specialLevelGreyscale = levels[currentLevel].initialGreyscale;
+            musicianNPC.SetActive(true);
+        }
+        else
+        {
+            musicianNPC.SetActive(false);
+        }
         fadeScreen.Fade(true);
 
 
