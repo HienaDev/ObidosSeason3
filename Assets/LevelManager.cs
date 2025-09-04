@@ -102,8 +102,10 @@ public class LevelManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        if (revolution)
+            return;
 
-        if (spawning && Time.time - justSpawned > levels[currentLevel].spawnRate)
+        if (spawning && Time.time - justSpawned > levels[currentLevel].spawnRate )
         {
 
             if (levels[currentLevel].specialLevel)
@@ -177,7 +179,13 @@ public class LevelManager : MonoBehaviour
             EndDay();
         }
 
-        if(isRunning == false && anomaliesCount > 0 && !restarted)
+        if (isRunning == false && anomaliesCount > 0 && !restarted && levels[currentLevel].specialLevel)
+        {
+            StartCoroutine(LoadRevolutionCR());
+            createTopicsScript.revolutionObject.SetActive(true);
+            revolution = true;
+        }
+        else if(isRunning == false && anomaliesCount > 0 && !restarted)
         {
             restarted =  true;
             reasonTextUI.text = "Time ran out...";
@@ -221,7 +229,7 @@ public class LevelManager : MonoBehaviour
 
         if (levels[currentLevel].specialLevel)
         {
-            specialLevelGreyscale -= (1/levels[currentLevel].timer) * Time.deltaTime * 3;
+            specialLevelGreyscale -= (1/levels[currentLevel].timer) * Time.deltaTime * 2;
 
             if (specialLevelGreyscale < 0)
             {
@@ -236,7 +244,7 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator LoadRevolutionCR()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2.5f);
 
         forceLoadScene.LoadRevolution();
     }
@@ -253,7 +261,7 @@ public class LevelManager : MonoBehaviour
     {
         if(died)
         {
-            if(currentLevel == 4)
+            if(levels[currentLevel].specialLevel)
             {
                 reasonTextUI.text = "";
                 createTopicsScript.revolutionObject.SetActive(true);

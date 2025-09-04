@@ -17220,6 +17220,10 @@ PrefabInstance:
       value: 480
       objectReference: {fileID: 0}
     - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: levels.Array.data[4].timer
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727653191214148712, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
       propertyPath: levels.Array.data[0].badRadio
       value: 1
       objectReference: {fileID: 0}
@@ -17398,6 +17402,10 @@ PrefabInstance:
     - target: {fileID: 5252686723687291994, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5352204070654998428, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5751737271263862325, guid: 0dda9d348447ad84186d47a11061da41, type: 3}
       propertyPath: m_IsActive
