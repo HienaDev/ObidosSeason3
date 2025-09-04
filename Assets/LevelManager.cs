@@ -254,7 +254,7 @@ public class LevelManager : MonoBehaviour
         currentLevel++;
         reasonTextUI.text = "Stop any suspicious activity";
         createTopicsScript.goodJobObject.SetActive(true);
-        StartLevel(currentLevel);
+        StartCoroutine(EndLevelCoroutine());
     }
 
     public void RestartDay(bool died)
@@ -414,5 +414,11 @@ public class LevelManager : MonoBehaviour
             int swapIndex = random.Next(0, i + 1);
             (list[i], list[swapIndex]) = (list[swapIndex], list[i]);
         }
+    }
+
+    private IEnumerator EndLevelCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+        StartLevel(currentLevel);
     }
 }
