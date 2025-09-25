@@ -197,6 +197,8 @@ MonoBehaviour:
   hatSprite: {fileID: 6091844423012449917}
   badTopic: 0
   badHat: 0
+  badSinging: 0
+  badRadio: 0
   radio: {fileID: 4493971023657109716}
   book: {fileID: 8977955451547696831}
   bookCover: {fileID: 4354370506113814539}
@@ -989,7 +991,7 @@ Transform:
   m_GameObject: {fileID: 8273775105726961865}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.071, z: 0}
+  m_LocalPosition: {x: 0, y: -0.134, z: 0}
   m_LocalScale: {x: 6.766002, y: 1.425, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
