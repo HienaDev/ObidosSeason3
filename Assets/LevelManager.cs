@@ -65,7 +65,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI reasonTextUI;
 
-    [SerializeField] private GameObject[] tabUI;
+    //[SerializeField] private GameObject[] tabUI;
 
     private bool restarted = false;
 
@@ -296,10 +296,10 @@ public class LevelManager : MonoBehaviour
     public void StartLevel(int level)
     {
 
-        foreach (GameObject go in tabUI)
+        /*foreach (GameObject go in tabUI)
         {
             go.SetActive(false);
-        }
+        }*/
 
         FaultManager.Instance.ResetFaults();
 
