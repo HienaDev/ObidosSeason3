@@ -12,12 +12,14 @@ public class CreateTopics : MonoBehaviour
     private int winningFootBallTeam = 0;
     private int losingFootBallTeam = 1;
     private List<TalkingData.TalkingTopics> goodTopics;
+    private List<TalkingData.TalkingTopics> tempGoodTopics;
     public List<TalkingData.TalkingTopics> GoodTopics => goodTopics;
     private List<TalkingData.TalkingTopics> badTopics;
     public List<TalkingData.TalkingTopics> BadTopics => badTopics;
     [SerializeField] private int numberOfBadTopics = 2;
     [Header("HATS")]
     private List<TalkingData.TalkingTopics> goodHats;
+    private List<TalkingData.TalkingTopics> tempGoodHats;
     public List<TalkingData.TalkingTopics> GoodHats => goodHats;
     private List<TalkingData.TalkingTopics> badHats;
     public List<TalkingData.TalkingTopics> BadHats => badHats;
@@ -26,6 +28,7 @@ public class CreateTopics : MonoBehaviour
     [SerializeField, Range(0, 100), Header("BOOKS")] private int chanceOfBook = 30;
     [SerializeField, Range(1, 3)] private int numberOfColors = 3;
     private List<(Sprite, Color)> books;
+    private List<(Sprite, Color)> tempBooks;
     public List<(Sprite, Color)> Books => books;
     private List<(Sprite, Color)> badBooks;
     public List<(Sprite, Color)> BadBooks => badBooks;
@@ -89,23 +92,23 @@ public class CreateTopics : MonoBehaviour
         currentForbiddenBook = 0;
 
         books = new List<(Sprite, Color)>();
+        tempBooks = new List<(Sprite, Color)>();
         badBooks = new List<(Sprite, Color)>();
-
-
-
 
         foreach (Sprite shape in data.bookShapes)
         {
             for (int i = 0; i < numberOfColors; i++)
             {
                 books.Add((shape, data.bookColors[i]));
+                tempBooks.Add((shape, data.bookColors[i]));
             }
         }
 
         for (int i = 0; i < numberOfBadBooks; i++)
         {
-            int randomBadBook = Random.Range(0, books.Count);
-            (Sprite, Color) badBook = books[randomBadBook];
+            //int randomBadBook = Random.Range(0, books.Count);
+            //(Sprite, Color) badBook = books[randomBadBook];
+            (Sprite, Color) badBook = tempBooks[i];
             books.Remove(badBook);
             badBooks.Add(badBook);
             forbiddenBookImages[currentForbiddenBook].gameObject.SetActive(true);
@@ -176,16 +179,19 @@ public class CreateTopics : MonoBehaviour
         currentForbiddenHat = 0;
 
         goodHats = new List<TalkingData.TalkingTopics>();
+        tempGoodHats = new List<TalkingData.TalkingTopics>();
         badHats = new List<TalkingData.TalkingTopics>();
 
 
 
         goodHats = data.hats.OfType<TalkingData.TalkingTopics>().ToList();
+        tempGoodHats = data.hats.OfType<TalkingData.TalkingTopics>().ToList();
 
         for (int i = 0; i < numberOfBadHats; i++)
         {
-            int randomBadHat = Random.Range(0, goodHats.Count);
-            TalkingData.TalkingTopics badHat = goodHats[randomBadHat];
+            //int randomBadHat = Random.Range(0, goodHats.Count);
+            //TalkingData.TalkingTopics badHat = goodHats[randomBadHat];
+            TalkingData.TalkingTopics badHat = tempGoodHats[i];
             goodHats.Remove(badHat);
             badHats.Add(badHat);
             forbiddenHatsImages[currentForbiddenHat].sprite = badHat.symbol;
@@ -245,6 +251,7 @@ public class CreateTopics : MonoBehaviour
     {
         currentForbiddenWord = 0;
         goodTopics = new List<TalkingData.TalkingTopics>();
+        tempGoodTopics = new List<TalkingData.TalkingTopics>();
         badTopics = new List<TalkingData.TalkingTopics>();
 
         winningFootBallTeam = Random.Range(0, data.footballTeamWinning.Length);
@@ -252,11 +259,13 @@ public class CreateTopics : MonoBehaviour
         winningTeam.sprite = data.footballTeamWinning[winningFootBallTeam];
 
         goodTopics = data.topics.OfType<TalkingData.TalkingTopics>().ToList();
+        tempGoodTopics = data.topics.OfType<TalkingData.TalkingTopics>().ToList();
 
         for (int i = 0; i < numberOfBadTopics; i++)
         {
-            int randomBadTopic = Random.Range(0, goodTopics.Count);
-            TalkingData.TalkingTopics badTopic = goodTopics[randomBadTopic];
+            //int randomBadTopic = Random.Range(0, goodTopics.Count);
+            //TalkingData.TalkingTopics badTopic = goodTopics[randomBadTopic];
+            TalkingData.TalkingTopics badTopic = tempGoodTopics[i];
             goodTopics.Remove(badTopic);
             badTopics.Add(badTopic);
             forbiddenWordsImages[currentForbiddenWord].sprite = badTopic.symbol;
