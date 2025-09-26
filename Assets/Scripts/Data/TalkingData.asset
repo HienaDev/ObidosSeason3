@@ -13,13 +13,19 @@ MonoBehaviour:
   m_Name: TalkingData
   m_EditorClassIdentifier: 
   bookColors:
-  - {r: 0.9137255, g: 0.47058824, b: 0.93333334, a: 1}
-  - {r: 0.15686275, g: 0.69803923, b: 0.19607843, a: 1}
-  - {r: 0.9098039, g: 0.8235294, b: 0.13725491, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
   bookShapes:
-  - {fileID: 21300000, guid: bbeffbb1e0748a84b838331975ec45a5, type: 3}
-  - {fileID: 21300000, guid: fd387eecdee00d243a91552fb797ef47, type: 3}
-  - {fileID: 21300000, guid: e3a1070e0616da64ba068efbbfe52e52, type: 3}
+  - {fileID: 21300000, guid: 48e9e8f25569e204ba29dda6a7aa5ba0, type: 3}
+  - {fileID: 21300000, guid: 17633f878e70b9b459b65013815d2c47, type: 3}
+  - {fileID: 21300000, guid: bacc6ce05a46d414bada63b4fe7dd420, type: 3}
+  - {fileID: 21300000, guid: baa7c2437889d0f40a50af0972c530a5, type: 3}
+  - {fileID: 21300000, guid: 53d17a48bd9cf5a4393ec3ed1a3d49d8, type: 3}
+  - {fileID: 21300000, guid: 63006947910ab30408858f861ada2c20, type: 3}
+  - {fileID: 21300000, guid: b89137d6f17fda44d98d6fe335c72a0c, type: 3}
+  - {fileID: 21300000, guid: 5a8b8802d3f7e7742a51d76058f0fcc5, type: 3}
+  - {fileID: 8957955386276110418, guid: 14c9a01e4637b2f42acea206c9325256, type: 3}
+  - {fileID: 8262043763347861112, guid: a7305c27c2c882a40a944b37ded5ca0c, type: 3}
+  - {fileID: -1027671076007259933, guid: 5026516dada15e44db3448571f519446, type: 3}
   footballTeamWinning:
   - {fileID: 21300000, guid: e9feaafcc5f78a64d8d5fbf70702c951, type: 3}
   - {fileID: 21300000, guid: d51bbe716334d5b409ba82ab30af3078, type: 3}
@@ -29,22 +35,42 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a5fc08c6c38892047b9cf4c0ebd4979a, type: 3}
   - {fileID: 21300000, guid: 48ff546ba34dd384db1c481ec1f90df1, type: 3}
   topics:
-  - symbol: {fileID: 21300000, guid: 5095e68efec73114dbf80d2e38ecdda0, type: 3}
+  - symbol: {fileID: 21300000, guid: d2840a8e87f099f43947b845c3437c01, type: 3}
     type: 1
-  - symbol: {fileID: 21300000, guid: a8110d4a545053642a7d3b6f42464033, type: 3}
+  - symbol: {fileID: 21300000, guid: b090acceb10e74745bb4e4962c33c15d, type: 3}
     type: 1
-  - symbol: {fileID: 21300000, guid: c9a5bea9145332f478cad3ae35b64682, type: 3}
+  - symbol: {fileID: 21300000, guid: 001befdec204a1c4bb1acfb655bb9771, type: 3}
     type: 1
-  - symbol: {fileID: 21300000, guid: 013802c3d36e9c44db836b563ddf7181, type: 3}
+  - symbol: {fileID: 21300000, guid: 54fd4fd32a005104fa8adf9cde5e8b7b, type: 3}
     type: 1
-  - symbol: {fileID: 21300000, guid: 9b0b3cc21e76d5a449c3b60c2d161c4f, type: 3}
+  - symbol: {fileID: 21300000, guid: e8c745e476e160948ae06b66b31d15b7, type: 3}
     type: 1
-  - symbol: {fileID: 21300000, guid: 23e5d9b5c40407f4f8ce6b3a13de9002, type: 3}
+  - symbol: {fileID: 21300000, guid: 0e87c77bcae43974ebdcf5738d3271e7, type: 3}
     type: 1
-  - symbol: {fileID: 21300000, guid: f4865072760a9df48a1d9a1d12831c5a, type: 3}
+  - symbol: {fileID: 21300000, guid: 85d687135bf58c243a02657336c4615d, type: 3}
+    type: 1
+  - symbol: {fileID: 21300000, guid: fe3be8b44f7dbfd44b8d382412edf3a6, type: 3}
+    type: 1
+  - symbol: {fileID: 21300000, guid: 69e51b16af11dd3418e763bba6f0726f, type: 3}
+    type: 1
+  - symbol: {fileID: 21300000, guid: 8838a19a62057eb40bf2a31f778857a9, type: 3}
+    type: 1
+  - symbol: {fileID: 21300000, guid: 8838a19a62057eb40bf2a31f778857a9, type: 3}
     type: 1
   alwaysBadTopics: []
   hats:
+  - symbol: {fileID: 21300000, guid: 00e0066dc8d79b0468b9f3448794e54f, type: 3}
+    type: 2
+  - symbol: {fileID: 21300000, guid: dca627930427f2142bd4019186db9cc2, type: 3}
+    type: 2
+  - symbol: {fileID: 21300000, guid: 10ab3f7df44412c4c95f3512c6d3e8d2, type: 3}
+    type: 2
+  - symbol: {fileID: 21300000, guid: bf1edb35e28a9194dab1ecc7ff3642e9, type: 3}
+    type: 2
+  - symbol: {fileID: 21300000, guid: 5e0ab60cc905f904491c9afbeb6b13d0, type: 3}
+    type: 2
+  - symbol: {fileID: 21300000, guid: a8679644eb73d71409c6ec7de51fd392, type: 3}
+    type: 2
   - symbol: {fileID: 21300000, guid: 99ca49fdb988ace44ad3d97ca8f5c0a0, type: 3}
     type: 2
   - symbol: {fileID: 21300000, guid: 259f06d9f75c95b4eb4a4b1438fed990, type: 3}
@@ -69,10 +95,8 @@ MonoBehaviour:
     type: 2
   - symbol: {fileID: 21300000, guid: 836768e0674fc564791ad3a9cbeae961, type: 3}
     type: 2
-  - symbol: {fileID: 21300000, guid: b44d1b24c4803c34198942a9516a7daf, type: 3}
-    type: 2
   singing: {fileID: -1902478006, guid: 7b2674533ce789240a5310ac71f82ffd, type: 3}
-  radio: {fileID: 21300000, guid: fd387eecdee00d243a91552fb797ef47, type: 3}
+  radio: {fileID: -4516698151410485873, guid: d1a76494a4ccc5645aaf13ce329f01b5, type: 3}
   specialItem: {fileID: 21300000, guid: 4fa31bffc0a764940bf05dc33542c5e6, type: 3}
   specialHat: {fileID: 21300000, guid: 6b78187416e7b294e891542a8982dd64, type: 3}
   specialTopic: {fileID: 21300000, guid: 4fa31bffc0a764940bf05dc33542c5e6, type: 3}

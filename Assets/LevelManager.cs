@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
         public int badHatsNumber;
         public bool badSinging;
         public bool badRadio;
+        public bool badFootball;
 
         public int maximumAnomaliesActive;
 
@@ -348,7 +349,11 @@ public class LevelManager : MonoBehaviour
 
         createTopicsScript.SetNumberOfFaultTypes(levels[level].badTopicsNumber,
                                                  levels[level].badHatsNumber,
-                                                 levels[level].badBooksNumber);
+                                                 levels[level].badBooksNumber,
+                                                 levels[level].badSinging,
+                                                 levels[level].badRadio,
+                                                 levels[level].badFootball
+        );
 
         createTopicsScript.CreateNewTopics();
         createTopicsScript.CreateNewHats();
@@ -383,6 +388,8 @@ public class LevelManager : MonoBehaviour
         {
             createTopicsScript.CreateRadio(false);
         }
+
+        createTopicsScript.UpdateCensorship();
 
 
         spawning = true;

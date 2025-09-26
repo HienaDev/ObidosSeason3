@@ -146,15 +146,15 @@ public class TalkingBubble : MonoBehaviour
 
         if(special)
         {
-            bookOutline.gameObject.SetActive(false);
-            bookCover.gameObject.SetActive(false );
+            //bookOutline.gameObject.SetActive(false);
+            //bookCover.gameObject.SetActive(false );
             bookSymbol.color = bookObject.Item2;
             bookSymbol.sprite = bookObject.Item1;
         }
         else
         {
-            bookOutline.gameObject.SetActive(true);
-            bookCover.gameObject.SetActive(true);
+            //bookOutline.gameObject.SetActive(true);
+            //bookCover.gameObject.SetActive(true);
             bookCover.color = bookObject.Item2;
             bookSymbol.color = bookObject.Item2;
             bookSymbol.sprite = bookObject.Item1;

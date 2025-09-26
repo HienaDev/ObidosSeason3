@@ -65,6 +65,11 @@ public class CreateTopics : MonoBehaviour
     private bool badSinging = false;
     private bool badRadio = false;
 
+    private int numberOfCensoredThings = 0;
+    [SerializeField]
+    private Image[] allCensorImages;
+    private List<Sprite> censoredSprites;
+
     public void ActivateSpecialDay()
     {
         specialDay = true;
@@ -79,11 +84,17 @@ public class CreateTopics : MonoBehaviour
         //CreateNewBooks();
     }
 
-    public void SetNumberOfFaultTypes(int amountBadTopics, int amountBadHats, int amountOfBadBooks)
+    public void SetNumberOfFaultTypes(int amountBadTopics, int amountBadHats, int amountOfBadBooks, bool singing, bool radio, bool football)
     {
+        numberOfCensoredThings = 0;
         numberOfBadTopics = amountBadTopics;
         numberOfBadHats = amountBadHats;
         numberOfBadBooks = amountOfBadBooks;
+        numberOfCensoredThings += amountBadTopics + amountBadHats + amountOfBadBooks;
+        if (singing) { numberOfCensoredThings++; };
+        if (radio) { numberOfCensoredThings++; };
+        if (football) { numberOfCensoredThings++; };
+        censoredSprites = new List<Sprite>();
     }
 
     public void CreateNewBooks()
@@ -111,10 +122,11 @@ public class CreateTopics : MonoBehaviour
             (Sprite, Color) badBook = tempBooks[i];
             books.Remove(badBook);
             badBooks.Add(badBook);
-            forbiddenBookImages[currentForbiddenBook].gameObject.SetActive(true);
-            forbiddenBookImages[currentForbiddenBook].color = badBook.Item2;
-            forbiddenBookShapes[currentForbiddenBook].color = badBook.Item2;
-            forbiddenBookShapes[currentForbiddenBook].sprite = badBook.Item1;
+            //forbiddenBookImages[currentForbiddenBook].gameObject.SetActive(true);
+            //forbiddenBookImages[currentForbiddenBook].color = badBook.Item2;
+            //forbiddenBookShapes[currentForbiddenBook].color = badBook.Item2;
+            //forbiddenBookShapes[currentForbiddenBook].sprite = badBook.Item1;
+            censoredSprites.Add(badBook.Item1);
             currentForbiddenBook++;
         }
 
@@ -122,16 +134,17 @@ public class CreateTopics : MonoBehaviour
         {
             Debug.Log("Special day");
             (Sprite, Color) badBook = (data.specialItem, Color.white);
-            forbiddenBookImages[currentForbiddenBook].gameObject.SetActive(true);
-            forbiddenBookImages[currentForbiddenBook].sprite = badBook.Item1;
-            forbiddenBookCovers[currentForbiddenBook].gameObject.SetActive(false);
-            forbiddenBookShapes[currentForbiddenBook].gameObject.SetActive(false);
+            //forbiddenBookImages[currentForbiddenBook].gameObject.SetActive(true);
+            //forbiddenBookImages[currentForbiddenBook].sprite = badBook.Item1;
+            //forbiddenBookCovers[currentForbiddenBook].gameObject.SetActive(false);
+            //forbiddenBookShapes[currentForbiddenBook].gameObject.SetActive(false);
+            censoredSprites.Add(badBook.Item1);
             currentForbiddenBook++;
         }
 
         for (int i = currentForbiddenBook; i < forbiddenBookImages.Length; i++)
         {
-            forbiddenBookImages[i].gameObject.SetActive(false);
+            forbiddenBookShapes[i].gameObject.SetActive(false);
         }
 
         Debug.Log("currentForbiddenBook" + currentForbiddenBook);
@@ -199,6 +212,7 @@ public class CreateTopics : MonoBehaviour
             modelsForHats[currentForbiddenHat].sprite = spritesModelsForHats[Random.Range(0, spritesModelsForHats.Length)];
             forbiddenHatsImages[currentForbiddenHat].gameObject.SetActive(true);
             modelsForHats[currentForbiddenHat].gameObject.SetActive(true);
+            censoredSprites.Add(badHat.symbol);
             currentForbiddenHat++;
         }
 
@@ -209,6 +223,7 @@ public class CreateTopics : MonoBehaviour
             forbiddenHatsImages[currentForbiddenHat].color = Color.white;
             forbiddenHatsImages[currentForbiddenHat].gameObject.SetActive(true);
             modelsForHats[currentForbiddenHat].gameObject.SetActive(true);
+            censoredSprites.Add(data.specialHat);
             currentForbiddenHat++;
         }
 
@@ -271,6 +286,7 @@ public class CreateTopics : MonoBehaviour
             forbiddenWordsImages[currentForbiddenWord].sprite = badTopic.symbol;
             forbiddenWordsImages[currentForbiddenWord].color = Color.white;
             forbiddenWordsImages[currentForbiddenWord].gameObject.SetActive(true);
+            censoredSprites.Add(badTopic.symbol);
             currentForbiddenWord++;
         }
 
@@ -280,6 +296,7 @@ public class CreateTopics : MonoBehaviour
             forbiddenWordsImages[currentForbiddenWord].sprite = data.specialTopic;
             forbiddenWordsImages[currentForbiddenWord].color = Color.white;
             forbiddenWordsImages[currentForbiddenWord].gameObject.SetActive(true);
+            censoredSprites.Add(data.specialTopic);
             currentForbiddenWord++;
         }
 
@@ -348,6 +365,11 @@ public class CreateTopics : MonoBehaviour
         forbiddenSingingImage.gameObject.SetActive(badSinging);
         forbiddenSingingImage.sprite = data.singing;
         this.badSinging = badSinging;
+
+        if(badSinging )
+        {
+            censoredSprites.Add(data.singing);
+        }
     }
 
     public void CreateRadio(bool badRadio)
@@ -355,6 +377,11 @@ public class CreateTopics : MonoBehaviour
         forbiddenRadioImage.gameObject.SetActive(badRadio);
         forbiddenRadioImage.sprite = data.radio;
         this.badRadio = badRadio;
+
+        if (badRadio)
+        {
+            censoredSprites.Add(data.radio);
+        }
     }
 
     /// <summary>
@@ -386,6 +413,22 @@ public class CreateTopics : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    public void UpdateCensorship()
+    {
+        for (int i = 0; i < allCensorImages.Length; i++)
+        {
+            if (i < censoredSprites.Count)
+            {
+                allCensorImages[i].gameObject.SetActive(true);
+                allCensorImages[i].sprite = censoredSprites[i];
+            }
+            else
+            {
+                allCensorImages[i].gameObject.SetActive(false);
+            }
         }
     }
 }
