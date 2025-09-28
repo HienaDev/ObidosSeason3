@@ -64,6 +64,7 @@ public class CreateTopics : MonoBehaviour
 
     private bool badSinging = false;
     private bool badRadio = false;
+    private bool badFootball = false;
 
     private int numberOfCensoredThings = 0;
     [SerializeField]
@@ -93,7 +94,11 @@ public class CreateTopics : MonoBehaviour
         numberOfCensoredThings += amountBadTopics + amountBadHats + amountOfBadBooks;
         if (singing) { numberOfCensoredThings++; };
         if (radio) { numberOfCensoredThings++; };
-        if (football) { numberOfCensoredThings++; };
+        if (football) {
+            numberOfCensoredThings++;
+            badFootball = football;
+        }
+        ;
         censoredSprites = new List<Sprite>();
     }
 
@@ -209,9 +214,9 @@ public class CreateTopics : MonoBehaviour
             badHats.Add(badHat);
             forbiddenHatsImages[currentForbiddenHat].sprite = badHat.symbol;
             forbiddenHatsImages[currentForbiddenHat].color = Color.white;
-            modelsForHats[currentForbiddenHat].sprite = spritesModelsForHats[Random.Range(0, spritesModelsForHats.Length)];
+            //modelsForHats[currentForbiddenHat].sprite = spritesModelsForHats[Random.Range(0, spritesModelsForHats.Length)];
             forbiddenHatsImages[currentForbiddenHat].gameObject.SetActive(true);
-            modelsForHats[currentForbiddenHat].gameObject.SetActive(true);
+            //modelsForHats[currentForbiddenHat].gameObject.SetActive(true);
             censoredSprites.Add(badHat.symbol);
             currentForbiddenHat++;
         }
@@ -222,7 +227,7 @@ public class CreateTopics : MonoBehaviour
             forbiddenHatsImages[currentForbiddenHat].sprite = data.specialHat;
             forbiddenHatsImages[currentForbiddenHat].color = Color.white;
             forbiddenHatsImages[currentForbiddenHat].gameObject.SetActive(true);
-            modelsForHats[currentForbiddenHat].gameObject.SetActive(true);
+            //modelsForHats[currentForbiddenHat].gameObject.SetActive(true);
             censoredSprites.Add(data.specialHat);
             currentForbiddenHat++;
         }
@@ -230,7 +235,7 @@ public class CreateTopics : MonoBehaviour
         for (int i = currentForbiddenHat; i < forbiddenHatsImages.Length; i++)
         {
             forbiddenHatsImages[i].gameObject.SetActive(false);
-            modelsForHats[i].gameObject.SetActive(false);
+            //modelsForHats[i].gameObject.SetActive(false);
         }
 
         currentForbiddenHat = 0;
@@ -271,7 +276,12 @@ public class CreateTopics : MonoBehaviour
 
         winningFootBallTeam = Random.Range(0, data.footballTeamWinning.Length);
 
-        winningTeam.sprite = data.footballTeamWinning[winningFootBallTeam];
+        //winningTeam.sprite = data.footballTeamWinning[winningFootBallTeam];
+
+        if (badFootball)
+        {
+            censoredSprites.Add(data.footballTeamWinning[winningFootBallTeam]);
+        }
 
         goodTopics = data.topics.OfType<TalkingData.TalkingTopics>().ToList();
         tempGoodTopics = data.topics.OfType<TalkingData.TalkingTopics>().ToList();
@@ -324,7 +334,7 @@ public class CreateTopics : MonoBehaviour
         {
             int footballRNG = Random.Range(0, 100);
 
-            if (footballRNG < chanceOfFootballTopic)
+            if (footballRNG < chanceOfFootballTopic && badFootball)
             {
                 int randomFootBallTeam = 0;
                 do
@@ -346,7 +356,7 @@ public class CreateTopics : MonoBehaviour
         {
             int footballRNG = Random.Range(0, 100);
 
-            if (footballRNG < chanceOfFootballTopic)
+            if (footballRNG < chanceOfFootballTopic && badFootball)
             {
                 return (data.footballTeamWinning[winningFootBallTeam], false);
             }
@@ -362,8 +372,8 @@ public class CreateTopics : MonoBehaviour
 
     public void CreateSinging(bool badSinging)
     {
-        forbiddenSingingImage.gameObject.SetActive(badSinging);
-        forbiddenSingingImage.sprite = data.singing;
+        //forbiddenSingingImage.gameObject.SetActive(badSinging);
+        //forbiddenSingingImage.sprite = data.singing;
         this.badSinging = badSinging;
 
         if(badSinging )
@@ -374,8 +384,8 @@ public class CreateTopics : MonoBehaviour
 
     public void CreateRadio(bool badRadio)
     {
-        forbiddenRadioImage.gameObject.SetActive(badRadio);
-        forbiddenRadioImage.sprite = data.radio;
+        //forbiddenRadioImage.gameObject.SetActive(badRadio);
+        //forbiddenRadioImage.sprite = data.radio;
         this.badRadio = badRadio;
 
         if (badRadio)

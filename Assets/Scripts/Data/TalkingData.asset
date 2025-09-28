@@ -23,9 +23,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 63006947910ab30408858f861ada2c20, type: 3}
   - {fileID: 21300000, guid: b89137d6f17fda44d98d6fe335c72a0c, type: 3}
   - {fileID: 21300000, guid: 5a8b8802d3f7e7742a51d76058f0fcc5, type: 3}
-  - {fileID: 8957955386276110418, guid: 14c9a01e4637b2f42acea206c9325256, type: 3}
-  - {fileID: 8262043763347861112, guid: a7305c27c2c882a40a944b37ded5ca0c, type: 3}
-  - {fileID: -1027671076007259933, guid: 5026516dada15e44db3448571f519446, type: 3}
+  - {fileID: 21300000, guid: a7305c27c2c882a40a944b37ded5ca0c, type: 3}
+  - {fileID: 21300000, guid: 5026516dada15e44db3448571f519446, type: 3}
+  - {fileID: 21300000, guid: 14c9a01e4637b2f42acea206c9325256, type: 3}
   footballTeamWinning:
   - {fileID: 21300000, guid: e9feaafcc5f78a64d8d5fbf70702c951, type: 3}
   - {fileID: 21300000, guid: d51bbe716334d5b409ba82ab30af3078, type: 3}
@@ -55,7 +55,7 @@ MonoBehaviour:
     type: 1
   - symbol: {fileID: 21300000, guid: 8838a19a62057eb40bf2a31f778857a9, type: 3}
     type: 1
-  - symbol: {fileID: 21300000, guid: 8838a19a62057eb40bf2a31f778857a9, type: 3}
+  - symbol: {fileID: 21300000, guid: ee2c08b7dbf201e4790645619d3f3047, type: 3}
     type: 1
   alwaysBadTopics: []
   hats:
@@ -96,7 +96,7 @@ MonoBehaviour:
   - symbol: {fileID: 21300000, guid: 836768e0674fc564791ad3a9cbeae961, type: 3}
     type: 2
   singing: {fileID: -1902478006, guid: 7b2674533ce789240a5310ac71f82ffd, type: 3}
-  radio: {fileID: -4516698151410485873, guid: d1a76494a4ccc5645aaf13ce329f01b5, type: 3}
+  radio: {fileID: 21300000, guid: d1a76494a4ccc5645aaf13ce329f01b5, type: 3}
   specialItem: {fileID: 21300000, guid: 4fa31bffc0a764940bf05dc33542c5e6, type: 3}
   specialHat: {fileID: 21300000, guid: 6b78187416e7b294e891542a8982dd64, type: 3}
   specialTopic: {fileID: 21300000, guid: 4fa31bffc0a764940bf05dc33542c5e6, type: 3}

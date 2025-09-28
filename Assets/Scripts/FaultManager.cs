@@ -1,11 +1,9 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FaultManager : MonoBehaviour
 {
-
-
-
     private int faultCounter = 0;
 
     [Header("Possible Text When Censoring")]
@@ -16,9 +14,9 @@ public class FaultManager : MonoBehaviour
     [SerializeField] private string[] textItem;
 
     [Header("UI")]
-    [SerializeField] private TextMeshProUGUI[] noteBookLines;
+    //[SerializeField] private TextMeshProUGUI[] noteBookLines;
     private int currentLine = 0;
-    [SerializeField] private TextMeshProUGUI faultCounterUI;
+    [SerializeField] private Slider faultSlider;
 
     [SerializeField] private LevelManager levelManager;
 
@@ -35,30 +33,45 @@ public class FaultManager : MonoBehaviour
         Instance = this;
     }
 
-    public void ResetFaults()
+    public void ResetFaults(int maxFaults)
     {
 
-        foreach(TextMeshProUGUI text in noteBookLines)
+        /*foreach(TextMeshProUGUI text in noteBookLines)
         {
             text.text = "";
-        }
+        }*/
         currentLine = 0;
         faultCounter = 0;
         levelManager.anomaliesCount = faultCounter;
+        faultSlider.value = faultCounter;
+        faultSlider.maxValue = maxFaults;
     }
 
-    public void AddFault()
+    public void AddFault(bool specialDayRevolutionApproaching)
     {
         faultCounter++;
         levelManager.anomaliesCount = faultCounter;
-        faultCounterUI.text = faultCounter.ToString();
+
+        if (specialDayRevolutionApproaching)
+        {
+            float sliderValue = faultSlider.maxValue - faultCounter;
+            if (sliderValue < faultSlider.minValue)
+            {
+                sliderValue = faultSlider.minValue;
+            }
+
+            if (faultSlider.value > sliderValue)
+            {
+                faultSlider.value = sliderValue;
+            }
+        }
     }
 
     public void RemoveFault()
     {
         faultCounter--;
         levelManager.anomaliesCount = faultCounter;
-        faultCounterUI.text = faultCounter.ToString();
+        faultSlider.value++;
     }
 
     public void ClearFault(CivilianFaultType faultType)
@@ -70,7 +83,7 @@ public class FaultManager : MonoBehaviour
         }
             
 
-        switch(faultType)
+        /*switch(faultType)
         {
             case CivilianFaultType.Group:
                 noteBookLines[currentLine].text = textGroup[Random.Range(0, textGroup.Length)];
@@ -87,7 +100,7 @@ public class FaultManager : MonoBehaviour
                 noteBookLines[currentLine].text = textItem[Random.Range(0, textItem.Length)];
                 break;
 
-        }
+        }*/
         currentLine++;
 
         RemoveFault();

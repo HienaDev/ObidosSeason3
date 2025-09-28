@@ -84,6 +84,8 @@ public class LevelManager : MonoBehaviour
 
     private float specialLevelGreyscale = 1f;
 
+    private bool specialDayRevolutionApproaching = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -99,6 +101,7 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
 
+
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -111,13 +114,23 @@ public class LevelManager : MonoBehaviour
 
             if (levels[currentLevel].specialLevel)
             {
+                if ((anomaliesCount/ levels[currentLevel].numberOfFaults > 0.5 || (levels[currentLevel].timer - timeRemaining) / levels[currentLevel].timer > 0.5) && !specialDayRevolutionApproaching)
+                {
+                    Debug.Log("revolution Started");
+                    Debug.Log(anomaliesCount);
+                    Debug.Log(levels[currentLevel].numberOfFaults);
+                    Debug.Log(timeRemaining);
+                    Debug.Log(levels[currentLevel].timer);
+                    specialDayRevolutionApproaching = true;
+                }
+
                 int chanceOfspawn = UnityEngine.Random.Range(0, 100);
 
                 if (chanceOfspawn < levels[currentLevel].initialChance)
                 {
                     CivilianFaultType randomFault = faultTypes[UnityEngine.Random.Range(0, faultTypes.Count)];
                     civilianBrainScript.CreateNewCivilian(randomFault);
-                    faultManager.AddFault();
+                    faultManager.AddFault(specialDayRevolutionApproaching);
                 }
                 else
                 {
@@ -142,7 +155,7 @@ public class LevelManager : MonoBehaviour
                         Debug.Log("Bad Civillian Spawned");
                         CivilianFaultType randomFault = faultTypes[UnityEngine.Random.Range(0, faultTypes.Count)];
                         civilianBrainScript.CreateNewCivilian(randomFault);
-                        faultManager.AddFault();
+                        faultManager.AddFault(false);
                     }
                     else
                     {
@@ -228,6 +241,12 @@ public class LevelManager : MonoBehaviour
             StartLevel(4);
         }
 
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            currentLevel = 5;
+            StartLevel(5);
+        }
+
         if (levels[currentLevel].specialLevel)
         {
             specialLevelGreyscale -= (1/levels[currentLevel].timer) * Time.deltaTime * 2;
@@ -302,7 +321,7 @@ public class LevelManager : MonoBehaviour
             go.SetActive(false);
         }*/
 
-        FaultManager.Instance.ResetFaults();
+        FaultManager.Instance.ResetFaults(levels[level].numberOfFaults);
 
         civilianBrainScript.ClearCivillians();
         createTopicsScript.badgeCover1.SetActive(false);
@@ -314,7 +333,7 @@ public class LevelManager : MonoBehaviour
     {
 
         fadeScreen.Fade(false);
-        fadeScreen.SetDay((21 + level).ToString(), true);
+        fadeScreen.SetDay((20 + level).ToString(), true);
 
         yield return new WaitForSeconds(3f);
         spritesGreyscaleMaterial.SetFloat("_GrayscaleAmount", levels[currentLevel].initialGreyscale);
@@ -338,6 +357,7 @@ public class LevelManager : MonoBehaviour
 
         faultTypes.Clear();
         indexOfFaults.Clear();
+        specialDayRevolutionApproaching = false;
 
         InitalizeAvailableSpots(levels[level].numberOfPeople);
 
