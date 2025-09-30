@@ -3132,10 +3132,14 @@ MonoBehaviour:
     badBooksNumber: 0
     badTopicsNumber: 2
     badHatsNumber: 1
+    badSinging: 0
+    badRadio: 0
+    badFootball: 0
     maximumAnomaliesActive: 3
     specialLevel: 0
     initialChance: 10
     chanceIncrease: 1
+    initialGreyscale: 0
   - numberOfPeople: 40
     numberOfFaults: 4
     spawnRate: 2
@@ -3143,10 +3147,14 @@ MonoBehaviour:
     badBooksNumber: 2
     badTopicsNumber: 2
     badHatsNumber: 1
+    badSinging: 0
+    badRadio: 0
+    badFootball: 0
     maximumAnomaliesActive: 4
     specialLevel: 0
     initialChance: 0
     chanceIncrease: 0
+    initialGreyscale: 0
   - numberOfPeople: 60
     numberOfFaults: 8
     spawnRate: 2
@@ -3154,10 +3162,14 @@ MonoBehaviour:
     badBooksNumber: 4
     badTopicsNumber: 3
     badHatsNumber: 3
+    badSinging: 0
+    badRadio: 0
+    badFootball: 0
     maximumAnomaliesActive: 6
     specialLevel: 0
     initialChance: 0
     chanceIncrease: 0
+    initialGreyscale: 0
   - numberOfPeople: 80
     numberOfFaults: 10
     spawnRate: 2
@@ -3165,10 +3177,14 @@ MonoBehaviour:
     badBooksNumber: 5
     badTopicsNumber: 5
     badHatsNumber: 5
+    badSinging: 0
+    badRadio: 0
+    badFootball: 0
     maximumAnomaliesActive: 7
     specialLevel: 0
     initialChance: 0
     chanceIncrease: 0
+    initialGreyscale: 0
   - numberOfPeople: 80
     numberOfFaults: 10
     spawnRate: 1
@@ -3176,10 +3192,14 @@ MonoBehaviour:
     badBooksNumber: 3
     badTopicsNumber: 3
     badHatsNumber: 3
+    badSinging: 0
+    badRadio: 0
+    badFootball: 0
     maximumAnomaliesActive: 35
     specialLevel: 1
     initialChance: 10
     chanceIncrease: 1
+    initialGreyscale: 0
   createTopicsScript: {fileID: 5111427339993506994}
   timerText: {fileID: 7275390508476881247}
   isRunning: 0
@@ -3188,11 +3208,11 @@ MonoBehaviour:
   anomaliesCount: 0
   pointerPivot: {fileID: 2330920609422932401}
   reasonTextUI: {fileID: 985833118419062678}
-  tabUI:
-  - {fileID: 1654093819508737031}
-  - {fileID: 6220029791095574981}
-  - {fileID: 2535680824763660772}
-  - {fileID: 5751737271263862325}
+  revolution: 0
+  forceLoadScene: {fileID: 0}
+  musicianNPC: {fileID: 0}
+  spritesGreyscaleMaterial: {fileID: 0}
+  groundGreyscaleMaterial: {fileID: 0}
 --- !u!1 &4329564905257791476
 GameObject:
   m_ObjectHideFlags: 0
@@ -5930,6 +5950,8 @@ MonoBehaviour:
   - {fileID: 1474449053, guid: 4d33dcc8a6295344498cda9838e77fb7, type: 3}
   - {fileID: -137420068, guid: 4d33dcc8a6295344498cda9838e77fb7, type: 3}
   - {fileID: -1081805830, guid: 4d33dcc8a6295344498cda9838e77fb7, type: 3}
+  forbiddenSingingImage: {fileID: 0}
+  forbiddenRadioImage: {fileID: 0}
   forbiddenWordsImages:
   - {fileID: 8083317976166600527}
   - {fileID: 150700291000040248}
@@ -5967,6 +5989,7 @@ MonoBehaviour:
   goodJobObject: {fileID: 8217989536565932811}
   revolutionObject: {fileID: 4729204013926754550}
   specialDay: 0
+  allCensorImages: []
 --- !u!114 &77129712394873906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5999,18 +6022,7 @@ MonoBehaviour:
   - CANT READ
   - BOOK BAD!
   - UGLY COLOR
-  noteBookLines:
-  - {fileID: 6909186934030831518}
-  - {fileID: 2140243194095553544}
-  - {fileID: 8004611397156420185}
-  - {fileID: 5994356115584048212}
-  - {fileID: 7705532000859894915}
-  - {fileID: 5471848960270799500}
-  - {fileID: 7781294497715678035}
-  - {fileID: 4227821513257399710}
-  - {fileID: 7307642961131384628}
-  - {fileID: 3639803448455620908}
-  faultCounterUI: {fileID: 5680157674135269899}
+  faultSlider: {fileID: 0}
   levelManager: {fileID: 2727653191214148712}
 --- !u!1 &8568559648855020096
 GameObject:
