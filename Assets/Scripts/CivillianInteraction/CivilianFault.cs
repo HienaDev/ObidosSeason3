@@ -62,7 +62,7 @@ public class CivilianFault : MonoBehaviour
         FaultManager.Instance.ClearFault(talkingBubble._civilianFaultType);
 
         censored = true;
-        Debug.Log("I've been censored!! Topic: " + talkingBubble.badTopic + " Hat " + talkingBubble.badHat + " Book " + talkingBubble.badBook);
+        //Debug.Log("I've been censored!! Topic: " + talkingBubble.badTopic + " Hat " + talkingBubble.badHat + " Book " + talkingBubble.badBook);
         talkingBubble.StopTalking();
 
         AudioSystem.PlaySound(cryClips);

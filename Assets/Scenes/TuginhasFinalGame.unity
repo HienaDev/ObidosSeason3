@@ -31561,6 +31561,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4702933505919533331, guid: cc8761081bcaf4d46ae7ed4323f7023c, type: 3}
   m_PrefabInstance: {fileID: 669543879}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2037796156 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7061288993023264098, guid: bf63273496872fa4c82a52436fd2cdc8, type: 3}
+  m_PrefabInstance: {fileID: 1592850302}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f151103c844d3b04db7b4d9f8001dbff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2042091763
 GameObject:
   m_ObjectHideFlags: 0
@@ -35859,6 +35870,7 @@ MonoBehaviour:
   musicianNPC: {fileID: 546135929}
   spritesGreyscaleMaterial: {fileID: 2100000, guid: b061160a84c377e42b8af2c10cd2f9ad, type: 2}
   groundGreyscaleMaterial: {fileID: 2100000, guid: 660c90a2a4a0c1746b3c27133975ca44, type: 2}
+  playerMov: {fileID: 2037796156}
 --- !u!1 &2762556036843870586
 GameObject:
   m_ObjectHideFlags: 0

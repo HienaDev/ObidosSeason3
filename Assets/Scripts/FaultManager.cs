@@ -42,7 +42,7 @@ public class FaultManager : MonoBehaviour
         }*/
         currentLine = 0;
         faultCounter = 0;
-        levelManager.anomaliesCount = faultCounter;
+        //levelManager.anomaliesCount = faultCounter;
         faultSlider.value = faultCounter;
         faultSlider.maxValue = maxFaults;
     }

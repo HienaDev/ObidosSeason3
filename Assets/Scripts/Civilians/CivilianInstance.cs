@@ -99,7 +99,7 @@ public class CivilianInstance : MonoBehaviour
             if (foundCiv != null)
             {
                 ChangeState(CivilianState.Group);
-                Debug.Log(foundCiv.name);
+                //Debug.Log(foundCiv.name);
             }
         }
 
@@ -207,7 +207,7 @@ public class CivilianInstance : MonoBehaviour
 
     private void StopMoving()
     {
-        Debug.Log("Stop moving");
+        //Debug.Log("Stop moving");
         if ((_fault.FaultType == CivilianFaultType.Talking || _fault.FaultType == CivilianFaultType.Group) && !_fault.censored)
         {
             ChangeState(CivilianState.Group);
@@ -285,7 +285,7 @@ public class CivilianInstance : MonoBehaviour
 
     private void OnCensored(bool correctlyCensored)
     {
-        Debug.Log("Censored on instance civillian");
+        //Debug.Log("Censored on instance civillian");
         Node newNode;
         if (correctlyCensored)
         {

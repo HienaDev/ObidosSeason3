@@ -86,6 +86,9 @@ public class LevelManager : MonoBehaviour
 
     private bool specialDayRevolutionApproaching = false;
 
+    [SerializeField]
+    private PlayerMovement playerMov;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -100,8 +103,6 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -117,10 +118,6 @@ public class LevelManager : MonoBehaviour
                 if ((anomaliesCount/ levels[currentLevel].numberOfFaults > 0.5 || (levels[currentLevel].timer - timeRemaining) / levels[currentLevel].timer > 0.5) && !specialDayRevolutionApproaching)
                 {
                     Debug.Log("revolution Started");
-                    Debug.Log(anomaliesCount);
-                    Debug.Log(levels[currentLevel].numberOfFaults);
-                    Debug.Log(timeRemaining);
-                    Debug.Log(levels[currentLevel].timer);
                     specialDayRevolutionApproaching = true;
                 }
 
@@ -134,7 +131,7 @@ public class LevelManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Good Civillian Spawned");
+                    //Debug.Log("Good Civillian Spawned");
                     civilianBrainScript.CreateNewCivilian(CivilianFaultType.None);
                 }
 
@@ -152,7 +149,7 @@ public class LevelManager : MonoBehaviour
                     {
                         indexOfFaults.Remove(numberOfPeopleSpawned);
                         // Spawn Bad Civillian
-                        Debug.Log("Bad Civillian Spawned");
+                        //Debug.Log("Bad Civillian Spawned");
                         CivilianFaultType randomFault = faultTypes[UnityEngine.Random.Range(0, faultTypes.Count)];
                         civilianBrainScript.CreateNewCivilian(randomFault);
                         faultManager.AddFault(false);
@@ -160,7 +157,7 @@ public class LevelManager : MonoBehaviour
                     else
                     {
                         // Spawn Good Civillian
-                        Debug.Log("Good Civillian Spawned");
+                        //Debug.Log("Good Civillian Spawned");
                         civilianBrainScript.CreateNewCivilian(CivilianFaultType.None);
                     }
                 }
@@ -186,11 +183,14 @@ public class LevelManager : MonoBehaviour
             }
 
         }
+        Debug.Log("index:" + indexOfFaults.Count);
+        Debug.Log("anomalies:" + anomaliesCount);
 
         if (indexOfFaults.Count <= 0 && anomaliesCount <= 0 && isRunning)
         {
             isRunning = false;
             EndDay();
+            Debug.Log("heree");
         }
 
         if (isRunning == false && anomaliesCount > 0 && !restarted && levels[currentLevel].specialLevel)
@@ -259,6 +259,7 @@ public class LevelManager : MonoBehaviour
             spritesGreyscaleMaterial.SetFloat("_GrayscaleAmount", specialLevelGreyscale);
             groundGreyscaleMaterial.SetFloat("_Greyscale", specialLevelGreyscale);
         }
+
     }
 
 
@@ -271,6 +272,7 @@ public class LevelManager : MonoBehaviour
 
     private void EndDay()
     {
+        playerMov.StartMoving(false);
         currentLevel++;
         reasonTextUI.text = "Stop any suspicious activity";
         createTopicsScript.goodJobObject.SetActive(true);
@@ -279,16 +281,17 @@ public class LevelManager : MonoBehaviour
 
     public void RestartDay(bool died)
     {
-        if(died)
+        playerMov.StartMoving(false);
+        if (died)
         {
-            if(levels[currentLevel].specialLevel)
+            /*if(levels[currentLevel].specialLevel)
             {
                 reasonTextUI.text = "";
                 createTopicsScript.revolutionObject.SetActive(true);
                 revolution = true;
             }
-            else
-                reasonTextUI.text = "Stop censoring the innocent!";
+            else*/
+            reasonTextUI.text = "Stop censoring the innocent!";
         }
         StartLevel(currentLevel);
     }
@@ -418,6 +421,8 @@ public class LevelManager : MonoBehaviour
         timeRemaining = levels[level].timer;
 
         restarted = false;
+        anomaliesCount = 0;
+        playerMov.StartMoving(true);
     }
 
     private void InitalizeAvailableSpots(int amount)

@@ -171,7 +171,7 @@ public class TalkingBubble : MonoBehaviour
     public void GetRandomTopic(bool badTopicToggle, bool special = false)
     {
         (topicSprite, badTopic) = topicManager.GetRandomTopic(badTopicToggle, special);
-        Debug.Log("talking: " + topicSprite.name);
+        //Debug.Log("talking: " + topicSprite.name);
        
         symbolPlace.sprite = topicSprite;
     }

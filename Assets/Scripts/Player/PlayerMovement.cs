@@ -18,35 +18,37 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private AudioClip[] _pencilHitGroundClips;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
+    private bool movEnabled = true;
+    private bool lastSideMovementRight = true;
 
     // Update is called once per frame
     void Update()
     {
         velocity = Vector2.zero;
 
-        if (Input.GetKey(up))
+        if (movEnabled)
         {
-            velocity.y = 1;
-        }
+            if (Input.GetKey(up))
+            {
+                velocity.y = 1;
+            }
 
-        if (Input.GetKey(down))
-        {
-            velocity.y = -1;
-        }
+            if (Input.GetKey(down))
+            {
+                velocity.y = -1;
+            }
 
-        if (Input.GetKey(right))
-        {
-            velocity.x = 1;
-        }
+            if (Input.GetKey(right))
+            {
+                velocity.x = 1;
+                lastSideMovementRight = true;
+            }
 
-        if (Input.GetKey(left))
-        {
-            velocity.x = -1;
+            if (Input.GetKey(left))
+            {
+                velocity.x = -1;
+                lastSideMovementRight = false;
+            }
         }
 
         rb.linearVelocity = velocity.normalized * movSped;
@@ -59,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         bool walking = rb.linearVelocity.magnitude > 0.1f;
         _animator.SetBool("walk", walking);
 
-        if (Input.GetKeyDown(slap))
+        if (Input.GetKeyDown(slap) && movEnabled)
         {
             _animator.SetTrigger("slap");
             AudioSystem.PlaySound(_pencilHitGroundClips);
@@ -68,12 +70,17 @@ public class PlayerMovement : MonoBehaviour
         if (walking)
         {
 
-            if (rb.linearVelocityX > 0)
+            if (lastSideMovementRight)
                 _animator.transform.right = Vector2.right;
             else
                 _animator.transform.right = Vector2.left;
         }
 
         // Debug.Log(rb.linearVelocity.magnitude);
+    }
+
+    public void StartMoving(bool canMove)
+    {
+        movEnabled = canMove;
     }
 }

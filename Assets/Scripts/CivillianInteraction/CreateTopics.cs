@@ -152,7 +152,7 @@ public class CreateTopics : MonoBehaviour
             forbiddenBookShapes[i].gameObject.SetActive(false);
         }
 
-        Debug.Log("currentForbiddenBook" + currentForbiddenBook);
+        //Debug.Log("currentForbiddenBook" + currentForbiddenBook);
 
         currentForbiddenBook = 0;
     }       
