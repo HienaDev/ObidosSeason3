@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private AudioClip[] _pencilHitGroundClips;
 
+    private bool lastSlap = true;
     private bool movEnabled = true;
     private bool lastSideMovementRight = true;
 
@@ -61,10 +62,15 @@ public class PlayerMovement : MonoBehaviour
         bool walking = rb.linearVelocity.magnitude > 0.1f;
         _animator.SetBool("walk", walking);
 
-        if (Input.GetKeyDown(slap) && movEnabled)
+        if (Input.GetKeyDown(slap) && lastSlap)
         {
             _animator.SetTrigger("slap");
             AudioSystem.PlaySound(_pencilHitGroundClips);
+
+            if (!movEnabled)
+            {
+                lastSlap = false;
+            }
         }
 
         if (walking)
@@ -82,5 +88,10 @@ public class PlayerMovement : MonoBehaviour
     public void StartMoving(bool canMove)
     {
         movEnabled = canMove;
+
+        if (canMove)
+        {
+            lastSlap = canMove;
+        }
     }
 }

@@ -1,7 +1,8 @@
-using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.ProbeAdjustmentVolume;
 
 
 public class CreateTopics : MonoBehaviour
@@ -71,6 +72,14 @@ public class CreateTopics : MonoBehaviour
     private Image[] allCensorImages;
     private List<Sprite> censoredSprites;
 
+    [SerializeField]
+    private int numberOfPossibleBadItems = 0;
+    [SerializeField]
+    private int numberOfPossibleBadHats = 0;
+
+    private List<Sprite> possibleBadItems;
+    private List<TalkingData.TalkingTopics> possibleBadHats;
+
     public void ActivateSpecialDay()
     {
         specialDay = true;
@@ -116,6 +125,13 @@ public class CreateTopics : MonoBehaviour
             for (int i = 0; i < numberOfColors; i++)
             {
                 books.Add((shape, data.bookColors[i]));
+            }
+        }
+
+        foreach (Sprite shape in possibleBadItems)
+        {
+            for (int i = 0; i < numberOfColors; i++)
+            {
                 tempBooks.Add((shape, data.bookColors[i]));
             }
         }
@@ -203,7 +219,7 @@ public class CreateTopics : MonoBehaviour
 
 
         goodHats = data.hats.OfType<TalkingData.TalkingTopics>().ToList();
-        tempGoodHats = data.hats.OfType<TalkingData.TalkingTopics>().ToList();
+        tempGoodHats = possibleBadHats;
 
         for (int i = 0; i < numberOfBadHats; i++)
         {
@@ -342,7 +358,7 @@ public class CreateTopics : MonoBehaviour
                     randomFootBallTeam = Random.Range(0, data.footballTeamWinning.Length);
                 } while (winningFootBallTeam == randomFootBallTeam);
 
-                return (data.footballTeamWinning[randomFootBallTeam], true);
+                return (data.footballTeamWinning[winningFootBallTeam], true);
             }
             else
             {
@@ -358,7 +374,13 @@ public class CreateTopics : MonoBehaviour
 
             if (footballRNG < chanceOfFootballTopic && badFootball)
             {
-                return (data.footballTeamWinning[winningFootBallTeam], false);
+                int randomFootBallTeam = 0;
+                do
+                {
+                    randomFootBallTeam = Random.Range(0, data.footballTeamWinning.Length);
+                } while (winningFootBallTeam == randomFootBallTeam);
+
+                return (data.footballTeamWinning[randomFootBallTeam], false);
             }
             else
             {
@@ -440,5 +462,26 @@ public class CreateTopics : MonoBehaviour
                 allCensorImages[i].gameObject.SetActive(false);
             }
         }
+    }
+
+    public void InitializeCensorshipItems()
+    {
+        possibleBadItems = new List<Sprite>();
+        possibleBadHats = new List<TalkingData.TalkingTopics>();
+
+        for (int i = 0; i < numberOfPossibleBadItems; i++)
+        {
+            possibleBadItems.Add(data.bookShapes[i]);
+        }
+
+        List<TalkingData.TalkingTopics> initializerHatList = data.hats.OfType<TalkingData.TalkingTopics>().ToList();
+
+        for (int i = 0; i < numberOfPossibleBadHats; i++)
+        {
+            possibleBadHats.Add(initializerHatList[i]);
+        }
+
+        possibleBadItems.Shuffle();
+        possibleBadHats.Shuffle();
     }
 }

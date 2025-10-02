@@ -326,6 +326,11 @@ public class LevelManager : MonoBehaviour
 
         FaultManager.Instance.ResetFaults(levels[level].numberOfFaults);
 
+        if (level == 0)
+        {
+            createTopicsScript.InitializeCensorshipItems();
+        }
+
         civilianBrainScript.ClearCivillians();
         createTopicsScript.badgeCover1.SetActive(false);
         createTopicsScript.badgeCover2.SetActive(false);

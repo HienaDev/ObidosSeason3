@@ -37535,6 +37535,8 @@ MonoBehaviour:
   - {fileID: 1729548199979256647}
   - {fileID: 696708520923555034}
   - {fileID: 2014902193}
+  numberOfPossibleBadItems: 10
+  numberOfPossibleBadHats: 9
 --- !u!4 &5113995607034030083
 Transform:
   m_ObjectHideFlags: 0
