@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 00e0066dc8d79b0468b9f3448794e54f
+guid: c57d831daff60584d8b6a5e411498f7d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6933591748342930398
-    second: hair_hippie_v1_0
+      213: -7021050952101113016
+    second: hair_hippie_v1 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1000
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hair_hippie_v1_0
+      name: hair_hippie_v1 1_0
       rect:
         serializedVersion: 2
-        x: 386
-        y: 987
-        width: 1232
-        height: 775
+        x: 412
+        y: 969
+        width: 1222
+        height: 740
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 224a0766a0fe6cf90800000000000000
-      internalID: -6933591748342930398
+      spriteID: 8435812bb57309e90800000000000000
+      internalID: -7021050952101113016
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hair_hippie_v1_0: -6933591748342930398
+      hair_hippie_v1 1_0: -7021050952101113016
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
