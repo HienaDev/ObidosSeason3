@@ -97,6 +97,6 @@ MonoBehaviour:
     type: 2
   singing: {fileID: -1902478006, guid: 7b2674533ce789240a5310ac71f82ffd, type: 3}
   radio: {fileID: 21300000, guid: d1a76494a4ccc5645aaf13ce329f01b5, type: 3}
-  specialItem: {fileID: 21300000, guid: 4fa31bffc0a764940bf05dc33542c5e6, type: 3}
-  specialHat: {fileID: 21300000, guid: 6b78187416e7b294e891542a8982dd64, type: 3}
+  specialItem: {fileID: 21300000, guid: 767d1f5cdb5cb9e4eab13a001e327773, type: 3}
+  specialHat: {fileID: 21300000, guid: 3abd5af3ea513b648801c6e1b5f54c43, type: 3}
   specialTopic: {fileID: 21300000, guid: 4fa31bffc0a764940bf05dc33542c5e6, type: 3}
