@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 753a8a0a258bf1a47a1445d24fe5e60c
+guid: 2c1ecf4da5ae5824ab4bf1c48273309f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2807335209806406775
-    second: ClownHat_0
+      213: -5929303610742822731
+    second: Pequeruchos_Cabelinho4_0
+  - first:
+      213: 907275805512930695
+    second: Pequeruchos_Cabelinho4_1
+  - first:
+      213: -8047949981238383151
+    second: Pequeruchos_Cabelinho4_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 135
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,30 +102,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ClownHat_0
+      name: Pequeruchos_Cabelinho4_0
       rect:
         serializedVersion: 2
-        x: 60
-        y: 217
-        width: 92
-        height: 106
+        x: 805
+        y: 1477
+        width: 228
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77425f9df78a5f620800000000000000
-      internalID: 2807335209806406775
+      spriteID: 5b8ab34e7c1e6bda0800000000000000
+      internalID: -5929303610742822731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pequeruchos_Cabelinho4_1
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 1490
+        width: 151
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78597e4c98a479c00800000000000000
+      internalID: 907275805512930695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pequeruchos_Cabelinho4_2
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 1486
+        width: 222
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ddac26c120ff4090800000000000000
+      internalID: -8047949981238383151
       vertices: []
       indices: 
       edges: []
@@ -148,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ClownHat_0: 2807335209806406775
+      Pequeruchos_Cabelinho4_0: -5929303610742822731
+      Pequeruchos_Cabelinho4_1: 907275805512930695
+      Pequeruchos_Cabelinho4_2: -8047949981238383151
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

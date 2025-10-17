@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: ea3caab6568e6714d976a4ab97aea187
+guid: 844d8ffdf7f374b44b5765ea05d1e5df
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6329482937760281450
-    second: Pequerruchos_Cabelinho5_0
-  - first:
-      213: -1542309963774084874
-    second: Pequerruchos_Cabelinho5_1
-  - first:
-      213: -1467373105307735418
-    second: Pequerruchos_Cabelinho5_2
-  - first:
-      213: -1702940219300586739
-    second: Pequerruchos_Cabelinho5_3
+      213: -7520297039158857882
+    second: hair_afro_v1 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 135
+  spritePixelsToUnits: 750
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pequerruchos_Cabelinho5_0
+      name: hair_afro_v1 1_0
       rect:
         serializedVersion: 2
-        x: 95
-        y: 239
-        width: 43
-        height: 14
+        x: 497
+        y: 1118
+        width: 879
+        height: 781
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,74 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a63f8156237d6d750800000000000000
-      internalID: 6329482937760281450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pequerruchos_Cabelinho5_1
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 244
-        width: 35
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6f833bb624d989ae0800000000000000
-      internalID: -1542309963774084874
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pequerruchos_Cabelinho5_2
-      rect:
-        serializedVersion: 2
-        x: 145
-        y: 249
-        width: 15
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 68aab296fe7d2abe0800000000000000
-      internalID: -1467373105307735418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pequerruchos_Cabelinho5_3
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 237
-        width: 47
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d0bdcd2a4e0fd58e0800000000000000
-      internalID: -1702940219300586739
+      spriteID: 66fa387efa982a790800000000000000
+      internalID: -7520297039158857882
       vertices: []
       indices: 
       edges: []
@@ -223,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pequerruchos_Cabelinho5_0: 6329482937760281450
-      Pequerruchos_Cabelinho5_1: -1542309963774084874
-      Pequerruchos_Cabelinho5_2: -1467373105307735418
-      Pequerruchos_Cabelinho5_3: -1702940219300586739
+      hair_afro_v1 1_0: -7520297039158857882
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
