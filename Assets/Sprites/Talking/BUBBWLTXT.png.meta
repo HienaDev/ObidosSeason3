@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: e8c745e476e160948ae06b66b31d15b7
+guid: baf4ff818c35f4549bda790a6969eab3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3837999090714537973
-    second: topic_poverty_sketches_v1_0
+      213: 6936750377838905627
+    second: BUBBWLTXT_0
   - first:
-      213: 3317195897001019463
-    second: topic_poverty_sketches_v1_1
+      213: -5332828543914818241
+    second: BUBBWLTXT_1
   - first:
-      213: 3109839397841895673
-    second: topic_poverty_sketches_v1_2
-  - first:
-      213: -3792859200365812484
-    second: topic_poverty_sketches_v1_3
-  - first:
-      213: -8625360414334211581
-    second: topic_poverty_sketches_v1_4
-  - first:
-      213: -149287947123446598
-    second: topic_poverty_sketches_v1_5
+      213: 2380517984273894914
+    second: BUBBWLTXT_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1600
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,133 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: topic_poverty_sketches_v1_0
+      name: BUBBWLTXT_0
       rect:
         serializedVersion: 2
-        x: 72
-        y: 1230
-        width: 285
-        height: 293
+        x: 132
+        y: 768
+        width: 598
+        height: 472
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5ffef42a6df434530800000000000000
-      internalID: 3837999090714537973
+      spriteID: 8b4feff8185aff74eab9f8b87debcf54
+      internalID: 988072824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: topic_poverty_sketches_v1_1
+      name: BUBBWLTXT_1
       rect:
         serializedVersion: 2
-        x: 374
-        y: 1390
-        width: 636
-        height: 287
+        x: 729
+        y: 766
+        width: 523
+        height: 472
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7480123d71c090e20800000000000000
-      internalID: 3317195897001019463
+      spriteID: c02eb47ab6b42504b946b39c86222c0a
+      internalID: -1259575496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: topic_poverty_sketches_v1_2
+      name: BUBBWLTXT_2
       rect:
         serializedVersion: 2
-        x: 382
-        y: 561
-        width: 1200
-        height: 902
+        x: 1271
+        y: 765
+        width: 596
+        height: 475
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9f081e8a47e582b20800000000000000
-      internalID: 3109839397841895673
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: topic_poverty_sketches_v1_3
-      rect:
-        serializedVersion: 2
-        x: 1434
-        y: 1078
-        width: 481
-        height: 467
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cf4af1717ae0d5bc0800000000000000
-      internalID: -3792859200365812484
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: topic_poverty_sketches_v1_4
-      rect:
-        serializedVersion: 2
-        x: 225
-        y: 336
-        width: 443
-        height: 397
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 30aa4ebf6609c4880800000000000000
-      internalID: -8625360414334211581
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: topic_poverty_sketches_v1_5
-      rect:
-        serializedVersion: 2
-        x: 607
-        y: 325
-        width: 307
-        height: 236
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: abca57e276f9dedf0800000000000000
-      internalID: -149287947123446598
+      spriteID: e3cff5f47a1480a459e3862807d05da7
+      internalID: -819493944
       vertices: []
       indices: 
       edges: []
@@ -250,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 44b6353a92171434a9e1696002d390f3
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      topic_poverty_sketches_v1_0: 3837999090714537973
-      topic_poverty_sketches_v1_1: 3317195897001019463
-      topic_poverty_sketches_v1_2: 3109839397841895673
-      topic_poverty_sketches_v1_3: -3792859200365812484
-      topic_poverty_sketches_v1_4: -8625360414334211581
-      topic_poverty_sketches_v1_5: -149287947123446598
+      BUBBWLTXT_0: 988072824
+      BUBBWLTXT_1: -1259575496
+      BUBBWLTXT_2: -819493944
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
