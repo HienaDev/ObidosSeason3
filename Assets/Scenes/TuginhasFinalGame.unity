@@ -31241,7 +31241,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 26c640eadb99cbc44bf8723baf246419, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 26c640eadb99cbc44bf8723baf246419, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -31774,7 +31774,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8e954622a45ae1945a3921e803b04ceb, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 8e954622a45ae1945a3921e803b04ceb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -34774,6 +34774,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8071507875759503901, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8568614933975942405, guid: bc7fc177f8092134eb027689e58f9383, type: 3}
       propertyPath: m_LocalPosition.y
       value: 18.95
@@ -35162,7 +35166,7 @@ Animator:
   m_GameObject: {fileID: 4729204014543003811}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6e9da455868d36642aeb905d22251aef, type: 2}
+  m_Controller: {fileID: 9100000, guid: 845eba9788bd8364bb0cfe186332378e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -35817,7 +35821,7 @@ MonoBehaviour:
     initialChance: 0
     chanceIncrease: 0
     initialGreyscale: 0.25
-  - numberOfPeople: 40
+  - numberOfPeople: 25
     numberOfFaults: 5
     spawnRate: 2
     timer: 460
@@ -35832,7 +35836,7 @@ MonoBehaviour:
     initialChance: 0
     chanceIncrease: 0
     initialGreyscale: 0.5
-  - numberOfPeople: 50
+  - numberOfPeople: 30
     numberOfFaults: 7
     spawnRate: 2
     timer: 480
@@ -35847,7 +35851,7 @@ MonoBehaviour:
     initialChance: 0
     chanceIncrease: 0
     initialGreyscale: 0.75
-  - numberOfPeople: 50
+  - numberOfPeople: 30
     numberOfFaults: 10
     spawnRate: 2
     timer: 500
@@ -39377,6 +39381,18 @@ MonoBehaviour:
       - m_Target: {fileID: 5544220106444674356}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2037796156}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: StartMoving
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

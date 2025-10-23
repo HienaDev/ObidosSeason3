@@ -290,8 +290,6 @@ public class CreateTopics : MonoBehaviour
         tempGoodTopics = new List<TalkingData.TalkingTopics>();
         badTopics = new List<TalkingData.TalkingTopics>();
 
-        winningFootBallTeam = Random.Range(0, data.footballTeamWinning.Length);
-
         //winningTeam.sprite = data.footballTeamWinning[winningFootBallTeam];
 
         if (badFootball)
@@ -466,6 +464,8 @@ public class CreateTopics : MonoBehaviour
 
     public void InitializeCensorshipItems()
     {
+        winningFootBallTeam = Random.Range(0, data.footballTeamWinning.Length);
+
         possibleBadItems = new List<Sprite>();
         possibleBadHats = new List<TalkingData.TalkingTopics>();
 

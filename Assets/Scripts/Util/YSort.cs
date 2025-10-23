@@ -32,7 +32,7 @@ public class YSort : MonoBehaviour
         foreach (SpriteRenderer sr in _extraSpriteRenderers)
         {
             newPos = sr.transform.position;
-            newPos.z = newOrderZ + 0.0001f;
+            newPos.z = newOrderZ - 0.00001f;
             sr.transform.position = newPos;
         }
     }
