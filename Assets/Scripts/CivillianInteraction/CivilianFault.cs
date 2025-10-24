@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -26,11 +27,41 @@ public class CivilianFault : MonoBehaviour
 
     [SerializeField] private AudioClip[] cryClips;
 
+    [SerializeField]
+    private SpriteRenderer[] spriteRenderers;
+
+    [SerializeField]
+    private float timeToDisappear = 5f;
+    [SerializeField]
+    private float alphaReduceTime = 1f;
+
+    private bool disappear = false;
+    private Color tempColor;
+
     public void Initialize(CivilianFaultType type)
     {
         talkingBubble.Initialize(type);
         levelManager = FindAnyObjectByType<LevelManager>();
         FaultType = type;
+    }
+
+    private void FixedUpdate()
+    {
+        if (disappear)
+        {
+            foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+            {
+                tempColor = spriteRenderer.color;
+                tempColor.a -= Time.fixedDeltaTime / alphaReduceTime;
+
+                if(tempColor.a < 0f)
+                {
+                    tempColor.a = 0f;
+                }
+
+                spriteRenderer.color = tempColor;
+            }
+        }
     }
 
 
@@ -67,10 +98,16 @@ public class CivilianFault : MonoBehaviour
 
         AudioSystem.PlaySound(cryClips);
 
-        OnCensored?.Invoke(correctlyCensored);
+        StartCoroutine(DisappearCoroutine());
 
-        
+        OnCensored?.Invoke(correctlyCensored);
     }
 
     public event Action<bool> OnCensored;
+
+    private IEnumerator DisappearCoroutine()
+    {
+        yield return new WaitForSeconds(timeToDisappear);
+        disappear = true;
+    }
 }

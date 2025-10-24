@@ -404,6 +404,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e65c553065be73748b8823ad5b7b057f, type: 3}
   - {fileID: 8300000, guid: bd389a65c77db1244acc6fdfc6586e91, type: 3}
   - {fileID: 8300000, guid: eecaab2d1cb993b4990eeeb88b77ed03, type: 3}
+  spriteRenderers:
+  - {fileID: 3279880894714010622}
+  - {fileID: 6091844423012449917}
+  - {fileID: 2297951035027391174}
+  - {fileID: 1669317801517550635}
+  - {fileID: 2521172622675913226}
+  timeToDisappear: 3
+  alphaReduceTime: 1
 --- !u!1 &3925394482246722266
 GameObject:
   m_ObjectHideFlags: 0
