@@ -81,6 +81,7 @@ public class TalkingBubble : MonoBehaviour
         {
             badRadio = true;
             ActivateRadio();
+            book.SetActive(false);
         }
         else
         {
@@ -222,8 +223,7 @@ public class TalkingBubble : MonoBehaviour
 
     public void StopTalking()
     {
-
-        whistleParent.SetActive(true);
+        whistleParent.SetActive(false);
 
         talking = false;
         bubbleParent.SetActive(false);

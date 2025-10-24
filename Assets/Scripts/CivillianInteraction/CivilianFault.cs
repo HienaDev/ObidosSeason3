@@ -95,6 +95,7 @@ public class CivilianFault : MonoBehaviour
         censored = true;
         //Debug.Log("I've been censored!! Topic: " + talkingBubble.badTopic + " Hat " + talkingBubble.badHat + " Book " + talkingBubble.badBook);
         talkingBubble.StopTalking();
+        GetComponent<CircleCollider2D>().enabled = false;
 
         AudioSystem.PlaySound(cryClips);
 
