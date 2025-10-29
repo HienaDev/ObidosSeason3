@@ -28,11 +28,11 @@ public class CreateTopics : MonoBehaviour
 
     [SerializeField, Range(0, 100), Header("BOOKS")] private int chanceOfBook = 30;
     [SerializeField, Range(1, 3)] private int numberOfColors = 3;
-    private List<(Sprite, Color)> books;
-    private List<(Sprite, Color)> tempBooks;
-    public List<(Sprite, Color)> Books => books;
-    private List<(Sprite, Color)> badBooks;
-    public List<(Sprite, Color)> BadBooks => badBooks;
+    private List<(TalkingData.BookShapes, Color)> books;
+    private List<(TalkingData.BookShapes, Color)> tempBooks;
+    public List<(TalkingData.BookShapes, Color)> Books => books;
+    private List<(TalkingData.BookShapes, Color)> badBooks;
+    public List<(TalkingData.BookShapes, Color)> BadBooks => badBooks;
     [SerializeField] private int numberOfBadBooks = 2;
 
     [Header("UI")]
@@ -70,15 +70,28 @@ public class CreateTopics : MonoBehaviour
     private int numberOfCensoredThings = 0;
     [SerializeField]
     private Image[] allCensorImages;
-    private List<Sprite> censoredSprites;
+    private List<(Sprite, Sprite)> censoredSprites;
+    private List<(Sprite, Sprite)> currentCensoredSprites;
+    private List<(Sprite, Sprite)> spritesToDelete;
 
     [SerializeField]
     private int numberOfPossibleBadItems = 0;
     [SerializeField]
     private int numberOfPossibleBadHats = 0;
 
-    private List<Sprite> possibleBadItems;
+    private List<TalkingData.BookShapes> possibleBadItems;
     private List<TalkingData.TalkingTopics> possibleBadHats;
+
+    private int newTopics = 0;
+    private int newBooks = 0;
+    private int newHats = 0;
+    private int newSinging = 0;
+    private int newRadio = 0;
+    private List<TalkingData.TalkingTopics> newBadTopics;
+    private List<TalkingData.TalkingTopics> newBadHats;
+    private List<(TalkingData.BookShapes, Color)> newBadBooks;
+
+    private bool cloveSpawn = false;
 
     public void ActivateSpecialDay()
     {
@@ -94,33 +107,50 @@ public class CreateTopics : MonoBehaviour
         //CreateNewBooks();
     }
 
-    public void SetNumberOfFaultTypes(int amountBadTopics, int amountBadHats, int amountOfBadBooks, bool singing, bool radio, bool football)
+    public void SetNumberOfFaultTypes(int amountBadTopics, int newTopics, int amountBadHats, int newHats, int amountOfBadBooks, int newBooks, bool singing, int newSinging, bool radio, int newRadio, bool football, bool resetSprites)
     {
         numberOfCensoredThings = 0;
         numberOfBadTopics = amountBadTopics;
         numberOfBadHats = amountBadHats;
         numberOfBadBooks = amountOfBadBooks;
         numberOfCensoredThings += amountBadTopics + amountBadHats + amountOfBadBooks;
-        if (singing) { numberOfCensoredThings++; };
-        if (radio) { numberOfCensoredThings++; };
+        if (singing) { numberOfCensoredThings++; }
+        if (radio) { numberOfCensoredThings++; }
+        this.newTopics = newTopics;
+        this.newBooks = newBooks;
+        this.newHats = newHats;
+        this.newSinging = newSinging;
+        this.newRadio = newRadio;
+
         if (football) {
             numberOfCensoredThings++;
             badFootball = football;
         }
-        ;
-        censoredSprites = new List<Sprite>();
+        if (resetSprites)
+        {
+            censoredSprites = new List<(Sprite, Sprite)>();
+        }
+        currentCensoredSprites = new List<(Sprite, Sprite)>();
+        spritesToDelete = new List<(Sprite, Sprite)>();
+
+        cloveSpawn = false;
+    }
+
+    public void IncreaseCloves()
+    {
+        cloveSpawn = true;
     }
 
     public void CreateNewBooks()
     {
-
         currentForbiddenBook = 0;
 
-        books = new List<(Sprite, Color)>();
-        tempBooks = new List<(Sprite, Color)>();
-        badBooks = new List<(Sprite, Color)>();
+        books = new List<(TalkingData.BookShapes, Color)>();
+        tempBooks = new List<(TalkingData.BookShapes, Color)>();
+        badBooks = new List<(TalkingData.BookShapes, Color)>();
+        newBadBooks = new List<(TalkingData.BookShapes, Color)>();
 
-        foreach (Sprite shape in data.bookShapes)
+        foreach (TalkingData.BookShapes shape in data.bookShapes)
         {
             for (int i = 0; i < numberOfColors; i++)
             {
@@ -128,7 +158,7 @@ public class CreateTopics : MonoBehaviour
             }
         }
 
-        foreach (Sprite shape in possibleBadItems)
+        foreach (TalkingData.BookShapes shape in possibleBadItems)
         {
             for (int i = 0; i < numberOfColors; i++)
             {
@@ -140,26 +170,38 @@ public class CreateTopics : MonoBehaviour
         {
             //int randomBadBook = Random.Range(0, books.Count);
             //(Sprite, Color) badBook = books[randomBadBook];
-            (Sprite, Color) badBook = tempBooks[i];
+            (TalkingData.BookShapes, Color) badBook = tempBooks[i];
             books.Remove(badBook);
             badBooks.Add(badBook);
+            if (i >= numberOfBadBooks - newBooks)
+            {
+                newBadBooks.Add(badBook);
+            }
             //forbiddenBookImages[currentForbiddenBook].gameObject.SetActive(true);
             //forbiddenBookImages[currentForbiddenBook].color = badBook.Item2;
             //forbiddenBookShapes[currentForbiddenBook].color = badBook.Item2;
             //forbiddenBookShapes[currentForbiddenBook].sprite = badBook.Item1;
-            censoredSprites.Add(badBook.Item1);
+            if (!censoredSprites.Contains((badBook.Item1.book, badBook.Item1.uiBook)))
+            {
+                censoredSprites.Add((badBook.Item1.book, badBook.Item1.uiBook));
+            }
+            currentCensoredSprites.Add((badBook.Item1.book, badBook.Item1.uiBook));
             currentForbiddenBook++;
         }
 
         if (specialDay)
         {
             Debug.Log("Special day");
-            (Sprite, Color) badBook = (data.specialItem, Color.white);
+            ((Sprite, Sprite), Color) badBook = ((data.specialItem.symbol, data.specialItem.uiSymbol), Color.white);
             //forbiddenBookImages[currentForbiddenBook].gameObject.SetActive(true);
             //forbiddenBookImages[currentForbiddenBook].sprite = badBook.Item1;
             //forbiddenBookCovers[currentForbiddenBook].gameObject.SetActive(false);
             //forbiddenBookShapes[currentForbiddenBook].gameObject.SetActive(false);
-            censoredSprites.Add(badBook.Item1);
+            if (!censoredSprites.Contains(badBook.Item1))
+            {
+                censoredSprites.Add(badBook.Item1);
+            }
+            currentCensoredSprites.Add(badBook.Item1);
             currentForbiddenBook++;
         }
 
@@ -178,7 +220,7 @@ public class CreateTopics : MonoBehaviour
 
         if (special && badBookToggle)
         {
-            return ((data.specialItem, Color.white), true);
+            return ((data.specialItem.symbol, Color.white), true);
         }
 
         if (!badBookToggle)
@@ -190,19 +232,32 @@ public class CreateTopics : MonoBehaviour
 
             int randomBook = Random.Range(0, books.Count);
 
-            (Sprite, Color) goodBook = books[randomBook];
+            (Sprite, Color) goodBook = (books[randomBook].Item1.book, books[randomBook].Item2);
             return (goodBook, false);
-
-
         }
         else
         {
+            (Sprite, Color) badBook;
 
-            int randomBook = Random.Range(0, badBooks.Count);
-            (Sprite, Color) badBook = badBooks[randomBook];
-            return (badBook, true);
+            if (cloveSpawn)
+            {
+                return ((data.specialItem.symbol, Color.white), true);
+            }
 
-
+            if (newBadBooks.Count > 0)
+            {
+                int randomBook = Random.Range(0, newBadBooks.Count);
+                // Bad topic
+                badBook = (newBadBooks[randomBook].Item1.book, newBadBooks[randomBook].Item2);
+                newBadBooks.RemoveAt(randomBook);
+                return (badBook, true);
+            }
+            else
+            {
+                int randomBook = Random.Range(0, badBooks.Count);
+                badBook = (badBooks[randomBook].Item1.book, badBooks[randomBook].Item2);
+                return (badBook, true);
+            }
         }
 
     }
@@ -228,23 +283,35 @@ public class CreateTopics : MonoBehaviour
             TalkingData.TalkingTopics badHat = tempGoodHats[i];
             goodHats.Remove(badHat);
             badHats.Add(badHat);
+            if (i >= numberOfBadHats - newHats)
+            {
+                newBadHats.Add(badHat);
+            }
             forbiddenHatsImages[currentForbiddenHat].sprite = badHat.symbol;
             forbiddenHatsImages[currentForbiddenHat].color = Color.white;
             //modelsForHats[currentForbiddenHat].sprite = spritesModelsForHats[Random.Range(0, spritesModelsForHats.Length)];
             forbiddenHatsImages[currentForbiddenHat].gameObject.SetActive(true);
             //modelsForHats[currentForbiddenHat].gameObject.SetActive(true);
-            censoredSprites.Add(badHat.symbol);
+            if (!censoredSprites.Contains((badHat.symbol, badHat.uiSymbol)))
+            {
+                censoredSprites.Add((badHat.symbol, badHat.uiSymbol));
+            }
+            currentCensoredSprites.Add((badHat.symbol, badHat.uiSymbol));
             currentForbiddenHat++;
         }
 
         if (specialDay)
         {
             
-            forbiddenHatsImages[currentForbiddenHat].sprite = data.specialHat;
+            forbiddenHatsImages[currentForbiddenHat].sprite = data.specialHat.symbol;
             forbiddenHatsImages[currentForbiddenHat].color = Color.white;
             forbiddenHatsImages[currentForbiddenHat].gameObject.SetActive(true);
             //modelsForHats[currentForbiddenHat].gameObject.SetActive(true);
-            censoredSprites.Add(data.specialHat);
+            if (!censoredSprites.Contains((data.specialHat.symbol, data.specialHat.uiSymbol)))
+            {
+                censoredSprites.Add((data.specialHat.symbol, data.specialHat.uiSymbol));
+            }
+            currentCensoredSprites.Add((data.specialHat.symbol, data.specialHat.uiSymbol));
             currentForbiddenHat++;
         }
 
@@ -262,15 +329,33 @@ public class CreateTopics : MonoBehaviour
 
         if(special && badHatToggle)
         {
-            return (data.specialHat, true);
+            return (data.specialHat.symbol, true);
         }
 
         if (badHatToggle)
         {
-            int randomHat = Random.Range(0, badHats.Count);
-            // Bad Hat
-            TalkingData.TalkingTopics badHat = badHats[randomHat];
-            return (badHat.symbol, true);
+            if (cloveSpawn)
+            {
+                return (data.specialHat.symbol, true);
+            }
+
+            TalkingData.TalkingTopics badHat;
+
+            if (newBadHats.Count > 0)
+            {
+                int randomHat = Random.Range(0, newBadHats.Count);
+                // Bad topic
+                badHat = newBadHats[randomHat];
+                newBadHats.Remove(badHat);
+                return (badHat.symbol, true);
+            }
+            else
+            {
+                int randomHat = Random.Range(0, badHats.Count);
+                // Bad Hat
+                badHat = badHats[randomHat];
+                return (badHat.symbol, true);
+            }
         }
         else
         {
@@ -294,7 +379,11 @@ public class CreateTopics : MonoBehaviour
 
         if (badFootball)
         {
-            censoredSprites.Add(data.footballTeamWinning[winningFootBallTeam]);
+            if (!censoredSprites.Contains((data.footballTeamWinning[winningFootBallTeam], data.footballTeamWinning[winningFootBallTeam])))
+            {
+                censoredSprites.Add((data.footballTeamWinning[winningFootBallTeam], data.footballTeamWinning[winningFootBallTeam]));
+            }
+            currentCensoredSprites.Add((data.footballTeamWinning[winningFootBallTeam], data.footballTeamWinning[winningFootBallTeam]));
         }
 
         goodTopics = data.topics.OfType<TalkingData.TalkingTopics>().ToList();
@@ -307,20 +396,31 @@ public class CreateTopics : MonoBehaviour
             TalkingData.TalkingTopics badTopic = tempGoodTopics[i];
             goodTopics.Remove(badTopic);
             badTopics.Add(badTopic);
+            if (i >= numberOfBadTopics - newTopics)
+            {
+                newBadTopics.Add(badTopic);
+            }
             forbiddenWordsImages[currentForbiddenWord].sprite = badTopic.symbol;
             forbiddenWordsImages[currentForbiddenWord].color = Color.white;
             forbiddenWordsImages[currentForbiddenWord].gameObject.SetActive(true);
-            censoredSprites.Add(badTopic.symbol);
+            if (!censoredSprites.Contains((badTopic.symbol, badTopic.uiSymbol)))
+            {
+                censoredSprites.Add((badTopic.symbol, badTopic.uiSymbol));
+            }
+            currentCensoredSprites.Add((badTopic.symbol, badTopic.uiSymbol));
             currentForbiddenWord++;
         }
 
         if (specialDay)
         {
-
-            forbiddenWordsImages[currentForbiddenWord].sprite = data.specialTopic;
+            forbiddenWordsImages[currentForbiddenWord].sprite = data.specialTopic.symbol;
             forbiddenWordsImages[currentForbiddenWord].color = Color.white;
             forbiddenWordsImages[currentForbiddenWord].gameObject.SetActive(true);
-            censoredSprites.Add(data.specialTopic);
+            if (!censoredSprites.Contains((data.specialTopic.symbol, data.specialTopic.uiSymbol)))
+            {
+                censoredSprites.Add((data.specialTopic.symbol, data.specialTopic.uiSymbol));
+            }
+            currentCensoredSprites.Add((data.specialTopic.symbol, data.specialTopic.uiSymbol));
             currentForbiddenWord++;
         }
 
@@ -341,11 +441,16 @@ public class CreateTopics : MonoBehaviour
 
         if(special && badTopicToggle)
         {
-            return (data.specialTopic, true);
+            return (data.specialTopic.symbol, true);
         }
 
         if (badTopicToggle)
         {
+            if (cloveSpawn)
+            {
+                return (data.specialTopic.symbol, true);
+            }
+
             int footballRNG = Random.Range(0, 100);
 
             if (footballRNG < chanceOfFootballTopic && badFootball)
@@ -360,10 +465,23 @@ public class CreateTopics : MonoBehaviour
             }
             else
             {
-                int randomTopic = Random.Range(0, badTopics.Count);
-                // Bad topic
-                TalkingData.TalkingTopics badTopic = badTopics[randomTopic];
-                return (badTopic.symbol, true);
+                TalkingData.TalkingTopics badTopic;
+
+                if (newBadTopics.Count > 0)
+                {
+                    int randomTopic = Random.Range(0, newBadTopics.Count);
+                    // Bad topic
+                    badTopic = newBadTopics[randomTopic];
+                    newBadTopics.Remove(badTopic);
+                    return (badTopic.symbol, true);
+                }
+                else
+                {
+                    int randomTopic = Random.Range(0, badTopics.Count);
+                    // Bad topic
+                    badTopic = badTopics[randomTopic];
+                    return (badTopic.symbol, true);
+                }
             }
         }
         else
@@ -396,9 +514,13 @@ public class CreateTopics : MonoBehaviour
         //forbiddenSingingImage.sprite = data.singing;
         this.badSinging = badSinging;
 
-        if(badSinging )
+        if(badSinging)
         {
-            censoredSprites.Add(data.singing);
+            if (!censoredSprites.Contains((data.singing, data.singing)))
+            {
+                censoredSprites.Add((data.singing, data.singing));
+            }
+            currentCensoredSprites.Add((data.singing, data.singing));
         }
     }
 
@@ -410,7 +532,11 @@ public class CreateTopics : MonoBehaviour
 
         if (badRadio)
         {
-            censoredSprites.Add(data.radio);
+            if (!censoredSprites.Contains((data.radio.symbol, data.radio.uiSymbol)))
+            {
+                censoredSprites.Add((data.radio.symbol, data.radio.uiSymbol));
+            }
+            currentCensoredSprites.Add((data.radio.symbol, data.radio.uiSymbol));
         }
     }
 
@@ -448,12 +574,25 @@ public class CreateTopics : MonoBehaviour
 
     public void UpdateCensorship()
     {
+        foreach ((Sprite, Sprite) sprite in censoredSprites) 
+        {
+            if (!currentCensoredSprites.Contains(sprite))
+            {
+                spritesToDelete.Add(sprite);
+            }
+        }
+
+        foreach ((Sprite, Sprite) sprite in spritesToDelete)
+        {
+            censoredSprites.Remove(sprite);
+        }
+
         for (int i = 0; i < allCensorImages.Length; i++)
         {
             if (i < censoredSprites.Count)
             {
                 allCensorImages[i].gameObject.SetActive(true);
-                allCensorImages[i].sprite = censoredSprites[i];
+                allCensorImages[i].sprite = censoredSprites[i].Item2;
             }
             else
             {
@@ -466,7 +605,7 @@ public class CreateTopics : MonoBehaviour
     {
         winningFootBallTeam = Random.Range(0, data.footballTeamWinning.Length);
 
-        possibleBadItems = new List<Sprite>();
+        possibleBadItems = new List<TalkingData.BookShapes>();
         possibleBadHats = new List<TalkingData.TalkingTopics>();
 
         for (int i = 0; i < numberOfPossibleBadItems; i++)

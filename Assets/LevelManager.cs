@@ -89,6 +89,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private PlayerMovement playerMov;
 
+    private int newTopics = 0;
+    private int newBooks = 0;
+    private int newHats = 0;
+    private int newSinging = 0;
+    private int newRadio = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -119,13 +125,14 @@ public class LevelManager : MonoBehaviour
                 {
                     Debug.Log("revolution Started");
                     specialDayRevolutionApproaching = true;
+                    createTopicsScript.IncreaseCloves();
                 }
 
                 int chanceOfspawn = UnityEngine.Random.Range(0, 100);
 
                 if (chanceOfspawn < levels[currentLevel].initialChance)
                 {
-                    CivilianFaultType randomFault = faultTypes[UnityEngine.Random.Range(0, faultTypes.Count)];
+                    CivilianFaultType randomFault = PriorityFaultType();
                     civilianBrainScript.CreateNewCivilian(randomFault);
                     faultManager.AddFault(specialDayRevolutionApproaching);
                 }
@@ -150,7 +157,7 @@ public class LevelManager : MonoBehaviour
                         indexOfFaults.Remove(numberOfPeopleSpawned);
                         // Spawn Bad Civillian
                         //Debug.Log("Bad Civillian Spawned");
-                        CivilianFaultType randomFault = faultTypes[UnityEngine.Random.Range(0, faultTypes.Count)];
+                        CivilianFaultType randomFault = PriorityFaultType();
                         civilianBrainScript.CreateNewCivilian(randomFault);
                         faultManager.AddFault(false);
                     }
@@ -262,6 +269,44 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    private CivilianFaultType PriorityFaultType()
+    {
+        if (specialDayRevolutionApproaching)
+        {
+            //Ignore singing and radio to force more cloves after a certain time on the special level
+            return faultTypes[UnityEngine.Random.Range(0, faultTypes.Count - 2)];
+        }
+        else if (newTopics > 0)
+        {
+            newTopics--;
+            return CivilianFaultType.Talking;
+        }
+        else if (newBooks > 0)
+        {
+            newBooks--;
+            return CivilianFaultType.Item;
+        }
+        else if (newHats > 0)
+        {
+            newHats--;
+            return CivilianFaultType.Fashion;
+        }
+        else if (newSinging > 0)
+        {
+            newSinging--;
+            return CivilianFaultType.Singing;
+        }
+        else if (newRadio > 0)
+        {
+            newRadio--;
+            return CivilianFaultType.Radio;
+        }
+        else
+        {
+            return faultTypes[UnityEngine.Random.Range(0, faultTypes.Count)];
+        }
+    }
+
 
     private IEnumerator LoadRevolutionCR()
     {
@@ -334,7 +379,25 @@ public class LevelManager : MonoBehaviour
         civilianBrainScript.ClearCivillians();
         createTopicsScript.badgeCover1.SetActive(false);
         createTopicsScript.badgeCover2.SetActive(false);
-        StartCoroutine(StartLevelCR(level));
+
+        if (currentLevel > 0)
+        {
+            newTopics = levels[currentLevel].badTopicsNumber - levels[currentLevel - 1].badTopicsNumber;
+            newBooks = levels[currentLevel].badBooksNumber - levels[currentLevel - 1].badBooksNumber;
+            newHats = levels[currentLevel].badHatsNumber - levels[currentLevel - 1].badHatsNumber;
+            
+            if (levels[currentLevel].badSinging && !levels[currentLevel - 1].badSinging)
+            {
+                newSinging = 1;
+            }
+
+            if (levels[currentLevel].badRadio && !levels[currentLevel - 1].badRadio)
+            {
+                newRadio = 1;
+            }
+        }
+
+    StartCoroutine(StartLevelCR(level));
     }
 
     public IEnumerator StartLevelCR(int level)
@@ -374,14 +437,40 @@ public class LevelManager : MonoBehaviour
             indexOfFaults.Add(availableSlots[i]);
         }
 
+        if (currentLevel == 0)
+        {
+            createTopicsScript.SetNumberOfFaultTypes(levels[level].badTopicsNumber,
+                                                    newTopics,
+                                                    levels[level].badHatsNumber,
+                                                    newHats,
+                                                    levels[level].badBooksNumber,
+                                                    newBooks,
+                                                    levels[level].badSinging,
+                                                    newSinging,
+                                                    levels[level].badRadio,
+                                                    newRadio,
+                                                    levels[level].badFootball,
+                                                    true
+            );
+        }
+        else
+        {
+            createTopicsScript.SetNumberOfFaultTypes(levels[level].badTopicsNumber,
+                                                    newTopics,
+                                                    levels[level].badHatsNumber,
+                                                    newHats,
+                                                    levels[level].badBooksNumber,
+                                                    newBooks,
+                                                    levels[level].badSinging,
+                                                    newSinging,
+                                                    levels[level].badRadio,
+                                                    newRadio,
+                                                    levels[level].badFootball,
+                                                    false
+            );
+        }
 
-        createTopicsScript.SetNumberOfFaultTypes(levels[level].badTopicsNumber,
-                                                 levels[level].badHatsNumber,
-                                                 levels[level].badBooksNumber,
-                                                 levels[level].badSinging,
-                                                 levels[level].badRadio,
-                                                 levels[level].badFootball
-        );
+
 
         createTopicsScript.CreateNewTopics();
         createTopicsScript.CreateNewHats();

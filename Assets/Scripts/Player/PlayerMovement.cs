@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -93,5 +95,15 @@ public class PlayerMovement : MonoBehaviour
         {
             lastSlap = canMove;
         }
+        else
+        {
+            StartCoroutine(LastSlapCR());
+        }
+    }
+
+    private IEnumerator LastSlapCR()
+    {
+        yield return new WaitForSeconds(0.1f);
+        lastSlap = false;
     }
 }
