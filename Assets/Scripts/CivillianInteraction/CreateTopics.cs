@@ -133,6 +133,9 @@ public class CreateTopics : MonoBehaviour
         currentCensoredSprites = new List<(Sprite, Sprite)>();
         spritesToDelete = new List<(Sprite, Sprite)>();
 
+        newBadTopics = new List<TalkingData.TalkingTopics>();
+        newBadHats = new List<TalkingData.TalkingTopics> ();
+        newBadBooks = new List<(TalkingData.BookShapes, Color)> ();
         cloveSpawn = false;
     }
 
