@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     private bool lastSlap = true;
     private bool movEnabled = true;
     private bool lastSideMovementRight = true;
+    private bool mouseClick = false;
+    private Vector2 targetPosition = Vector2.zero;
 
     // Update is called once per frame
     void Update()
@@ -31,26 +33,47 @@ public class PlayerMovement : MonoBehaviour
 
         if (movEnabled)
         {
+            if (Input.GetMouseButtonDown(0))
+            {
+                GetTargetPosition();
+            }
+
+            if (mouseClick)
+            {
+                velocity = (targetPosition - (Vector2)transform.position).normalized;
+                LastSideMovement();
+
+                if (Vector2.Distance(targetPosition, (Vector2)transform.position) < 0.1f)
+                {
+                    mouseClick = false;
+                }
+            }
+
+
             if (Input.GetKey(up))
             {
                 velocity.y = 1;
+                mouseClick = false;
             }
 
             if (Input.GetKey(down))
             {
                 velocity.y = -1;
+                mouseClick = false;
             }
 
             if (Input.GetKey(right))
             {
                 velocity.x = 1;
-                lastSideMovementRight = true;
+                LastSideMovement();
+                mouseClick = false;
             }
 
             if (Input.GetKey(left))
             {
                 velocity.x = -1;
-                lastSideMovementRight = false;
+                LastSideMovement();
+                mouseClick = false;
             }
         }
 
@@ -59,12 +82,37 @@ public class PlayerMovement : MonoBehaviour
         UpdateAnimation();
     }
 
+    private void LastSideMovement()
+    {
+        if (velocity.x < 0)
+        {
+            lastSideMovementRight = false;
+        }
+        else if (velocity.x > 0)
+        {
+            lastSideMovementRight = true;
+        }
+    }
+
+    private void GetTargetPosition()
+    {
+        Vector3 point = new Vector3();
+        Vector2 mousePos = new Vector2();
+
+        mousePos = Input.mousePosition;
+
+        point = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.nearClipPlane));
+
+        mouseClick = true;
+        targetPosition = new Vector2(point.x, point.y);
+    }
+
     private void UpdateAnimation()
     {
         bool walking = rb.linearVelocity.magnitude > 0.1f;
         _animator.SetBool("walk", walking);
 
-        if (Input.GetKeyDown(slap) && lastSlap)
+        if ((Input.GetKeyDown(slap) || Input.GetMouseButtonDown(1)) && lastSlap)
         {
             _animator.SetTrigger("slap");
             AudioSystem.PlaySound(_pencilHitGroundClips);
