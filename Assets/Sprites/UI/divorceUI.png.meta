@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: 181849886886393615
     second: divorceUI_4
+  - first:
+      213: 3597708983087430390
+    second: divorceUI_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,10 +118,10 @@ TextureImporter:
       name: divorceUI_0
       rect:
         serializedVersion: 2
-        x: 267
-        y: 1347
-        width: 22
-        height: 12
+        x: 403
+        y: 296
+        width: 1260
+        height: 1452
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,10 +140,10 @@ TextureImporter:
       name: divorceUI_1
       rect:
         serializedVersion: 2
-        x: 278
-        y: 363
-        width: 1504
-        height: 1338
+        x: 1510
+        y: 1739
+        width: 27
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,10 +162,10 @@ TextureImporter:
       name: divorceUI_2
       rect:
         serializedVersion: 2
-        x: 267
-        y: 1328
-        width: 8
-        height: 12
+        x: 389
+        y: 1381
+        width: 9
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +184,10 @@ TextureImporter:
       name: divorceUI_3
       rect:
         serializedVersion: 2
-        x: 267
-        y: 947
-        width: 69
-        height: 54
+        x: 397
+        y: 1380
+        width: 7
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +206,10 @@ TextureImporter:
       name: divorceUI_4
       rect:
         serializedVersion: 2
-        x: 1194
-        y: 347
-        width: 59
-        height: 16
+        x: 398
+        y: 1386
+        width: 6
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,6 +220,28 @@ TextureImporter:
       bones: []
       spriteID: f07fe46328f068200800000000000000
       internalID: 181849886886393615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: divorceUI_5
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 1335
+        width: 33
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fa78263241ade130800000000000000
+      internalID: 3597708983087430390
       vertices: []
       indices: 
       edges: []
@@ -240,6 +265,7 @@ TextureImporter:
       divorceUI_2: 722370396893291571
       divorceUI_3: 4510856433363333879
       divorceUI_4: 181849886886393615
+      divorceUI_5: 3597708983087430390
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
