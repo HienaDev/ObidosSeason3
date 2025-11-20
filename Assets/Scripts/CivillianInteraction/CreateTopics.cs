@@ -122,10 +122,11 @@ public class CreateTopics : MonoBehaviour
         this.newSinging = newSinging;
         this.newRadio = newRadio;
 
+        badFootball = football;
         if (football) {
             numberOfCensoredThings++;
-            badFootball = football;
         }
+
         if (resetSprites)
         {
             censoredSprites = new List<(Sprite, Sprite)>();

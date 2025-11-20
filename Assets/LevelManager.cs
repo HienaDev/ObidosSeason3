@@ -123,18 +123,18 @@ public class LevelManager : MonoBehaviour
 
             if (levels[currentLevel].specialLevel)
             {
+                createTopicsScript.IncreaseCloves();
+                specialDayRevolutionApproaching = true;
                 if ((anomaliesCount/ levels[currentLevel].numberOfFaults > 0.5 || (levels[currentLevel].timer - timeRemaining) / levels[currentLevel].timer > 0.5) && !specialDayRevolutionApproaching)
                 {
                     Debug.Log("revolution Started");
-                    specialDayRevolutionApproaching = true;
-                    createTopicsScript.IncreaseCloves();
                 }
 
                 int chanceOfspawn = UnityEngine.Random.Range(0, 100);
 
                 if (chanceOfspawn < levels[currentLevel].initialChance)
                 {
-                    CivilianFaultType randomFault = PriorityFaultType();
+                    CivilianFaultType randomFault = (CivilianFaultType)UnityEngine.Random.Range(3, 5);
                     civilianBrainScript.CreateNewCivilian(randomFault);
                     faultManager.AddFault(specialDayRevolutionApproaching);
                 }
