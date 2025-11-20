@@ -36,6 +36,7 @@ public class LevelManager : MonoBehaviour
     }
 
     [SerializeField] private FaultManager faultManager;
+    [SerializeField] private GameObject uiObject;
 
     [SerializeField] private Level[] levels;
     private int currentLevel;
@@ -407,6 +408,7 @@ public class LevelManager : MonoBehaviour
         fadeScreen.SetDay((20 + level).ToString(), true);
 
         yield return new WaitForSeconds(3f);
+        uiObject.SetActive(true);
         spritesGreyscaleMaterial.SetFloat("_GrayscaleAmount", levels[currentLevel].initialGreyscale);
         groundGreyscaleMaterial.SetFloat("_Greyscale", levels[currentLevel].initialGreyscale);
         if (levels[currentLevel].specialLevel)
