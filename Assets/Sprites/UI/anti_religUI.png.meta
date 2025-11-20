@@ -103,10 +103,10 @@ TextureImporter:
       name: anti_religUI_0
       rect:
         serializedVersion: 2
-        x: 467
-        y: 176
-        width: 1114
-        height: 1696
+        x: 537
+        y: 246
+        width: 974
+        height: 1484
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

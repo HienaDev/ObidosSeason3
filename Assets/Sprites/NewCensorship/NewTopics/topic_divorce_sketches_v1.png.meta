@@ -115,10 +115,10 @@ TextureImporter:
       name: topic_divorce_sketches_v1_0
       rect:
         serializedVersion: 2
-        x: 172
-        y: 1408
-        width: 13
-        height: 29
+        x: 267
+        y: 1347
+        width: 22
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,10 +137,10 @@ TextureImporter:
       name: topic_divorce_sketches_v1_1
       rect:
         serializedVersion: 2
-        x: 245
-        y: 438
-        width: 939
-        height: 1069
+        x: 278
+        y: 363
+        width: 1504
+        height: 1338
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,10 +159,10 @@ TextureImporter:
       name: topic_divorce_sketches_v1_2
       rect:
         serializedVersion: 2
-        x: 989
-        y: 433
-        width: 758
-        height: 1062
+        x: 267
+        y: 1328
+        width: 8
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: topic_divorce_sketches_v1_3
       rect:
         serializedVersion: 2
-        x: 1263
-        y: 416
-        width: 19
-        height: 14
+        x: 267
+        y: 947
+        width: 69
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +203,10 @@ TextureImporter:
       name: topic_divorce_sketches_v1_4
       rect:
         serializedVersion: 2
-        x: 1281
-        y: 415
-        width: 45
-        height: 17
+        x: 1194
+        y: 347
+        width: 59
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

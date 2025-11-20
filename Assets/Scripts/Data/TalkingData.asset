@@ -135,7 +135,7 @@ MonoBehaviour:
   - symbol: {fileID: 21300000, guid: 0096b8d84404c2a46861c2f6e8361c21, type: 3}
     type: 2
     uiSymbol: {fileID: 21300000, guid: 89226e1e59da73f4e8ac8108c2eb33f3, type: 3}
-  singing: {fileID: -1902478006, guid: 7b2674533ce789240a5310ac71f82ffd, type: 3}
+  singing: {fileID: 21300000, guid: 37d68e0366c22b949bf4cac0f5671ea9, type: 3}
   radio:
     symbol: {fileID: 21300000, guid: d1a76494a4ccc5645aaf13ce329f01b5, type: 3}
     uiSymbol: {fileID: 21300000, guid: 6107ee844a1e1554386cb33e05518d02, type: 3}

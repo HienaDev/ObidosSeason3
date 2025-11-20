@@ -103,10 +103,10 @@ TextureImporter:
       name: estadonovoUI_0
       rect:
         serializedVersion: 2
-        x: 194
-        y: 185
-        width: 1681
-        height: 1675
+        x: 256
+        y: 247
+        width: 1548
+        height: 1542
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

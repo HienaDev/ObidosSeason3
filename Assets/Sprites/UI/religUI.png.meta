@@ -103,10 +103,10 @@ TextureImporter:
       name: religUI_0
       rect:
         serializedVersion: 2
-        x: 488
-        y: 165
-        width: 1083
-        height: 1706
+        x: 555
+        y: 236
+        width: 947
+        height: 1493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
