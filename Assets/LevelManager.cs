@@ -370,6 +370,16 @@ public class LevelManager : MonoBehaviour
         {
             go.SetActive(false);
         }*/
+        StartCoroutine(StartLevelCR(level));
+    }
+
+    public IEnumerator StartLevelCR(int level)
+    {
+
+        fadeScreen.Fade(false);
+        fadeScreen.SetDay((20 + level).ToString(), true);
+
+        yield return new WaitForSeconds(1f);
 
         FaultManager.Instance.ResetFaults(levels[level].numberOfFaults);
 
@@ -387,7 +397,7 @@ public class LevelManager : MonoBehaviour
             newTopics = levels[currentLevel].badTopicsNumber - levels[currentLevel - 1].badTopicsNumber;
             newBooks = levels[currentLevel].badBooksNumber - levels[currentLevel - 1].badBooksNumber;
             newHats = levels[currentLevel].badHatsNumber - levels[currentLevel - 1].badHatsNumber;
-            
+
             if (levels[currentLevel].badSinging && !levels[currentLevel - 1].badSinging)
             {
                 newSinging = 1;
@@ -399,16 +409,8 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-    StartCoroutine(StartLevelCR(level));
-    }
+        yield return new WaitForSeconds(2f);
 
-    public IEnumerator StartLevelCR(int level)
-    {
-
-        fadeScreen.Fade(false);
-        fadeScreen.SetDay((20 + level).ToString(), true);
-
-        yield return new WaitForSeconds(3f);
         uiObject.SetActive(true);
         logosCanvas.SetActive(false);
         spritesGreyscaleMaterial.SetFloat("_GrayscaleAmount", levels[currentLevel].initialGreyscale);

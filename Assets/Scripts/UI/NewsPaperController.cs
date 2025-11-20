@@ -19,13 +19,13 @@ public class NewsPaperController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(levelManager.isRunning)
+        /*if(levelManager.isRunning)
         {
             newsPaper.SetActive(true);
         }
         else if (levelManager.isRunning == false)
         {
             newsPaper.SetActive(false);
-        }
+        }*/
     }
 }
