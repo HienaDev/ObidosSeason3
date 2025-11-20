@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     [SerializeField] private KeyCode up = KeyCode.W;
     [SerializeField] private KeyCode down = KeyCode.S;
     [SerializeField] private KeyCode left = KeyCode.A;
     [SerializeField] private KeyCode right = KeyCode.D;
+    [SerializeField] private KeyCode alternativeUp = KeyCode.UpArrow;
+    [SerializeField] private KeyCode alternativeDown = KeyCode.DownArrow;
+    [SerializeField] private KeyCode alternativeLeft = KeyCode.LeftArrow;
+    [SerializeField] private KeyCode alternativeRight = KeyCode.RightArrow;
     [SerializeField] private KeyCode slap = KeyCode.Space;
 
 
@@ -23,8 +26,6 @@ public class PlayerMovement : MonoBehaviour
     private bool lastSlap = true;
     private bool movEnabled = true;
     private bool lastSideMovementRight = true;
-    private bool mouseClick = false;
-    private Vector2 targetPosition = Vector2.zero;
 
     // Update is called once per frame
     void Update()
@@ -33,47 +34,26 @@ public class PlayerMovement : MonoBehaviour
 
         if (movEnabled)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                GetTargetPosition();
-            }
-
-            if (mouseClick)
-            {
-                velocity = (targetPosition - (Vector2)transform.position).normalized;
-                LastSideMovement();
-
-                if (Vector2.Distance(targetPosition, (Vector2)transform.position) < 0.1f)
-                {
-                    mouseClick = false;
-                }
-            }
-
-
-            if (Input.GetKey(up))
+            if (Input.GetKey(up) || Input.GetKey(alternativeUp))
             {
                 velocity.y = 1;
-                mouseClick = false;
             }
 
-            if (Input.GetKey(down))
+            if (Input.GetKey(down) || Input.GetKey(alternativeDown))
             {
                 velocity.y = -1;
-                mouseClick = false;
             }
 
-            if (Input.GetKey(right))
+            if (Input.GetKey(right) || Input.GetKey(alternativeRight))
             {
                 velocity.x = 1;
                 LastSideMovement();
-                mouseClick = false;
             }
 
-            if (Input.GetKey(left))
+            if (Input.GetKey(left) || Input.GetKey(alternativeLeft))
             {
                 velocity.x = -1;
                 LastSideMovement();
-                mouseClick = false;
             }
         }
 
@@ -92,19 +72,6 @@ public class PlayerMovement : MonoBehaviour
         {
             lastSideMovementRight = true;
         }
-    }
-
-    private void GetTargetPosition()
-    {
-        Vector3 point = new Vector3();
-        Vector2 mousePos = new Vector2();
-
-        mousePos = Input.mousePosition;
-
-        point = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.nearClipPlane));
-
-        mouseClick = true;
-        targetPosition = new Vector2(point.x, point.y);
     }
 
     private void UpdateAnimation()
