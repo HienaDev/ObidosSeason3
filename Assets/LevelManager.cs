@@ -553,4 +553,15 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         StartLevel(currentLevel);
     }
+
+    public void LoadAboutScene()
+    {
+        StartCoroutine(LoadAboutDelay());
+    }
+
+    private IEnumerator LoadAboutDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(2);
+    }
 }
