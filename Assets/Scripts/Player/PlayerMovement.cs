@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         bool walking = rb.linearVelocity.magnitude > 0.1f;
         _animator.SetBool("walk", walking);
 
-        if ((Input.GetKeyDown(slap) || Input.GetMouseButtonDown(1)) && lastSlap)
+        if ((Input.GetKeyDown(slap) || Input.GetMouseButtonDown(0)) && lastSlap)
         {
             _animator.SetTrigger("slap");
             AudioSystem.PlaySound(_pencilHitGroundClips);
