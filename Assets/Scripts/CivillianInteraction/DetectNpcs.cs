@@ -29,7 +29,7 @@ public class DetectNpcs : MonoBehaviour
 
     private void Update()
     {
-        if((Input.GetKeyDown(censorKey) || Input.GetMouseButtonDown(1)) && selectedGuy != null && !levelManager.revolution)
+        if((Input.GetKeyDown(censorKey) || Input.GetMouseButtonDown(0)) && selectedGuy != null && !levelManager.revolution)
         {
             if(!selectedGuy.GetComponent<CivilianFault>().menuButton)
                 npcsInArea.Remove(selectedGuy);
