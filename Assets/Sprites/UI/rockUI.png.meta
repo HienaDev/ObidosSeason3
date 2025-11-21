@@ -8,12 +8,6 @@ TextureImporter:
   - first:
       213: 7738969283966394333
     second: rockUI_1
-  - first:
-      213: -3261236200151783590
-    second: rockUI_2
-  - first:
-      213: -1194612690949339251
-    second: rockUI_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,10 +106,10 @@ TextureImporter:
       name: rockUI_0
       rect:
         serializedVersion: 2
-        x: 387
-        y: 171
-        width: 1284
-        height: 1705
+        x: 427
+        y: 491
+        width: 33
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +128,10 @@ TextureImporter:
       name: rockUI_1
       rect:
         serializedVersion: 2
-        x: 881
-        y: 1866
-        width: 6
-        height: 6
+        x: 465
+        y: 275
+        width: 1127
+        height: 1497
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,50 +142,6 @@ TextureImporter:
       bones: []
       spriteID: ddfd97a9f87566b60800000000000000
       internalID: 7738969283966394333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rockUI_2
-      rect:
-        serializedVersion: 2
-        x: 342
-        y: 417
-        width: 36
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a57ee4964f2cdb2d0800000000000000
-      internalID: -3261236200151783590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rockUI_3
-      rect:
-        serializedVersion: 2
-        x: 374
-        y: 452
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d878acf3612eb6fe0800000000000000
-      internalID: -1194612690949339251
       vertices: []
       indices: 
       edges: []
@@ -212,8 +162,6 @@ TextureImporter:
     nameFileIdTable:
       rockUI_0: 8810715407789127672
       rockUI_1: 7738969283966394333
-      rockUI_2: -3261236200151783590
-      rockUI_3: -1194612690949339251
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
