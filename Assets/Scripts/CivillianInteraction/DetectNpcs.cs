@@ -52,7 +52,7 @@ public class DetectNpcs : MonoBehaviour
 
             if (selectedGuy != null)
             {
-                selectedGuy.GetComponent<CivilianFault>().spriteRenderer.material.SetFloat("_Thickness", 10f);
+                selectedGuy.GetComponent<CivilianFault>().spriteRenderer.material.SetFloat("_Thickness", 80f);
             }
         }
 
