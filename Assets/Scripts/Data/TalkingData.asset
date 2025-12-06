@@ -33,7 +33,7 @@ MonoBehaviour:
     uiBook: {fileID: 21300000, guid: e8fa9ca2772c8cf4a86a2b0b357ea180, type: 3}
   - book: {fileID: 21300000, guid: 14c9a01e4637b2f42acea206c9325256, type: 3}
     uiBook: {fileID: 21300000, guid: a532f62d253f2504797540982613355c, type: 3}
-  - book: {fileID: 21300000, guid: a7305c27c2c882a40a944b37ded5ca0c, type: 3}
+  - book: {fileID: 21300000, guid: 53a5da85300e06445b3f7e37c54e16e8, type: 3}
     uiBook: {fileID: 21300000, guid: 17755765d1801f04fb6e9498f5a3bc3b, type: 3}
   footballTeamWinning:
   - {fileID: 21300000, guid: 458fee62da3875a49af921be7875a578, type: 3}

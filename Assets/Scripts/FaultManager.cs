@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -69,6 +70,7 @@ public class FaultManager : MonoBehaviour
 
     public void RemoveFault()
     {
+        faultSlider.GetComponent<Animator>().SetTrigger("SuccessfulCensor");
         faultCounter--;
         levelManager.anomaliesCount = faultCounter;
         faultSlider.value++;

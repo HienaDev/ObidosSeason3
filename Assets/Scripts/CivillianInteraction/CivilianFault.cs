@@ -19,6 +19,7 @@ public class CivilianFault : MonoBehaviour
     [SerializeField] private UnityEvent customEvent;
 
     private LevelManager levelManager;
+    private bool specialLevel = false;
 
     [field: Header("Runtime")]
     [field: SerializeField] public CivilianFaultType FaultType { get; private set; }
@@ -35,6 +36,9 @@ public class CivilianFault : MonoBehaviour
     [SerializeField]
     private float alphaReduceTime = 1f;
 
+    [SerializeField]
+    private float specialLevelTimetoDisappear = 10f;
+
     private bool disappear = false;
     private Color tempColor;
 
@@ -43,10 +47,25 @@ public class CivilianFault : MonoBehaviour
         talkingBubble.Initialize(type);
         levelManager = FindAnyObjectByType<LevelManager>();
         FaultType = type;
+        specialLevel = levelManager.SpecialLevel;
     }
 
     private void FixedUpdate()
     {
+        if (specialLevel && FaultType == CivilianFaultType.None)
+        {
+            specialLevelTimetoDisappear -= Time.fixedDeltaTime;
+
+            if (specialLevelTimetoDisappear <= 0)
+            {
+                specialLevelTimetoDisappear = 0;
+                GetComponent<CircleCollider2D>().enabled = false;
+                censored = true;
+                talkingBubble.StopTalking();
+                disappear = true;
+            }
+        }
+
         if (disappear)
         {
             foreach (SpriteRenderer spriteRenderer in spriteRenderers)

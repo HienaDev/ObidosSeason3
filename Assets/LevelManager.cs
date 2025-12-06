@@ -65,6 +65,7 @@ public class LevelManager : MonoBehaviour
     public int anomaliesCount = 0;
 
     [SerializeField] private GameObject pointerPivot;
+    [SerializeField] private Animator watchAnimator;
 
     [SerializeField] private TextMeshProUGUI reasonTextUI;
 
@@ -78,7 +79,10 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField]
     private GameObject musicianNPC;
-
+    [SerializeField]
+    private GameObject guardsNPCs;
+    [SerializeField]
+    private GameObject groundHitParticles;
     [SerializeField]
     private Material spritesGreyscaleMaterial;
     [SerializeField]
@@ -96,6 +100,14 @@ public class LevelManager : MonoBehaviour
     private int newHats = 0;
     private int newSinging = 0;
     private int newRadio = 0;
+
+    public bool SpecialLevel
+    {
+        get
+        {
+            return levels[currentLevel].specialLevel;
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -321,7 +333,6 @@ public class LevelManager : MonoBehaviour
     {
         playerMov.StartMoving(false);
         currentLevel++;
-        reasonTextUI.text = "Stop any suspicious activity";
         createTopicsScript.goodJobObject.SetActive(true);
         StartCoroutine(EndLevelCoroutine());
     }
@@ -358,7 +369,16 @@ public class LevelManager : MonoBehaviour
 
         pointerPivot.transform.localEulerAngles = new Vector3 (0f, 0f, Mathf.Lerp(0, 360, timeRemaining/ levels[currentLevel].timer));
 
-        int minutes = Mathf.FloorToInt(timeRemaining / 60);
+        if (timeRemaining/ levels[currentLevel].timer <= 0.25)
+        {
+            watchAnimator.SetBool("TimeRunningOut", true);
+        }
+        else
+        {
+            watchAnimator.SetBool("TimeRunningOut", false);
+        }
+
+            int minutes = Mathf.FloorToInt(timeRemaining / 60);
         int seconds = Mathf.FloorToInt(timeRemaining % 60);
         timerText.text = $"{minutes:00}:{seconds:00}"; // Format as MM:SS
     }
@@ -415,14 +435,18 @@ public class LevelManager : MonoBehaviour
         logosCanvas.SetActive(false);
         spritesGreyscaleMaterial.SetFloat("_GrayscaleAmount", levels[currentLevel].initialGreyscale);
         groundGreyscaleMaterial.SetFloat("_Greyscale", levels[currentLevel].initialGreyscale);
+        groundHitParticles.SetActive(false);
+        groundHitParticles.SetActive(true);
         if (levels[currentLevel].specialLevel)
         {
             specialLevelGreyscale = levels[currentLevel].initialGreyscale;
             musicianNPC.SetActive(true);
+            guardsNPCs.SetActive(false);
         }
         else
         {
             musicianNPC.SetActive(false);
+            guardsNPCs.SetActive(true);
         }
         fadeScreen.Fade(true);
 
