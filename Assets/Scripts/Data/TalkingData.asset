@@ -141,7 +141,7 @@ MonoBehaviour:
     symbol: {fileID: 21300000, guid: 767d1f5cdb5cb9e4eab13a001e327773, type: 3}
     uiSymbol: {fileID: 21300000, guid: dccc4f01a31fc304f8438f4edd1deef7, type: 3}
   specialHat:
-    symbol: {fileID: 21300000, guid: 6b78187416e7b294e891542a8982dd64, type: 3}
+    symbol: {fileID: 21300000, guid: 3abd5af3ea513b648801c6e1b5f54c43, type: 3}
     uiSymbol: {fileID: 21300000, guid: 21896ef89add5d0419f33065e3dbdbd7, type: 3}
   specialTopic:
     symbol: {fileID: 21300000, guid: 4fa31bffc0a764940bf05dc33542c5e6, type: 3}

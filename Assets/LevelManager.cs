@@ -82,6 +82,18 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject guardsNPCs;
     [SerializeField]
+    private GameObject floristNPC;
+    [SerializeField]
+    private GameObject floristcloveNPC;
+    [SerializeField]
+    private GameObject floristhouse;
+    [SerializeField]
+    private GameObject floristclovehouse;
+    [SerializeField]
+    private GameObject statue;
+    [SerializeField]
+    private GameObject clovestatue;
+    [SerializeField]
     private GameObject groundHitParticles;
     [SerializeField]
     private Material spritesGreyscaleMaterial;
@@ -441,12 +453,24 @@ public class LevelManager : MonoBehaviour
         {
             specialLevelGreyscale = levels[currentLevel].initialGreyscale;
             musicianNPC.SetActive(true);
+            floristcloveNPC.SetActive(true);
+            floristclovehouse.SetActive(true);
+            clovestatue.SetActive(true);
+            floristNPC.SetActive(false);
             guardsNPCs.SetActive(false);
+            floristhouse.SetActive(false);
+            statue.SetActive(false);
         }
         else
         {
             musicianNPC.SetActive(false);
             guardsNPCs.SetActive(true);
+            floristcloveNPC.SetActive(false);
+            floristNPC.SetActive(true);
+            floristclovehouse.SetActive(false);
+            clovestatue.SetActive(false);
+            floristhouse.SetActive(true);
+            statue.SetActive(true);
         }
         fadeScreen.Fade(true);
 
