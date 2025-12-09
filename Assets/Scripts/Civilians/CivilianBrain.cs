@@ -92,4 +92,7 @@ public class CivilianBrain : MonoBehaviour
             n.gCost = 0;
         }
     }
+    
 }
+
+

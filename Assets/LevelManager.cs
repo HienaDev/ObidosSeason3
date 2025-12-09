@@ -403,11 +403,32 @@ public class LevelManager : MonoBehaviour
             go.SetActive(false);
         }*/
         StartCoroutine(StartLevelCR(level));
+        
     }
+
+    private IEnumerator StartLevelCooldownCR(int level)
+    {
+        // Stop any spawning immediately
+        spawning = false;
+        isRunning = false;
+        numberOfPeopleSpawned = 0;
+        anomaliesCount = 0;
+
+        // Clear civilians and reset nodes
+        civilianBrainScript?.ClearCivillians();
+
+        // Small delay to ensure everything is fully reset
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.05f);
+
+        // Call your original StartLevel() function
+        StartLevel(level);
+    }
+
 
     public IEnumerator StartLevelCR(int level)
     {
-
+        
         fadeScreen.Fade(false);
         fadeScreen.SetDay((20 + level).ToString(), true);
 
@@ -445,8 +466,19 @@ public class LevelManager : MonoBehaviour
 
         uiObject.SetActive(true);
         logosCanvas.SetActive(false);
-        spritesGreyscaleMaterial.SetFloat("_GrayscaleAmount", levels[currentLevel].initialGreyscale);
-        groundGreyscaleMaterial.SetFloat("_Greyscale", levels[currentLevel].initialGreyscale);
+        if (level == 0)
+        {
+            spritesGreyscaleMaterial.SetFloat("_GrayscaleAmount", 0f);
+            groundGreyscaleMaterial.SetFloat("_Greyscale", 0f);
+            specialLevelGreyscale = 1f;
+        }
+        else
+        {
+            spritesGreyscaleMaterial.SetFloat("_GrayscaleAmount", levels[currentLevel].initialGreyscale);
+            groundGreyscaleMaterial.SetFloat("_Greyscale", levels[currentLevel].initialGreyscale);
+            specialLevelGreyscale = levels[currentLevel].initialGreyscale;
+        }
+
         groundHitParticles.SetActive(false);
         groundHitParticles.SetActive(true);
         if (levels[currentLevel].specialLevel)
@@ -601,6 +633,53 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         StartLevel(currentLevel);
     }
+
+    public void ResetGrayscale()
+    {
+        if (spritesGreyscaleMaterial != null)
+            spritesGreyscaleMaterial.SetFloat("_GrayscaleAmount", 0f);
+
+        if (groundGreyscaleMaterial != null)
+            groundGreyscaleMaterial.SetFloat("_Greyscale", 0f);
+
+        specialLevelGreyscale = 1f; // optional: reset internal variable
+    }
+    // Existing LevelManager code above remains unchanged...
+
+// --- RETURN TO MAIN MENU (without purge flag) ---
+    public void ResetToMainMenu()
+    {
+        // Stop level
+        isRunning = false;
+        spawning = false;
+        restarted = false;
+        anomaliesCount = 0;
+        numberOfPeopleSpawned = 0;
+        timeRemaining = 0f;
+
+        // Deactivate UI
+        if (uiObject != null) uiObject.SetActive(false);
+        if (logosCanvas != null) logosCanvas.SetActive(true);
+
+        // Deactivate NPCs and objects
+        if (musicianNPC != null) musicianNPC.SetActive(false);
+        if (guardsNPCs != null) guardsNPCs.SetActive(false);
+        if (floristNPC != null) floristNPC.SetActive(false);
+        if (floristcloveNPC != null) floristcloveNPC.SetActive(false);
+        if (floristhouse != null) floristhouse.SetActive(false);
+        if (floristclovehouse != null) floristclovehouse.SetActive(false);
+        if (statue != null) statue.SetActive(false);
+        if (clovestatue != null) clovestatue.SetActive(false);
+
+        // Remove all spawned civilians
+        civilianBrainScript?.ClearCivillians();
+
+        // Reset player movement for main menu
+        if (playerMov != null)
+            playerMov.StartMoving(true);
+    }
+
+        
 
     public void LoadAboutScene()
     {

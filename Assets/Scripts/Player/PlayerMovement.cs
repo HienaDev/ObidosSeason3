@@ -14,20 +14,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private KeyCode alternativeRight = KeyCode.RightArrow;
     [SerializeField] private KeyCode slap = KeyCode.Space;
 
-
     [SerializeField] private float movSped = 5f;
     private Vector2 velocity = Vector2.zero;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator _animator;
-
     [SerializeField] private AudioClip[] _pencilHitGroundClips;
 
     private bool lastSlap = true;
     private bool movEnabled = true;
     private bool lastSideMovementRight = true;
 
-    // Update is called once per frame
+    private bool firstMovementDetected = false; // to track first player input
+
     void Update()
     {
         velocity = Vector2.zero;
@@ -55,10 +54,16 @@ public class PlayerMovement : MonoBehaviour
                 velocity.x = -1;
                 LastSideMovement();
             }
+
+            // Detect first movement
+            if (!firstMovementDetected && velocity != Vector2.zero)
+            {
+                firstMovementDetected = true;
+                // Previously we would create a checkpoint here, now it's removed
+            }
         }
 
         rb.linearVelocity = velocity.normalized * movSped;
-
         UpdateAnimation();
     }
 
@@ -92,14 +97,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (walking)
         {
-
             if (lastSideMovementRight)
                 _animator.transform.right = Vector2.right;
             else
                 _animator.transform.right = Vector2.left;
         }
-
-        // Debug.Log(rb.linearVelocity.magnitude);
     }
 
     public void StartMoving(bool canMove)
