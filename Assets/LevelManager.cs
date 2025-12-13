@@ -646,7 +646,7 @@ public class LevelManager : MonoBehaviour
     }
     // Existing LevelManager code above remains unchanged...
 
-// --- RETURN TO MAIN MENU (without purge flag) ---
+    // --- RETURN TO MAIN MENU (without purge flag) ---
     public void ResetToMainMenu()
     {
         // Stop level

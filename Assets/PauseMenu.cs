@@ -28,7 +28,12 @@ public class PauseMenuController : MonoBehaviour
         isPaused = true;
         Time.timeScale = 0f;
         backgroundAnim.OpenBackground();
-        if (gameUI != null) gameUI.SetActive(false); // hide in-game UI while paused
+
+        // hide in-game UI while paused
+        if (gameUI != null)
+        {
+            gameUI.SetActive(false);
+        }
     }
 
     private void ResumeGame()
@@ -36,7 +41,12 @@ public class PauseMenuController : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1f;
         backgroundAnim.CloseBackground();
-        if (gameUI != null) gameUI.SetActive(true); // restore in-game UI
+
+        // restore in-game UI
+        if (gameUI != null)
+        {
+            gameUI.SetActive(true);
+        }
     }
 
     public void ReturnToMainMenu()

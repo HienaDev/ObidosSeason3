@@ -7,6 +7,7 @@ public class ButtonHoverDelayed : MonoBehaviour, IPointerEnterHandler, IPointerE
     public float moveAmount = 10f;
     public float returnDelay = 0.05f;
 
+    [SerializeField]
     private RectTransform rectTransform;
     private Vector3 originalPosition;
 
@@ -16,7 +17,7 @@ public class ButtonHoverDelayed : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     void Awake()
     {
-        rectTransform = GetComponent<RectTransform>();
+        //rectTransform = GetComponentInChildren<RectTransform>();
         originalPosition = rectTransform.localPosition;
     }
 
