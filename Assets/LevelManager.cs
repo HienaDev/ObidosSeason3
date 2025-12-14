@@ -7,6 +7,7 @@ using TMPro;
 using System.Collections;
 using static LevelManager;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -33,11 +34,13 @@ public class LevelManager : MonoBehaviour
 
         [Range(0, 1)]
         public float initialGreyscale;
+        public Sprite levelCensorBar;
     }
 
     [SerializeField] private FaultManager faultManager;
     [SerializeField] private GameObject uiObject;
     [SerializeField] private GameObject logosCanvas;
+    [SerializeField] private Image censorBar;
 
     [SerializeField] private Level[] levels;
     private int currentLevel;
@@ -504,6 +507,9 @@ public class LevelManager : MonoBehaviour
             floristhouse.SetActive(true);
             statue.SetActive(true);
         }
+
+        censorBar.sprite = levels[level].levelCensorBar;
+
         fadeScreen.Fade(true);
 
 

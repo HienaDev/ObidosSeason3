@@ -46,6 +46,7 @@ public class CreateTopics : MonoBehaviour
     [SerializeField] private Image[] forbiddenHatsImages;
     private int currentForbiddenHat = 0;
 
+    [SerializeField] private Image censorBar;
     [SerializeField] private Image[] forbiddenBookImages;
     [SerializeField] private Image[] forbiddenBookCovers;
     [SerializeField] private Image[] forbiddenBookShapes;

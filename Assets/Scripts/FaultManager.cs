@@ -18,6 +18,7 @@ public class FaultManager : MonoBehaviour
     //[SerializeField] private TextMeshProUGUI[] noteBookLines;
     private int currentLine = 0;
     [SerializeField] private Slider faultSlider;
+    [SerializeField] private Animator carnationAnimation;
 
     [SerializeField] private LevelManager levelManager;
 
@@ -64,6 +65,8 @@ public class FaultManager : MonoBehaviour
             if (faultSlider.value > sliderValue)
             {
                 faultSlider.value = sliderValue;
+                carnationAnimation.gameObject.SetActive(true);
+                carnationAnimation.SetTrigger("CarnationSpawn");
             }
         }
     }
