@@ -98,7 +98,8 @@ public class CivilianFault : MonoBehaviour
             spriteRenderer.color = censoredColor;
         else
         {
-            if(!talkingBubble.topicManager.badgeCover1.activeSelf)
+            talkingBubble.topicManager.badgeAnimator.SetTrigger("IncorrectCensor");
+            if (!talkingBubble.topicManager.badgeCover1.activeSelf)
                 talkingBubble.topicManager.badgeCover1.SetActive(true);
             else if (!talkingBubble.topicManager.badgeCover2.activeSelf)
                 talkingBubble.topicManager.badgeCover2.SetActive(true);

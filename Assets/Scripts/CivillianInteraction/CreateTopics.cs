@@ -55,6 +55,7 @@ public class CreateTopics : MonoBehaviour
     [SerializeField] private Image winningTeam;
     [SerializeField] private Image losingTeam;
 
+    public Animator badgeAnimator;
     public GameObject badgeCover1;
     public GameObject badgeCover2;
 
