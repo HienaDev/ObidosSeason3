@@ -689,12 +689,17 @@ public class LevelManager : MonoBehaviour
 
     public void LoadAboutScene()
     {
-        StartCoroutine(LoadAboutDelay());
+        StartCoroutine(LoadSceneDelay(2));
     }
 
-    private IEnumerator LoadAboutDelay()
+    public void LoadCreditsScene()
+    {
+        StartCoroutine(LoadSceneDelay(3));
+    }
+
+    private IEnumerator LoadSceneDelay(int scene)
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(scene);
     }
 }
