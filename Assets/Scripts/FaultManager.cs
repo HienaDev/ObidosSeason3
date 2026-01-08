@@ -76,6 +76,13 @@ public class FaultManager : MonoBehaviour
         faultSlider.GetComponent<Animator>().SetTrigger("SuccessfulCensor");
         faultCounter--;
         levelManager.anomaliesCount = faultCounter;
+
+        if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 1)
+        {
+            carnationAnimation.gameObject.SetActive(true);
+            carnationAnimation.SetTrigger("CarnationSpawn");
+            return;
+        }
         faultSlider.value++;
     }
 
