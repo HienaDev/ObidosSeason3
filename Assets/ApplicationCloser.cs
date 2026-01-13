@@ -12,7 +12,7 @@ public class ApplicationCloser : MonoBehaviour
 
     private IEnumerator ExitCoroutine()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         #if UNITY_EDITOR
                 // If in Unity Editor, stop play mode
                 UnityEditor.EditorApplication.isPlaying = false;

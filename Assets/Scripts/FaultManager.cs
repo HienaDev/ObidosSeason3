@@ -15,7 +15,6 @@ public class FaultManager : MonoBehaviour
     [SerializeField] private string[] textItem;
 
     [Header("UI")]
-    //[SerializeField] private TextMeshProUGUI[] noteBookLines;
     private int currentLine = 0;
     [SerializeField] private Slider faultSlider;
     [SerializeField] private Animator carnationAnimation;
@@ -77,7 +76,7 @@ public class FaultManager : MonoBehaviour
         faultCounter--;
         levelManager.anomaliesCount = faultCounter;
 
-        if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 1)
+        if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 3)
         {
             carnationAnimation.gameObject.SetActive(true);
             carnationAnimation.SetTrigger("CarnationSpawn");
