@@ -23,7 +23,7 @@ public class ButtonHoverDelayed : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     void Update()
     {
-        if (isHovered)
+     /*  if (isHovered)
         {
             // Force instantly UP while hovering
             rectTransform.localPosition = originalPosition + Vector3.up * moveAmount;
@@ -38,23 +38,16 @@ public class ButtonHoverDelayed : MonoBehaviour, IPointerEnterHandler, IPointerE
         {
             rectTransform.localPosition = originalPosition;
             returnScheduled = false;
-        }
+        }*/
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        isHovered = true;
-
-        // Cancel return immediately
-        returnScheduled = false;
+        rectTransform.localPosition = originalPosition + Vector3.up * moveAmount;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        isHovered = false;
-
-        // Schedule delayed return
-        returnScheduled = true;
-        returnTime = Time.unscaledTime + returnDelay;
+        rectTransform.localPosition = originalPosition;
     }
 }

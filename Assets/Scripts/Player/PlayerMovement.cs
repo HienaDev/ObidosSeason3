@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,12 +21,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator _animator;
     [SerializeField] private AudioClip[] _pencilHitGroundClips;
+    private AudioSource audioSource;
 
     private bool lastSlap = true;
     private bool movEnabled = true;
     private bool lastSideMovementRight = true;
+    public bool CanPlaySound { get; set; } = true;
 
     private bool firstMovementDetected = false; // to track first player input
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -84,10 +92,12 @@ public class PlayerMovement : MonoBehaviour
         bool walking = rb.linearVelocity.magnitude > 0.1f;
         _animator.SetBool("walk", walking);
 
-        if ((Input.GetKeyDown(slap) || Input.GetMouseButtonDown(0)) && lastSlap)
+        if ((Input.GetKeyDown(slap) || Input.GetMouseButtonDown(0)) && lastSlap && CanPlaySound)
         {
             _animator.SetTrigger("slap");
-            AudioSystem.PlaySound(_pencilHitGroundClips);
+            AudioClip clip = _pencilHitGroundClips[Random.Range(0, _pencilHitGroundClips.Length)];
+            audioSource.pitch = Random.Range(0.8f, 1.2f);
+            audioSource.PlayOneShot(clip);
 
             if (!movEnabled)
             {

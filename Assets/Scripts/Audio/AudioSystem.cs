@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 
 public class AudioSystem : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class AudioSystem : MonoBehaviour
 
     [Range(0.8f, 1.2f)] public float minPitch = 0.95f;
     [Range(0.8f, 1.2f)] public float maxPitch = 1.05f;
+
+    [SerializeField]
+    private AudioMixer audioMixer;
 
     private void Awake()
     {
@@ -37,6 +41,7 @@ public class AudioSystem : MonoBehaviour
         }
 
         var newSource = new GameObject("PooledAudioSource").AddComponent<AudioSource>();
+        newSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("SFX")[0];
         newSource.transform.SetParent(poolContainer.transform);
         newSource.spatialBlend = 0f; // 2D Sound
         activeSources.Add(newSource);
