@@ -18,6 +18,8 @@ public class PauseMenuController : MonoBehaviour
     private Slider musicSlider;
     [SerializeField]
     private Slider sfxSlider;
+    [SerializeField]
+    private GameObject Instructions;
 
     private PlayerMovement playerMov;
 
@@ -102,11 +104,32 @@ public class PauseMenuController : MonoBehaviour
 
     public void ChangeMusicVolume()
     {
-        audioMixer.SetFloat("MusicVolume", musicSlider.value);
+        if (musicSlider.value > -44)
+        {
+            audioMixer.SetFloat("MusicVolume", musicSlider.value);
+        }
+        else
+        {
+            audioMixer.SetFloat("MusicVolume", -80);
+        }
+
     }
 
     public void ChangeSFXVolume()
     {
-        audioMixer.SetFloat("SFXVolume", sfxSlider.value);
+        if (sfxSlider.value > -44)
+        {
+            audioMixer.SetFloat("SFXVolume", sfxSlider.value);
+        }
+        else
+        {
+            audioMixer.SetFloat("SFXVolume", -80);
+        }
+
+    }
+
+    public void OpenInstructions()
+    {
+        Instructions.SetActive(true);
     }
 }

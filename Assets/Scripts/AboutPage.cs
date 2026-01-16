@@ -10,16 +10,26 @@ public class AboutPage : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        /* (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(ReturnDelay());
-        }
+        }*/
     }
 
-    private IEnumerator ReturnDelay()
+    private IEnumerator ReturnDelay(int scene)
     {
         fadeBlackScreen.Fade(false);
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(scene);
+    }
+
+    public void MainMenu()
+    {
+        StartCoroutine(ReturnDelay(0));
+    }
+
+    public void Credits()
+    {
+        StartCoroutine(ReturnDelay(3));
     }
 }
