@@ -58,7 +58,7 @@ public class CreateTopics : MonoBehaviour
     public Animator badgeAnimator;
     public GameObject badgeCover1;
     public GameObject badgeCover2;
-
+    public GameObject badgeCover3;
 
     public GameObject goodJobObject;
     public GameObject revolutionObject;

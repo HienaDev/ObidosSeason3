@@ -19,6 +19,8 @@ public class DetectNpcs : MonoBehaviour
 
      private LevelManager levelManager;
 
+    private bool canInteract = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,7 +31,7 @@ public class DetectNpcs : MonoBehaviour
 
     private void Update()
     {
-        if((Input.GetKeyDown(censorKey) || Input.GetMouseButtonDown(0)) && selectedGuy != null && !levelManager.revolution)
+        if((Input.GetKeyDown(censorKey) || Input.GetMouseButtonDown(0)) && selectedGuy != null && !levelManager.revolution && canInteract)
         {
             if(!selectedGuy.GetComponent<CivilianFault>().menuButton)
                 npcsInArea.Remove(selectedGuy);
@@ -118,5 +120,10 @@ public class DetectNpcs : MonoBehaviour
         Gizmos.color = Color.red;
 
         Gizmos.DrawWireSphere(transform.position, beatUpRadius);
+    }
+
+    public void CanInteract(bool interact)
+    {
+        canInteract = interact;
     }
 }

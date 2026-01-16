@@ -105,6 +105,7 @@ public class CivilianFault : MonoBehaviour
                 talkingBubble.topicManager.badgeCover2.SetActive(true);
             else
             {
+                talkingBubble.topicManager.badgeCover3.SetActive(true);
                 // Restart Day
                 levelManager.RestartDay(true);
             }

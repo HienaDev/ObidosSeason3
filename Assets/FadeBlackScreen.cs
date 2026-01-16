@@ -10,6 +10,12 @@ public class FadeBlackScreen : MonoBehaviour
     [SerializeField] private float fadeSpeed = 1f;
 
     [SerializeField] private TextMeshProUGUI dayText;
+    [SerializeField]
+    private Instructions instructions;
+    [SerializeField]
+    private GameObject introduction;
+
+    private bool inIntro = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +23,17 @@ public class FadeBlackScreen : MonoBehaviour
         initialScale = fadeMask.transform.localScale;
 
         StartCoroutine(FadeIn());
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && inIntro)
+        {
+            inIntro = false;
+            introduction.SetActive(false);
+            instructions.gameObject.SetActive(true);
+            instructions.ActiveFromIntro(true);
+        }
     }
 
     public void Fade(bool fadeIn)
@@ -39,7 +56,7 @@ public class FadeBlackScreen : MonoBehaviour
 
         while(lerpValue < 1f)
         {
-            lerpValue += Time.deltaTime / fadeSpeed;
+            lerpValue += Time.unscaledDeltaTime / fadeSpeed;
 
             fadeMask.transform.localScale = Vector3.Lerp(currentScale, Vector3.zero, lerpValue);
             yield return null;
@@ -59,5 +76,17 @@ public class FadeBlackScreen : MonoBehaviour
             fadeMask.transform.localScale = Vector3.Lerp(currentScale, initialScale, lerpValue);
             yield return null;
         }
+    }
+
+    public void InIntroduction(bool intro)
+    {
+        introduction.SetActive(intro);
+        StartCoroutine(IntroCoroutine(intro));
+    }
+
+    private IEnumerator IntroCoroutine(bool intro)
+    {
+        yield return new WaitForSeconds(0.5f);
+        inIntro = intro;
     }
 }

@@ -35,6 +35,8 @@ public class LevelManager : MonoBehaviour
         [Range(0, 1)]
         public float initialGreyscale;
         public Sprite levelCensorBar;
+
+        public string levelText;
     }
 
     [SerializeField] private FaultManager faultManager;
@@ -123,6 +125,13 @@ public class LevelManager : MonoBehaviour
             return levels[currentLevel].specialLevel;
         }
     }
+
+    [SerializeField]
+    private GameObject policeman;
+    [SerializeField]
+    private TextMeshProUGUI policemanText;
+    [SerializeField]
+    private Image[] policemanCensorItems;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -447,6 +456,7 @@ public class LevelManager : MonoBehaviour
         civilianBrainScript.ClearCivillians();
         createTopicsScript.badgeCover1.SetActive(false);
         createTopicsScript.badgeCover2.SetActive(false);
+        createTopicsScript.badgeCover3.SetActive(false);
 
         if (currentLevel > 0)
         {
@@ -509,6 +519,9 @@ public class LevelManager : MonoBehaviour
         }
 
         censorBar.sprite = levels[level].levelCensorBar;
+
+        policeman.SetActive(true);
+        policemanText.text = levels[level].levelText;
 
         fadeScreen.Fade(true);
 
@@ -608,6 +621,7 @@ public class LevelManager : MonoBehaviour
 
         restarted = false;
         anomaliesCount = 0;
+        Time.timeScale = 0;
         playerMov.StartMoving(true);
     }
 
