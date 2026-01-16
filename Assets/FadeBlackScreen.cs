@@ -65,6 +65,8 @@ public class FadeBlackScreen : MonoBehaviour
 
     public IEnumerator FadeOut()
     {
+        yield return new WaitForSeconds(0.1f);
+
         float lerpValue = 0f;
 
         Vector3 currentScale = fadeMask.transform.localScale;
