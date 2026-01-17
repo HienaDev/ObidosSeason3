@@ -10,6 +10,8 @@ public class Instructions : MonoBehaviour
     private GameObject instructionsCivilian;
     [SerializeField]
     private LevelManager levelManager;
+    [SerializeField]
+    private FadeBlackScreen fade;
 
     private bool activeFromMenu = false;
     private bool activeFromIntroduction = false;
@@ -33,6 +35,7 @@ public class Instructions : MonoBehaviour
             if (activeFromIntroduction)
             {
                 activeFromIntroduction = false;
+                fade.FadeOut();
                 levelManager.StartLevel(0);
             }
         }

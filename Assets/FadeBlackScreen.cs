@@ -33,6 +33,7 @@ public class FadeBlackScreen : MonoBehaviour
             introduction.SetActive(false);
             instructions.gameObject.SetActive(true);
             instructions.ActiveFromIntro(true);
+            FadeIn();
         }
     }
 
@@ -73,7 +74,7 @@ public class FadeBlackScreen : MonoBehaviour
 
         while (lerpValue < 1f)
         {
-            lerpValue += Time.deltaTime / fadeSpeed;
+            lerpValue += Time.unscaledDeltaTime / fadeSpeed;
 
             fadeMask.transform.localScale = Vector3.Lerp(currentScale, initialScale, lerpValue);
             yield return null;

@@ -75,6 +75,9 @@ public class CreateTopics : MonoBehaviour
     private List<(Sprite, Sprite)> censoredSprites;
     private List<(Sprite, Sprite)> currentCensoredSprites;
     private List<(Sprite, Sprite)> spritesToDelete;
+    private List<Sprite> newPolicemanCensoredSprites;
+    [SerializeField]
+    private Image[] newPolicemanCensoredImages;
 
     [SerializeField]
     private int numberOfPossibleBadItems = 0;
@@ -92,6 +95,7 @@ public class CreateTopics : MonoBehaviour
     private List<TalkingData.TalkingTopics> newBadTopics;
     private List<TalkingData.TalkingTopics> newBadHats;
     private List<(TalkingData.BookShapes, Color)> newBadBooks;
+
 
     private bool cloveSpawn = false;
 
@@ -140,6 +144,7 @@ public class CreateTopics : MonoBehaviour
         newBadHats = new List<TalkingData.TalkingTopics> ();
         newBadBooks = new List<(TalkingData.BookShapes, Color)> ();
         cloveSpawn = false;
+        newPolicemanCensoredSprites = new List<Sprite>();
     }
 
     public void IncreaseCloves()
@@ -190,6 +195,7 @@ public class CreateTopics : MonoBehaviour
             if (!censoredSprites.Contains((badBook.Item1.book, badBook.Item1.uiBook)))
             {
                 censoredSprites.Add((badBook.Item1.book, badBook.Item1.uiBook));
+                newPolicemanCensoredSprites.Add(badBook.Item1.uiBook);
             }
             currentCensoredSprites.Add((badBook.Item1.book, badBook.Item1.uiBook));
             currentForbiddenBook++;
@@ -206,6 +212,7 @@ public class CreateTopics : MonoBehaviour
             if (!censoredSprites.Contains(badBook.Item1))
             {
                 censoredSprites.Add(badBook.Item1);
+                newPolicemanCensoredSprites.Add(badBook.Item1.Item2);
             }
             currentCensoredSprites.Add(badBook.Item1);
             currentForbiddenBook++;
@@ -301,6 +308,7 @@ public class CreateTopics : MonoBehaviour
             if (!censoredSprites.Contains((badHat.symbol, badHat.uiSymbol)))
             {
                 censoredSprites.Add((badHat.symbol, badHat.uiSymbol));
+                newPolicemanCensoredSprites.Add(badHat.uiSymbol);
             }
             currentCensoredSprites.Add((badHat.symbol, badHat.uiSymbol));
             currentForbiddenHat++;
@@ -316,6 +324,7 @@ public class CreateTopics : MonoBehaviour
             if (!censoredSprites.Contains((data.specialHat.symbol, data.specialHat.uiSymbol)))
             {
                 censoredSprites.Add((data.specialHat.symbol, data.specialHat.uiSymbol));
+                newPolicemanCensoredSprites.Add(data.specialHat.uiSymbol);
             }
             currentCensoredSprites.Add((data.specialHat.symbol, data.specialHat.uiSymbol));
             currentForbiddenHat++;
@@ -388,6 +397,7 @@ public class CreateTopics : MonoBehaviour
             if (!censoredSprites.Contains((data.footballTeamWinning[winningFootBallTeam], data.footballTeamWinning[winningFootBallTeam])))
             {
                 censoredSprites.Add((data.footballTeamWinning[winningFootBallTeam], data.footballTeamWinning[winningFootBallTeam]));
+                newPolicemanCensoredSprites.Add(data.footballTeamWinning[winningFootBallTeam]);
             }
             currentCensoredSprites.Add((data.footballTeamWinning[winningFootBallTeam], data.footballTeamWinning[winningFootBallTeam]));
         }
@@ -412,6 +422,7 @@ public class CreateTopics : MonoBehaviour
             if (!censoredSprites.Contains((badTopic.symbol, badTopic.uiSymbol)))
             {
                 censoredSprites.Add((badTopic.symbol, badTopic.uiSymbol));
+                newPolicemanCensoredSprites.Add(badTopic.uiSymbol);
             }
             currentCensoredSprites.Add((badTopic.symbol, badTopic.uiSymbol));
             currentForbiddenWord++;
@@ -425,6 +436,7 @@ public class CreateTopics : MonoBehaviour
             if (!censoredSprites.Contains((data.specialTopic.symbol, data.specialTopic.uiSymbol)))
             {
                 censoredSprites.Add((data.specialTopic.symbol, data.specialTopic.uiSymbol));
+                newPolicemanCensoredSprites.Add(data.specialTopic.uiSymbol);
             }
             currentCensoredSprites.Add((data.specialTopic.symbol, data.specialTopic.uiSymbol));
             currentForbiddenWord++;
@@ -525,6 +537,7 @@ public class CreateTopics : MonoBehaviour
             if (!censoredSprites.Contains((data.singing, data.singing)))
             {
                 censoredSprites.Add((data.singing, data.singing));
+                newPolicemanCensoredSprites.Add(data.singing);
             }
             currentCensoredSprites.Add((data.singing, data.singing));
         }
@@ -541,6 +554,7 @@ public class CreateTopics : MonoBehaviour
             if (!censoredSprites.Contains((data.radio.symbol, data.radio.uiSymbol)))
             {
                 censoredSprites.Add((data.radio.symbol, data.radio.uiSymbol));
+                newPolicemanCensoredSprites.Add(data.radio.uiSymbol);
             }
             currentCensoredSprites.Add((data.radio.symbol, data.radio.uiSymbol));
         }
@@ -591,6 +605,19 @@ public class CreateTopics : MonoBehaviour
         foreach ((Sprite, Sprite) sprite in spritesToDelete)
         {
             censoredSprites.Remove(sprite);
+        }
+
+        for (int i = 0; i < newPolicemanCensoredImages.Length; i++)
+        {
+            if (i < newPolicemanCensoredSprites.Count)
+            {
+                newPolicemanCensoredImages[i].gameObject.SetActive(true);
+                newPolicemanCensoredImages[i].sprite = newPolicemanCensoredSprites[i];
+            }
+            else
+            {
+                newPolicemanCensoredImages[i].gameObject.SetActive(false);
+            }
         }
 
         for (int i = 0; i < allCensorImages.Length; i++)
