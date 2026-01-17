@@ -62,6 +62,8 @@ public class CreateTopics : MonoBehaviour
 
     public GameObject goodJobObject;
     public GameObject revolutionObject;
+    public GameObject timeRanOutObject;
+    public GameObject censoringInnocentsObject;
 
     public bool specialDay = false;
 

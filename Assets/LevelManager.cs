@@ -247,7 +247,8 @@ public class LevelManager : MonoBehaviour
         else if(isRunning == false && anomaliesCount > 0 && !restarted)
         {
             restarted =  true;
-            reasonTextUI.text = "Time ran out...";
+            //reasonTextUI.text = "Time ran out...";
+            createTopicsScript.timeRanOutObject.SetActive(true);
             RestartDay(false);
         }
 
@@ -356,6 +357,7 @@ public class LevelManager : MonoBehaviour
     private void EndDay()
     {
         playerMov.StartMoving(false);
+        playerMov.CanPlaySound = false;
         currentLevel++;
         createTopicsScript.goodJobObject.SetActive(true);
         StartCoroutine(EndLevelCoroutine());
@@ -364,6 +366,8 @@ public class LevelManager : MonoBehaviour
     public void RestartDay(bool died)
     {
         playerMov.StartMoving(false);
+        playerMov.CanPlaySound = false;
+
         if (died)
         {
             /*if(levels[currentLevel].specialLevel)
@@ -373,9 +377,10 @@ public class LevelManager : MonoBehaviour
                 revolution = true;
             }
             else*/
-            reasonTextUI.text = "Stop censoring the innocent!";
+            //reasonTextUI.text = "Stop censoring the innocent!";
+            createTopicsScript.censoringInnocentsObject.SetActive(true);
         }
-        StartLevel(currentLevel);
+        StartCoroutine(EndLevelCoroutine());
     }
 
     void UpdateTimer()
@@ -443,6 +448,7 @@ public class LevelManager : MonoBehaviour
         
         fadeScreen.Fade(false);
         fadeScreen.SetDay((20 + level).ToString(), true);
+        playerMov.CanPlaySound = false;
 
         yield return new WaitForSeconds(1f);
 
@@ -623,6 +629,7 @@ public class LevelManager : MonoBehaviour
         anomaliesCount = 0;
         Time.timeScale = 0;
         playerMov.StartMoving(true);
+        playerMov.CanPlaySound = true;
     }
 
     private void InitalizeAvailableSpots(int amount)

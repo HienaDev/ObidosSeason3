@@ -11,6 +11,8 @@ public class Instructions : MonoBehaviour
     [SerializeField]
     private LevelManager levelManager;
     [SerializeField]
+    private GameObject instructionsContinue;
+    [SerializeField]
     private FadeBlackScreen fade;
 
     private bool activeFromMenu = false;
@@ -24,6 +26,7 @@ public class Instructions : MonoBehaviour
         {
             playerMovement.StartMoving(true);
             gameObject.SetActive(false);
+            instructionsContinue.SetActive(false);
 
             if (activeFromMenu)
             {

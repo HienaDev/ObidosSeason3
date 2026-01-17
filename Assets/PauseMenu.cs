@@ -20,6 +20,12 @@ public class PauseMenuController : MonoBehaviour
     private Slider sfxSlider;
     [SerializeField]
     private GameObject Instructions;
+    [SerializeField]
+    private GameObject InstructionsReturn;
+    [SerializeField]
+    private GameObject confirmationPopup;
+    [SerializeField]
+    private AudioClip hitClip;
 
     private PlayerMovement playerMov;
 
@@ -102,6 +108,11 @@ public class PauseMenuController : MonoBehaviour
             gameUI.SetActive(false); // deactivate player UI*/
     }
 
+    public void OpenConfirmationPopup(bool open)
+    {
+        confirmationPopup.SetActive(open);
+    }
+
     public void ChangeMusicVolume()
     {
         if (musicSlider.value > -44)
@@ -131,5 +142,11 @@ public class PauseMenuController : MonoBehaviour
     public void OpenInstructions()
     {
         Instructions.SetActive(true);
+        InstructionsReturn.SetActive(true);
+    }
+
+    public void PlayHitSFX()
+    {
+        playerMov.gameObject.GetComponent<AudioSource>().PlayOneShot(hitClip);
     }
 }
