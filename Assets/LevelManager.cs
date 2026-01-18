@@ -36,7 +36,9 @@ public class LevelManager : MonoBehaviour
         public float initialGreyscale;
         public Sprite levelCensorBar;
 
+        [TextArea(3, 10)]
         public string levelText;
+        public float imagesY;
     }
 
     [SerializeField] private FaultManager faultManager;
@@ -130,6 +132,7 @@ public class LevelManager : MonoBehaviour
     private GameObject policeman;
     [SerializeField]
     private TextMeshProUGUI policemanText;
+    [SerializeField] private RectTransform[] levelImages;
     [SerializeField]
     private Image[] policemanCensorItems;
 
@@ -528,6 +531,12 @@ public class LevelManager : MonoBehaviour
 
         policeman.SetActive(true);
         policemanText.text = levels[level].levelText;
+        foreach (var img in levelImages)
+        {
+            Vector2 pos = img.anchoredPosition;
+            pos.y = levels[level].imagesY;
+            img.anchoredPosition = pos;
+        }
 
         fadeScreen.Fade(true);
 
