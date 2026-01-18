@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour
         [TextArea(3, 10)]
         public string levelText;
         public float imagesY;
+        public bool imagesActive;
     }
 
     [SerializeField] private FaultManager faultManager;
@@ -132,7 +133,8 @@ public class LevelManager : MonoBehaviour
     private GameObject policeman;
     [SerializeField]
     private TextMeshProUGUI policemanText;
-    [SerializeField] private RectTransform[] levelImages;
+    [SerializeField] 
+    private RectTransform[] levelImages;
     [SerializeField]
     private Image[] policemanCensorItems;
 
@@ -531,11 +533,18 @@ public class LevelManager : MonoBehaviour
 
         policeman.SetActive(true);
         policemanText.text = levels[level].levelText;
-        foreach (var img in levelImages)
+        for (int i = 0; i < levelImages.Length; i++)
         {
-            Vector2 pos = img.anchoredPosition;
+            // Set Y position
+            Vector3 pos = levelImages[i].localPosition;
             pos.y = levels[level].imagesY;
-            img.anchoredPosition = pos;
+            levelImages[i].localPosition = pos;
+
+            // Set opacity
+            Image img = levelImages[i].GetComponent<Image>();
+            Color c = img.color;
+            c.a = levels[level].imagesActive ? 1f : 0f;
+            img.color = c;
         }
 
         fadeScreen.Fade(true);
