@@ -27,6 +27,30 @@ public class PauseMenuController : MonoBehaviour
     [SerializeField]
     private AudioClip hitClip;
 
+    // Music
+    [SerializeField] 
+    private Image musicHandleImage;
+    [SerializeField] 
+    private Sprite musicMuteSprite;
+    [SerializeField] 
+    private Sprite musicLowSprite;
+    [SerializeField] 
+    private Sprite musicMidSprite;
+    [SerializeField] 
+    private Sprite musicHighSprite;
+
+    // SFX
+    [SerializeField] 
+    private Image sfxHandleImage;
+    [SerializeField] 
+    private Sprite sfxMuteSprite;
+    [SerializeField] 
+    private Sprite sfxLowSprite;
+    [SerializeField] 
+    private Sprite sfxMidSprite;
+    [SerializeField] 
+    private Sprite sfxHighSprite;
+
     private PlayerMovement playerMov;
 
     private bool isPaused = false;
@@ -113,30 +137,39 @@ public class PauseMenuController : MonoBehaviour
         confirmationPopup.SetActive(open);
     }
 
+    private void UpdateHandleSprite(float value, Image handleImage, Sprite mute, Sprite low, Sprite mid, Sprite high)
+    {
+        if (value <= -40)
+            handleImage.sprite = mute;
+        else if (value <= -25)
+            handleImage.sprite = low;
+        else if (value <= -10)
+            handleImage.sprite = mid;
+        else
+            handleImage.sprite = high;
+    }
     public void ChangeMusicVolume()
     {
-        if (musicSlider.value > -44)
-        {
-            audioMixer.SetFloat("MusicVolume", musicSlider.value);
-        }
-        else
-        {
-            audioMixer.SetFloat("MusicVolume", -80);
-        }
+        float value = musicSlider.value;
 
+        if (value > -44)
+            audioMixer.SetFloat("MusicVolume", value);
+        else
+            audioMixer.SetFloat("MusicVolume", -80);
+
+        UpdateHandleSprite(value, musicHandleImage, musicMuteSprite, musicLowSprite, musicMidSprite, musicHighSprite);
     }
 
     public void ChangeSFXVolume()
     {
-        if (sfxSlider.value > -44)
-        {
-            audioMixer.SetFloat("SFXVolume", sfxSlider.value);
-        }
-        else
-        {
-            audioMixer.SetFloat("SFXVolume", -80);
-        }
+        float value = sfxSlider.value;
 
+        if (value > -44)
+            audioMixer.SetFloat("SFXVolume", value);
+        else
+            audioMixer.SetFloat("SFXVolume", -80);
+
+        UpdateHandleSprite(value, sfxHandleImage, sfxMuteSprite, sfxLowSprite, sfxMidSprite, sfxHighSprite);
     }
 
     public void OpenInstructions()
