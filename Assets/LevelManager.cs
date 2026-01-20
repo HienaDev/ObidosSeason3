@@ -138,6 +138,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private Image[] policemanCensorItems;
 
+    private float clovesChance = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -173,7 +175,7 @@ public class LevelManager : MonoBehaviour
 
                 int chanceOfspawn = UnityEngine.Random.Range(0, 100);
 
-                if (chanceOfspawn < levels[currentLevel].initialChance)
+                if (chanceOfspawn < clovesChance)
                 {
                     CivilianFaultType randomFault = (CivilianFaultType)UnityEngine.Random.Range(3, 5);
                     civilianBrainScript.CreateNewCivilian(randomFault);
@@ -185,7 +187,7 @@ public class LevelManager : MonoBehaviour
                     civilianBrainScript.CreateNewCivilian(CivilianFaultType.None);
                 }
 
-                levels[currentLevel].initialChance += levels[currentLevel].chanceIncrease;
+                clovesChance += levels[currentLevel].chanceIncrease;
             }
             else
             {
@@ -354,7 +356,7 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator LoadRevolutionCR()
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(4.5f);
 
         forceLoadScene.LoadRevolution();
     }
@@ -371,7 +373,6 @@ public class LevelManager : MonoBehaviour
     public void RestartDay(bool died)
     {
         playerMov.StartMoving(false);
-        playerMov.CanPlaySound = false;
 
         if (died)
         {
@@ -516,6 +517,8 @@ public class LevelManager : MonoBehaviour
             guardsNPCs.SetActive(false);
             floristhouse.SetActive(false);
             statue.SetActive(false);
+
+            clovesChance = levels[currentLevel].initialChance;
         }
         else
         {
@@ -675,7 +678,9 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator EndLevelCoroutine()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.1f);
+        playerMov.CanPlaySound = false;
+        yield return new WaitForSeconds(2.65f);
         StartLevel(currentLevel);
     }
 

@@ -88,6 +88,7 @@ public class CreateTopics : MonoBehaviour
 
     private List<TalkingData.BookShapes> possibleBadItems;
     private List<TalkingData.TalkingTopics> possibleBadHats;
+    private List<TalkingData.TalkingTopics> possibleBadTopics;
 
     private int newTopics = 0;
     private int newBooks = 0;
@@ -405,7 +406,7 @@ public class CreateTopics : MonoBehaviour
         }
 
         goodTopics = data.topics.OfType<TalkingData.TalkingTopics>().ToList();
-        tempGoodTopics = data.topics.OfType<TalkingData.TalkingTopics>().ToList();
+        tempGoodTopics = possibleBadTopics;
 
         for (int i = 0; i < numberOfBadTopics; i++)
         {
@@ -643,10 +644,34 @@ public class CreateTopics : MonoBehaviour
         possibleBadItems = new List<TalkingData.BookShapes>();
         possibleBadHats = new List<TalkingData.TalkingTopics>();
 
-        for (int i = 0; i < numberOfPossibleBadItems; i++)
+        List<TalkingData.BookShapes> booksToShuffle = new List<TalkingData.BookShapes>();
+        List<TalkingData.BookShapes> itemsToShuffle = new List<TalkingData.BookShapes>();
+
+        for (int i = 0; i < data.bookShapes.Length - 2; i++)
         {
-            possibleBadItems.Add(data.bookShapes[i]);
+            booksToShuffle.Add(data.bookShapes[i]);
         }
+
+        for (int i = data.bookShapes.Length - 2; i < data.bookShapes.Length; i++)
+        {
+            itemsToShuffle.Add(data.bookShapes[i]);
+        }
+
+        booksToShuffle.Shuffle();
+        itemsToShuffle.Shuffle();
+
+        possibleBadItems.Add(booksToShuffle[0]);
+        possibleBadItems.Add(booksToShuffle[1]);
+        possibleBadItems.Add(booksToShuffle[2]);
+        possibleBadItems.Add(itemsToShuffle[0]);
+        possibleBadItems.Add(booksToShuffle[3]);
+        possibleBadItems.Add(itemsToShuffle[1]);
+
+        for (int i = booksToShuffle.Count - 4; i < booksToShuffle.Count; i++)
+        {
+            possibleBadItems.Add(booksToShuffle[i]);
+        }
+
 
         List<TalkingData.TalkingTopics> initializerHatList = data.hats.OfType<TalkingData.TalkingTopics>().ToList();
 
@@ -655,7 +680,36 @@ public class CreateTopics : MonoBehaviour
             possibleBadHats.Add(initializerHatList[i]);
         }
 
-        possibleBadItems.Shuffle();
         possibleBadHats.Shuffle();
+
+        List<TalkingData.TalkingTopics> initializerTopicList = new List<TalkingData.TalkingTopics>();
+        List<TalkingData.TalkingTopics> initializedTopicList2 = data.topics.OfType<TalkingData.TalkingTopics>().ToList();
+
+        for (int i = 0; i < 3; i++)
+        {
+            initializerTopicList.Add(initializedTopicList2[i]);
+        }
+
+        initializerTopicList.Shuffle();
+
+        int randomOtherTopic = Random.Range(3, 5);
+
+        if (randomOtherTopic == 3)
+        {
+            initializerTopicList.Add(initializedTopicList2[3]);
+            initializerTopicList.Add(initializedTopicList2[4]);
+        }
+        else
+        {
+            initializerTopicList.Add(initializedTopicList2[4]);
+            initializerTopicList.Add(initializedTopicList2[3]);
+        }
+
+        for (int i = 5; i < initializedTopicList2.Count; i++)
+        {
+            initializerTopicList.Add(initializedTopicList2[i]);
+        }
+
+        possibleBadTopics = initializerTopicList;
     }
 }
