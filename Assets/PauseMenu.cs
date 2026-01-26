@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,10 @@ public class PauseMenuController : MonoBehaviour
     [SerializeField] private MainMenuState mainMenuState; // main menu manager
     [SerializeField]
     private GameObject optionsMenu;
+    [SerializeField]
+    private GameObject optionsBackToMenu;
+    [SerializeField]
+    private GameObject optionsBackToPause;
     [SerializeField]
     private AudioMixer audioMixer;
     [SerializeField]
@@ -52,12 +57,14 @@ public class PauseMenuController : MonoBehaviour
     private Sprite sfxHighSprite;
 
     private PlayerMovement playerMov;
+    private DetectNpcs detectNPCs;
 
     private bool isPaused = false;
 
     private void Start()
     {
         playerMov = FindAnyObjectByType<PlayerMovement>();
+        detectNPCs = FindAnyObjectByType<DetectNpcs>();
     }
 
     void Update()
@@ -96,6 +103,38 @@ public class PauseMenuController : MonoBehaviour
     public void OpenOptions(bool open)
     {
         optionsMenu.SetActive(open);
+
+        if (open == true)
+        {
+            optionsBackToMenu.SetActive(false);
+            optionsBackToPause.SetActive(true);
+        }
+        else
+        {
+            if (optionsBackToMenu.activeSelf == true)
+            {
+                EnablePlayerMov(true);
+            }
+        }
+    }
+
+    public void OpenOptionsFromMainMenu()
+    {
+        StartCoroutine(OpenOptionsFromMainMenuCoroutine());
+    }
+
+    private IEnumerator OpenOptionsFromMainMenuCoroutine()
+    {
+        yield return new WaitForSeconds(0.15f);
+        EnablePlayerMov(false);
+        optionsMenu.SetActive(true);
+    }
+
+    public void EnablePlayerMov(bool enable)
+    {
+        detectNPCs.CanInteract(enable);
+        playerMov.StartMoving(enable);
+        playerMov.CanPlaySound = enable;
     }
 
     public void ResumeGame()
