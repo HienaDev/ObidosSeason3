@@ -33,7 +33,7 @@ public class FadeBlackScreen : MonoBehaviour
             introduction.SetActive(false);
             instructions.gameObject.SetActive(true);
             instructions.ActiveFromIntro(true);
-            FadeIn();
+            Fade(true);
         }
     }
 

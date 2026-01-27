@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Instructions : MonoBehaviour
@@ -25,8 +26,6 @@ public class Instructions : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             playerMovement.StartMoving(true);
-            gameObject.SetActive(false);
-            instructionsContinue.SetActive(false);
 
             if (activeFromMenu)
             {
@@ -40,6 +39,12 @@ public class Instructions : MonoBehaviour
                 activeFromIntroduction = false;
                 fade.FadeOut();
                 levelManager.StartLevel(0);
+                StartCoroutine(DeactivateCoroutine());
+            }
+            else
+            {
+                gameObject.SetActive(false);
+                instructionsContinue.SetActive(false);
             }
         }
     }
@@ -52,5 +57,12 @@ public class Instructions : MonoBehaviour
     public void ActiveFromIntro(bool active)
     {
         activeFromIntroduction = active;
+    }
+
+    private IEnumerator DeactivateCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        gameObject.SetActive(false);
+        instructionsContinue.SetActive(false);
     }
 }

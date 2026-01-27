@@ -19,6 +19,8 @@ public class FaultManager : MonoBehaviour
     [SerializeField] private Slider faultSlider;
     [SerializeField] private Animator carnationAnimation;
 
+    [SerializeField] private Animator newCarnations;
+
     [SerializeField] private LevelManager levelManager;
 
     public static FaultManager Instance { get; private set; }

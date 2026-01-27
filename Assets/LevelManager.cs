@@ -535,6 +535,7 @@ public class LevelManager : MonoBehaviour
         censorBar.sprite = levels[level].levelCensorBar;
 
         policeman.SetActive(true);
+        policeman.GetComponent<PolicemanIntroduction>().CanProgress = true;
         policemanText.text = levels[level].levelText;
         for (int i = 0; i < levelImages.Length; i++)
         {
@@ -649,8 +650,8 @@ public class LevelManager : MonoBehaviour
         restarted = false;
         anomaliesCount = 0;
         Time.timeScale = 0;
-        playerMov.StartMoving(true);
-        playerMov.CanPlaySound = true;
+        //playerMov.StartMoving(true);
+        //playerMov.CanPlaySound = true;
     }
 
     private void InitalizeAvailableSpots(int amount)
