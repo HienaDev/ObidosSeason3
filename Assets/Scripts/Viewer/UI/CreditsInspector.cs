@@ -67,7 +67,7 @@ public class CreditsInspector : MonoBehaviour
         {
         yield return Fade(_gameLogo, true, _minAlpha, _maxAlpha, () => _cor = null);
         yield return new WaitForSeconds(_gameLogoTime);
-        yield return Fade(_gameLogo, false, _minAlpha, _maxAlpha, () => _cor = null);
+        yield return Fade(_gameLogo, false, _minAlpha, _maxAlpha, () => SceneManager.LoadScene(0));
 
         yield return new WaitForSeconds(_gameLogoTime / 4f);
         }
