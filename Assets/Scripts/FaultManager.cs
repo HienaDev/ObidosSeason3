@@ -20,6 +20,9 @@ public class FaultManager : MonoBehaviour
     [SerializeField] private Animator carnationAnimation;
 
     [SerializeField] private Animator newCarnations;
+    private bool phase1 = false;
+    private bool phase2 = false;
+    private bool phase3 = false;
 
     [SerializeField] private LevelManager levelManager;
 
@@ -66,8 +69,8 @@ public class FaultManager : MonoBehaviour
             if (faultSlider.value > sliderValue)
             {
                 faultSlider.value = sliderValue;
-                carnationAnimation.gameObject.SetActive(true);
-                carnationAnimation.SetTrigger("CarnationSpawn");
+                //carnationAnimation.gameObject.SetActive(true);
+                //carnationAnimation.SetTrigger("CarnationSpawn");
             }
         }
     }
@@ -78,12 +81,37 @@ public class FaultManager : MonoBehaviour
         faultCounter--;
         levelManager.anomaliesCount = faultCounter;
 
-        if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 3)
+        if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 3 && phase1 == false)
         {
-            carnationAnimation.gameObject.SetActive(true);
-            carnationAnimation.SetTrigger("CarnationSpawn");
+            phase1 = true;
+            newCarnations.gameObject.SetActive(true);
             return;
         }
+        else if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 3 && phase1 == true)
+        {
+            return;
+        }
+        else if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 7 && phase1 && !phase2)
+        {
+            phase2 = true;
+            newCarnations.SetTrigger("Phase2");
+            return;
+        }
+        else if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 7 && phase1 && phase2)
+        {
+            return;
+        }
+        else if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 10 && phase2 && !phase3)
+        {
+            phase3 = true;
+            newCarnations.SetTrigger("Phase3");
+            return;
+        }
+        else if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 10 && phase2 && phase3)
+        {
+            return;
+        }
+
         faultSlider.value++;
     }
 

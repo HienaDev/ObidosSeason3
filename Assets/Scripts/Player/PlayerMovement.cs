@@ -133,4 +133,16 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         lastSlap = false;
     }
+
+    public void DelayStartMovement()
+    {
+        StartCoroutine(DelayMovementCoroutine());
+    }
+
+    private IEnumerator DelayMovementCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        movEnabled = true;
+        CanPlaySound = true;
+    }
 }

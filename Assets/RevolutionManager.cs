@@ -25,6 +25,6 @@ public class RevolutionManager : MonoBehaviour
 
     public void EndGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(4);
     }
 }

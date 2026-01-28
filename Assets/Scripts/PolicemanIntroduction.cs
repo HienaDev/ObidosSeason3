@@ -29,11 +29,8 @@ public class PolicemanIntroduction : MonoBehaviour
         CanProgress = false;
         fade.Fade(false);
         yield return new WaitForSecondsRealtime(1.2f);
-        gameObject.SetActive(false);
         fade.Fade(true);
-        yield return new WaitForSecondsRealtime(1.1f);
-        playerMovement.StartMoving(true);
-        playerMovement.CanPlaySound = true;
-
+        playerMovement.DelayStartMovement();
+        gameObject.SetActive(false);
     }
 }

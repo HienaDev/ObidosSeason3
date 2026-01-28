@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -191,10 +192,11 @@ public class PauseMenuController : MonoBehaviour
     {
         float value = musicSlider.value;
 
-        if (value > -44)
-            audioMixer.SetFloat("MusicVolume", value);
-        else
-            audioMixer.SetFloat("MusicVolume", -80);
+        // Protect against log(0)
+        if (value <= 0.0001f) value = 0.0001f;
+
+        float dB = Mathf.Log10(value) * 20f;
+        audioMixer.SetFloat("MusicVolume", dB);
 
         UpdateHandleSprite(value, musicHandleImage, musicMuteSprite, musicLowSprite, musicMidSprite, musicHighSprite);
     }
@@ -203,10 +205,12 @@ public class PauseMenuController : MonoBehaviour
     {
         float value = sfxSlider.value;
 
-        if (value > -44)
-            audioMixer.SetFloat("SFXVolume", value);
-        else
-            audioMixer.SetFloat("SFXVolume", -80);
+        // Protect against log(0)
+        if (value <= 0.0001f) value = 0.0001f;
+
+        float dB = Mathf.Log10(value) * 20f;
+        audioMixer.SetFloat("SFXVolume", dB);
+
 
         UpdateHandleSprite(value, sfxHandleImage, sfxMuteSprite, sfxLowSprite, sfxMidSprite, sfxHighSprite);
     }
