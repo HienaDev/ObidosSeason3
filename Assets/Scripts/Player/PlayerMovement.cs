@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator DelayMovementCoroutine()
     {
         yield return new WaitForSecondsRealtime(1f);
-        movEnabled = true;
+        StartMoving(true);
         CanPlaySound = true;
     }
 }

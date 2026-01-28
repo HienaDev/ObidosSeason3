@@ -39,6 +39,40 @@ public class FaultManager : MonoBehaviour
         Instance = this;
     }
 
+    private void FixedUpdate()
+    {
+        if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 3 && phase1 == false)
+        {
+            phase1 = true;
+            newCarnations.gameObject.SetActive(true);
+            return;
+        }
+        else if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 3 && phase1 == true)
+        {
+            return;
+        }
+        else if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 7 && phase1 && !phase2)
+        {
+            phase2 = true;
+            newCarnations.SetTrigger("Phase2");
+            return;
+        }
+        else if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 7 && phase1 && phase2)
+        {
+            return;
+        }
+        else if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 10 && phase2 && !phase3)
+        {
+            phase3 = true;
+            newCarnations.SetTrigger("Phase3");
+            return;
+        }
+        else if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 10 && phase2 && phase3)
+        {
+            return;
+        }
+    }
+
     public void ResetFaults(int maxFaults)
     {
 
@@ -83,8 +117,8 @@ public class FaultManager : MonoBehaviour
 
         if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 3 && phase1 == false)
         {
-            phase1 = true;
-            newCarnations.gameObject.SetActive(true);
+            //phase1 = true;
+            //newCarnations.gameObject.SetActive(true);
             return;
         }
         else if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 3 && phase1 == true)
@@ -93,8 +127,8 @@ public class FaultManager : MonoBehaviour
         }
         else if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 7 && phase1 && !phase2)
         {
-            phase2 = true;
-            newCarnations.SetTrigger("Phase2");
+            //phase2 = true;
+            //newCarnations.SetTrigger("Phase2");
             return;
         }
         else if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 7 && phase1 && phase2)
@@ -103,8 +137,8 @@ public class FaultManager : MonoBehaviour
         }
         else if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 10 && phase2 && !phase3)
         {
-            phase3 = true;
-            newCarnations.SetTrigger("Phase3");
+            //phase3 = true;
+            //newCarnations.SetTrigger("Phase3");
             return;
         }
         else if (levelManager.SpecialLevel == true && faultSlider.value == faultSlider.maxValue - 10 && phase2 && phase3)

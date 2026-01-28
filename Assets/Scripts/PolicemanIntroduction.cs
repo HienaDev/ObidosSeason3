@@ -1,8 +1,12 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class PolicemanIntroduction : MonoBehaviour
 {
+    [SerializeField]
+    private TextMeshProUGUI dayText;
+
     private PlayerMovement playerMovement;
     private FadeBlackScreen fade;
 
@@ -26,6 +30,7 @@ public class PolicemanIntroduction : MonoBehaviour
     private IEnumerator StartLevelCoroutine()
     {
         Time.timeScale = 1f;
+        dayText.text = string.Empty;
         CanProgress = false;
         fade.Fade(false);
         yield return new WaitForSecondsRealtime(1.2f);

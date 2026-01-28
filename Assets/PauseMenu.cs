@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
@@ -32,6 +33,12 @@ public class PauseMenuController : MonoBehaviour
     private GameObject confirmationPopup;
     [SerializeField]
     private AudioClip hitClip;
+
+    [Header("PlayerPrefs")]
+    [SerializeField]
+    private string PlayerPrefsVolumeKey = "MasterVolumeValue";
+    [SerializeField]
+    private string PlayerPrefsSFXKey = "MasterSFXValue";
 
     // Music
     [SerializeField] 
@@ -66,6 +73,15 @@ public class PauseMenuController : MonoBehaviour
     {
         playerMov = FindAnyObjectByType<PlayerMovement>();
         detectNPCs = FindAnyObjectByType<DetectNpcs>();
+
+        float savedVolume = PlayerPrefs.GetFloat(PlayerPrefsVolumeKey, 1f);
+        float savedSFX = PlayerPrefs.GetFloat(PlayerPrefsSFXKey, 1f);
+
+        musicSlider.value = savedVolume;
+        sfxSlider.value = savedSFX;
+
+        ChangeMusicVolume();
+        ChangeSFXVolume();
     }
 
     void Update()
@@ -198,6 +214,8 @@ public class PauseMenuController : MonoBehaviour
         float dB = Mathf.Log10(value) * 20f;
         audioMixer.SetFloat("MusicVolume", dB);
 
+        PlayerPrefs.SetFloat(PlayerPrefsVolumeKey, value);
+
         UpdateHandleSprite(value, musicHandleImage, musicMuteSprite, musicLowSprite, musicMidSprite, musicHighSprite);
     }
 
@@ -211,6 +229,7 @@ public class PauseMenuController : MonoBehaviour
         float dB = Mathf.Log10(value) * 20f;
         audioMixer.SetFloat("SFXVolume", dB);
 
+        PlayerPrefs.SetFloat(PlayerPrefsSFXKey, value);
 
         UpdateHandleSprite(value, sfxHandleImage, sfxMuteSprite, sfxLowSprite, sfxMidSprite, sfxHighSprite);
     }
