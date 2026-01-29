@@ -639,7 +639,7 @@ public class LevelManager : MonoBehaviour
             createTopicsScript.CreateRadio(false);
         }
 
-        createTopicsScript.UpdateCensorship();
+        createTopicsScript.UpdateCensorship(currentLevel);
 
 
         spawning = true;
@@ -652,6 +652,8 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 0;
         //playerMov.StartMoving(true);
         //playerMov.CanPlaySound = true;
+        playerMov.ResetPosition();
+        faultManager.ResetCarnations();
     }
 
     private void InitalizeAvailableSpots(int amount)

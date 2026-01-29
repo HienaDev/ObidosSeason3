@@ -80,6 +80,7 @@ public class CreateTopics : MonoBehaviour
     private List<Sprite> newPolicemanCensoredSprites;
     [SerializeField]
     private Image[] newPolicemanCensoredImages;
+    private int imagesLevel = -1;
 
     [SerializeField]
     private int numberOfPossibleBadItems = 0;
@@ -595,7 +596,7 @@ public class CreateTopics : MonoBehaviour
         }
     }
 
-    public void UpdateCensorship()
+    public void UpdateCensorship(int currentLevel)
     {
         foreach ((Sprite, Sprite) sprite in censoredSprites) 
         {
@@ -610,17 +611,22 @@ public class CreateTopics : MonoBehaviour
             censoredSprites.Remove(sprite);
         }
 
-        for (int i = 0; i < newPolicemanCensoredImages.Length; i++)
+        if (currentLevel > imagesLevel || currentLevel == 0)
         {
-            if (i < newPolicemanCensoredSprites.Count)
+            for (int i = 0; i < newPolicemanCensoredImages.Length; i++)
             {
-                newPolicemanCensoredImages[i].gameObject.SetActive(true);
-                newPolicemanCensoredImages[i].sprite = newPolicemanCensoredSprites[i];
+                if (i < newPolicemanCensoredSprites.Count)
+                {
+                    newPolicemanCensoredImages[i].gameObject.SetActive(true);
+                    newPolicemanCensoredImages[i].sprite = newPolicemanCensoredSprites[i];
+                }
+                else
+                {
+                    newPolicemanCensoredImages[i].gameObject.SetActive(false);
+                }
             }
-            else
-            {
-                newPolicemanCensoredImages[i].gameObject.SetActive(false);
-            }
+
+            imagesLevel = currentLevel;
         }
 
         for (int i = 0; i < allCensorImages.Length; i++)

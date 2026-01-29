@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movSped = 5f;
     private Vector2 velocity = Vector2.zero;
 
+    [SerializeField]
+    private Vector3 initialPosition;
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator _animator;
     [SerializeField] private AudioClip[] _pencilHitGroundClips;
@@ -144,5 +147,10 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
         StartMoving(true);
         CanPlaySound = true;
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = initialPosition;
     }
 }

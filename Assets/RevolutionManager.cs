@@ -9,6 +9,8 @@ public class RevolutionManager : MonoBehaviour
 
     private FadeBlackScreenAfterRevolution fade;
 
+    private bool skipped = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,5 +28,13 @@ public class RevolutionManager : MonoBehaviour
     public void EndGame()
     {
         SceneManager.LoadScene(4);
+    }
+
+    public void SkipRevolution()
+    {
+        if (skipped) return;
+
+        fade.FadeOut();
+        skipped = true;
     }
 }
