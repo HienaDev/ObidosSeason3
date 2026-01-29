@@ -195,11 +195,11 @@ public class PauseMenuController : MonoBehaviour
 
     private void UpdateHandleSprite(float value, Image handleImage, Sprite mute, Sprite low, Sprite mid, Sprite high)
     {
-        if (value <= -40)
+        if (value <= 0.10f)
             handleImage.sprite = mute;
-        else if (value <= -25)
+        else if (value <= 0.43f)
             handleImage.sprite = low;
-        else if (value <= -10)
+        else if (value <= 0.76f)
             handleImage.sprite = mid;
         else
             handleImage.sprite = high;
