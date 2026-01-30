@@ -6,6 +6,8 @@ public class PolicemanIntroduction : MonoBehaviour
 {
     [SerializeField]
     private TextMeshProUGUI dayText;
+    [SerializeField]
+    private AudioClip[] letterCloseSounds;
 
     private PlayerMovement playerMovement;
     private FadeBlackScreen fade;
@@ -32,10 +34,9 @@ public class PolicemanIntroduction : MonoBehaviour
         Time.timeScale = 1f;
         dayText.text = string.Empty;
         CanProgress = false;
-        fade.Fade(false);
+        fade.PolicemanFade();
+        AudioSystem.PlaySound(letterCloseSounds);
         yield return new WaitForSecondsRealtime(1.2f);
-        fade.Fade(true);
         playerMovement.DelayStartMovement();
-        gameObject.SetActive(false);
     }
 }

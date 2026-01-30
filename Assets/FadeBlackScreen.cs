@@ -14,6 +14,8 @@ public class FadeBlackScreen : MonoBehaviour
     private Instructions instructions;
     [SerializeField]
     private GameObject introduction;
+    [SerializeField]
+    private GameObject policeman;
 
     private bool inIntro = false;
 
@@ -35,6 +37,11 @@ public class FadeBlackScreen : MonoBehaviour
             instructions.ActiveFromIntro(true);
             Fade(true);
         }
+    }
+
+    public void PolicemanFade()
+    {
+        StartCoroutine(PolicemanFadeCoroutine());
     }
 
     public void Fade(bool fadeIn)
@@ -79,6 +86,14 @@ public class FadeBlackScreen : MonoBehaviour
             fadeMask.transform.localScale = Vector3.Lerp(currentScale, initialScale, lerpValue);
             yield return null;
         }
+    }
+
+    private IEnumerator PolicemanFadeCoroutine()
+    {
+        Fade(false);
+        yield return new WaitForSecondsRealtime(1.2f);
+        policeman.SetActive(false);
+        Fade(true);
     }
 
     public void InIntroduction(bool intro)
