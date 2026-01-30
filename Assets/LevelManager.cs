@@ -140,7 +140,10 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField]
     private AudioClip[] letterSounds;
-    
+
+    [SerializeField]
+    private PauseMenuController pauseMenu;
+
 
     private float clovesChance = 0;
 
@@ -455,7 +458,7 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator StartLevelCR(int level)
     {
-        
+        pauseMenu.CanPause = false;
         fadeScreen.Fade(false);
         fadeScreen.SetDay((20 + level).ToString(), true);
         playerMov.CanPlaySound = false;

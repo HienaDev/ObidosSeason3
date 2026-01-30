@@ -33,6 +33,8 @@ public class PauseMenuController : MonoBehaviour
     private GameObject confirmationPopup;
     [SerializeField]
     private AudioClip hitClip;
+    [SerializeField]
+    private ButtonHoverDelayed backHover;
 
     [Header("PlayerPrefs")]
     [SerializeField]
@@ -69,6 +71,8 @@ public class PauseMenuController : MonoBehaviour
 
     private bool isPaused = false;
 
+    public bool CanPause { get; set; } = true;
+
     private void Start()
     {
         playerMov = FindAnyObjectByType<PlayerMovement>();
@@ -88,7 +92,7 @@ public class PauseMenuController : MonoBehaviour
     {
         if (levelManager != null && levelManager.isRunning)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && CanPause)
             {
                 if (isPaused)
                 {
@@ -120,6 +124,7 @@ public class PauseMenuController : MonoBehaviour
     public void OpenOptions(bool open)
     {
         optionsMenu.SetActive(open);
+        backHover.ResetPosition();
 
         if (open == true)
         {

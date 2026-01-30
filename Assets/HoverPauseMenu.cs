@@ -50,4 +50,9 @@ public class ButtonHoverDelayed : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         rectTransform.localPosition = originalPosition;
     }
+
+    public void ResetPosition()
+    {
+        rectTransform.localPosition = originalPosition;
+    }
 }
