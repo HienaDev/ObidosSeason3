@@ -79,8 +79,13 @@ MonoBehaviour:
   down: 115
   left: 97
   right: 100
+  alternativeUp: 273
+  alternativeDown: 274
+  alternativeLeft: 276
+  alternativeRight: 275
   slap: 32
   movSped: 5
+  initialPosition: {x: 0, y: 0, z: 0}
   rb: {fileID: 5205742841750071416}
   _animator: {fileID: 2259826617084238838}
   _pencilHitGroundClips:
@@ -5235,10 +5240,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stepSounds:
-  - {fileID: 8300000, guid: 169d07aa0691d0942bf0762b6f456eaa, type: 3}
-  - {fileID: 8300000, guid: 44e84c88c96f6e34aa878a1d7a2df25d, type: 3}
-  - {fileID: 8300000, guid: d98fa4ee16d5ef648a11653cf1152e99, type: 3}
-  - {fileID: 8300000, guid: 73a1137551a02f74ea0c48f51cd91e0a, type: 3}
+  - {fileID: 8300000, guid: d4d4326b2028f0b4eae7ee56c99f66e0, type: 3}
+  - {fileID: 8300000, guid: c359050bf0e799d43a39f5921c2d337b, type: 3}
+  - {fileID: 8300000, guid: cdc681da12925544cb63a968419b49d8, type: 3}
+  - {fileID: 8300000, guid: 7dcb874a045e01544acb26fe7156c314, type: 3}
+  - {fileID: 8300000, guid: 1b08b44e395e30f41a3ff0a5ec2abe21, type: 3}
+  - {fileID: 8300000, guid: d6b36fc4d00946342b37e9888ba8dd88, type: 3}
+  - {fileID: 8300000, guid: 39284255382a8b24a9cbc40651740e63, type: 3}
+  - {fileID: 8300000, guid: 41ca72c583147a64197afd07eed4eb90, type: 3}
+  - {fileID: 8300000, guid: e19e771a1b04a30449a43c76457d2a18, type: 3}
+  - {fileID: 8300000, guid: df4bc21132cf60d4caaeb45b02755ca9, type: 3}
+  - {fileID: 8300000, guid: 5d1effe8958fc804abca1dcf34af7a67, type: 3}
   _hitPs: {fileID: 5070769775105076466}
 --- !u!114 &3826010701970359496
 MonoBehaviour:

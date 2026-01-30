@@ -138,6 +138,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private Image[] policemanCensorItems;
 
+    [SerializeField]
+    private AudioClip[] letterSounds;
+    
+
     private float clovesChance = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -537,6 +541,7 @@ public class LevelManager : MonoBehaviour
         policeman.SetActive(true);
         policeman.GetComponent<PolicemanIntroduction>().CanProgress = true;
         policemanText.text = levels[level].levelText;
+        StartCoroutine(LetterSoundCoroutine());
         for (int i = 0; i < levelImages.Length; i++)
         {
             // Set Y position
@@ -654,6 +659,17 @@ public class LevelManager : MonoBehaviour
         //playerMov.CanPlaySound = true;
         playerMov.ResetPosition();
         faultManager.ResetCarnations();
+    }
+
+    private IEnumerator LetterSoundCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(0.8f);
+        PlayLetterSound();
+    }
+
+    public void PlayLetterSound()
+    {
+        AudioSystem.PlaySound(letterSounds);
     }
 
     private void InitalizeAvailableSpots(int amount)
