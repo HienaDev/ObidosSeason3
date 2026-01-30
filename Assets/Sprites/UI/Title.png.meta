@@ -129,6 +129,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -136,10 +149,10 @@ TextureImporter:
       name: Title_0
       rect:
         serializedVersion: 2
-        x: 158
-        y: 338
-        width: 176
-        height: 404
+        x: 146
+        y: 350
+        width: 165
+        height: 411
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,10 +171,10 @@ TextureImporter:
       name: Title_1
       rect:
         serializedVersion: 2
-        x: 361
-        y: 337
-        width: 164
-        height: 404
+        x: 353
+        y: 350
+        width: 152
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,10 +193,10 @@ TextureImporter:
       name: Title_2
       rect:
         serializedVersion: 2
-        x: 561
-        y: 340
-        width: 175
-        height: 402
+        x: 555
+        y: 352
+        width: 164
+        height: 408
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +215,10 @@ TextureImporter:
       name: Title_3
       rect:
         serializedVersion: 2
-        x: 774
-        y: 338
-        width: 164
-        height: 404
+        x: 773
+        y: 350
+        width: 151
+        height: 411
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,10 +237,10 @@ TextureImporter:
       name: Title_4
       rect:
         serializedVersion: 2
-        x: 1047
-        y: 348
-        width: 175
-        height: 405
+        x: 1049
+        y: 361
+        width: 163
+        height: 411
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,10 +259,10 @@ TextureImporter:
       name: Title_5
       rect:
         serializedVersion: 2
-        x: 1250
-        y: 349
-        width: 185
-        height: 404
+        x: 1255
+        y: 362
+        width: 174
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,10 +281,10 @@ TextureImporter:
       name: Title_6
       rect:
         serializedVersion: 2
-        x: 1464
-        y: 347
-        width: 68
-        height: 405
+        x: 1471
+        y: 360
+        width: 57
+        height: 411
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,10 +303,10 @@ TextureImporter:
       name: Title_7
       rect:
         serializedVersion: 2
-        x: 1559
-        y: 348
-        width: 179
-        height: 405
+        x: 1569
+        y: 361
+        width: 167
+        height: 411
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -312,10 +325,10 @@ TextureImporter:
       name: Title_8
       rect:
         serializedVersion: 2
-        x: 1746
-        y: 348
-        width: 198
-        height: 405
+        x: 1757
+        y: 361
+        width: 189
+        height: 411
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,10 +347,10 @@ TextureImporter:
       name: Title_9
       rect:
         serializedVersion: 2
-        x: 1956
-        y: 348
-        width: 174
-        height: 405
+        x: 1971
+        y: 361
+        width: 164
+        height: 411
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -356,10 +369,10 @@ TextureImporter:
       name: Title_10
       rect:
         serializedVersion: 2
-        x: 2162
-        y: 348
-        width: 164
-        height: 405
+        x: 2181
+        y: 361
+        width: 152
+        height: 411
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,10 +391,10 @@ TextureImporter:
       name: Title_11
       rect:
         serializedVersion: 2
-        x: 154
-        y: 212
-        width: 2171
-        height: 100
+        x: 158
+        y: 222
+        width: 2167
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
