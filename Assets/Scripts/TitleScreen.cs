@@ -9,6 +9,16 @@ public class TitleScreen : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI pressKeyText;
 
+    private PlayerMovement playerMovement;
+
+    private void Start()
+    {
+        playerMovement = FindAnyObjectByType<PlayerMovement>();
+
+        playerMovement.StartMoving(false);
+        playerMovement.CanPlaySound = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -19,6 +29,8 @@ public class TitleScreen : MonoBehaviour
                 character.SetActive(true);
             }
 
+
+            playerMovement.DelayStartMovementFromTitle();
             gameObject.SetActive(false);
         }
     }

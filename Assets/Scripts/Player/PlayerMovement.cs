@@ -139,15 +139,22 @@ public class PlayerMovement : MonoBehaviour
 
     public void DelayStartMovement()
     {
-        StartCoroutine(DelayMovementCoroutine());
+        StartCoroutine(DelayMovementCoroutine(1f));
     }
 
-    private IEnumerator DelayMovementCoroutine()
+    public void DelayStartMovementFromTitle()
     {
-        yield return new WaitForSecondsRealtime(1f);
+        StartCoroutine(DelayMovementCoroutine(0.2f));
+    }
+
+    private IEnumerator DelayMovementCoroutine(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
         StartMoving(true);
         CanPlaySound = true;
     }
+
+
 
     public void ResetPosition()
     {
