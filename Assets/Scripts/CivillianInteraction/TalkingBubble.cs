@@ -51,6 +51,8 @@ public class TalkingBubble : MonoBehaviour
 
     [SerializeField] private AudioClip[] convoSounds;
 
+    private bool Censored { get; set; } = false;
+
     private bool singing = false;
 
     public void Initialize(CivilianFaultType type)
@@ -179,6 +181,12 @@ public class TalkingBubble : MonoBehaviour
 
     public void StartTalking()
     {
+        //Don't talk if censored or if disappeared in last level
+        if (Censored)
+        {
+            return;
+        }
+
         whistleParent.SetActive(false);
         talking = true;
         bubbleParent.SetActive(true);
@@ -223,6 +231,7 @@ public class TalkingBubble : MonoBehaviour
 
     public void StopTalking()
     {
+        Censored = true;
         whistleParent.SetActive(false);
 
         talking = false;

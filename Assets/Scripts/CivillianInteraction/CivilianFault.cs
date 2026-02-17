@@ -93,7 +93,7 @@ public class CivilianFault : MonoBehaviour
             return;
         }
 
-        bool correctlyCensored = talkingBubble.badSinging || talkingBubble.badRadio || talkingBubble.badTopic || talkingBubble.badHat || talkingBubble.badBook || _linkedCivilians.Count > 4;
+        bool correctlyCensored = talkingBubble.badSinging || talkingBubble.badRadio || talkingBubble.badTopic || talkingBubble.badHat || talkingBubble.badBook;
         if (correctlyCensored)
             spriteRenderer.color = censoredColor;
         else

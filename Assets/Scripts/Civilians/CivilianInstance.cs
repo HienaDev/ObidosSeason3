@@ -298,7 +298,7 @@ public class CivilianInstance : MonoBehaviour
 
         foreach (var civ in _fault._linkedCivilians)
         {
-            civ.ProxyCensored(correctlyCensored);
+            //civ.ProxyCensored(correctlyCensored);
         }
 
         _anim.SetTrigger("censored");
