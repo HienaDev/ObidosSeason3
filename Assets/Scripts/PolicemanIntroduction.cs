@@ -25,18 +25,16 @@ public class PolicemanIntroduction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && CanProgress)
         {
-            StartCoroutine(StartLevelCoroutine());
+            StartLevelCoroutine();
         }
     }
 
-    private IEnumerator StartLevelCoroutine()
+    private void StartLevelCoroutine()
     {
         Time.timeScale = 1f;
         dayText.text = string.Empty;
         CanProgress = false;
         fade.PolicemanFade();
         AudioSystem.PlaySound(letterCloseSounds);
-        yield return new WaitForSecondsRealtime(1.2f);
-        playerMovement.DelayStartMovement();
     }
 }

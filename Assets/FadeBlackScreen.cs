@@ -18,6 +18,9 @@ public class FadeBlackScreen : MonoBehaviour
     private GameObject policeman;
     [SerializeField]
     private PauseMenuController pauseMenu;
+    [SerializeField]
+    private PlayerMovement playerMovement;
+    
 
     private bool inIntro = false;
 
@@ -94,6 +97,7 @@ public class FadeBlackScreen : MonoBehaviour
     {
         Fade(false);
         yield return new WaitForSecondsRealtime(1.2f);
+        playerMovement.DelayStartMovement();
         policeman.SetActive(false);
         Fade(true);
         yield return new WaitForSecondsRealtime(1.2f);
