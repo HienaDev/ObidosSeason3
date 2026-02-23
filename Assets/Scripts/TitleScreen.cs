@@ -39,8 +39,6 @@ public class TitleScreen : MonoBehaviour
     {
         float alpha = Mathf.Abs(Mathf.Sin(Time.time));
 
-        Debug.Log(alpha);
-
         pressKeyText.color = new Color(pressKeyText.color.r, pressKeyText.color.g, pressKeyText.color.b, alpha);
     }
 }

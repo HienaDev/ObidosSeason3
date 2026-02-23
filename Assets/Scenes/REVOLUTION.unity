@@ -4698,6 +4698,7 @@ GameObject:
   - component: {fileID: 216865601}
   - component: {fileID: 216865603}
   - component: {fileID: 216865602}
+  - component: {fileID: 216865604}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4722,7 +4723,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2.4}
+  m_AnchoredPosition: {x: 0, y: -2.3999996}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &216865602
@@ -4824,6 +4825,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216865600}
   m_CullTransparentMesh: 1
+--- !u!114 &216865604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216865600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84877baf4e4a8f4619f5282815cbf68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localizations:
+  - _text: skip
+    _sprite: {fileID: 0}
+    _language: 1
+  - _text: saltar
+    _sprite: {fileID: 0}
+    _language: 0
 --- !u!1 &222328812
 GameObject:
   m_ObjectHideFlags: 0
@@ -8308,6 +8328,7 @@ GameObject:
   - component: {fileID: 344738651}
   - component: {fileID: 344738650}
   - component: {fileID: 344738653}
+  - component: {fileID: 344738654}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8433,6 +8454,18 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &344738654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344738649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 345f4ddb967d90f4caaad427622c601b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &348064635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43612,8 +43645,8 @@ Canvas:
   m_GameObject: {fileID: 1801639578}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 344738651}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -43624,7 +43657,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10007
   m_TargetDisplay: 0
 --- !u!224 &1801639583
 RectTransform:
