@@ -8,6 +8,7 @@ using System.Collections;
 using static LevelManager;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using LocalizationSystem.Core;
 
 public class LevelManager : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class LevelManager : MonoBehaviour
 
         [TextArea(3, 10)]
         public string levelText;
+        [TextArea(3, 10)]
+        public string levelTextPT;
         public float imagesY;
         public bool imagesActive;
     }
@@ -543,7 +546,16 @@ public class LevelManager : MonoBehaviour
 
         policeman.SetActive(true);
         policeman.GetComponent<PolicemanIntroduction>().CanProgress = true;
-        policemanText.text = levels[level].levelText;
+
+        if (LocalizationManager.Language == Language.en)
+        {
+            policemanText.text = levels[level].levelText;
+        }
+        else if (LocalizationManager.Language == Language.pt_pt)
+        {
+            policemanText.text = levels[level].levelTextPT;
+        }
+
         StartCoroutine(LetterSoundCoroutine());
         for (int i = 0; i < levelImages.Length; i++)
         {

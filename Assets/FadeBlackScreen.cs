@@ -1,3 +1,4 @@
+using LocalizationSystem.Core;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -58,7 +59,15 @@ public class FadeBlackScreen : MonoBehaviour
     public void SetDay(string day, bool toggle)
     {
         dayText.gameObject.SetActive(toggle);
-        dayText.text = day + " April 1974";
+        if (LocalizationManager.Language == Language.en)
+        {
+            dayText.text = day + " April 1974";
+        }
+        else if (LocalizationManager.Language == Language.pt_pt)
+        {
+            dayText.text = day + " Abril 1974";
+        }
+
     }
 
     public IEnumerator FadeIn()

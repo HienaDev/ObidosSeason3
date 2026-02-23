@@ -9,7 +9,14 @@ public class LocalizationDropdown : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (PlayerPrefs.GetInt("Language") == 0)
+        {
+            GetComponent<TMP_Dropdown>().value = 0;
+        }
+        else if (PlayerPrefs.GetInt("Language") == 1)
+        {
+            GetComponent<TMP_Dropdown>().value = 1;
+        }
     }
 
     // Update is called once per frame
