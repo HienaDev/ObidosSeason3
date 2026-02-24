@@ -15,6 +15,8 @@ public class Instructions : MonoBehaviour
     private GameObject instructionsContinue;
     [SerializeField]
     private FadeBlackScreen fade;
+    [SerializeField]
+    private PauseMenuController pauseMenu;
 
     private bool activeFromMenu = false;
     private bool activeFromIntroduction = false;
@@ -45,6 +47,7 @@ public class Instructions : MonoBehaviour
             {
                 gameObject.SetActive(false);
                 instructionsContinue.SetActive(false);
+                pauseMenu.CanEscape();
             }
         }
     }

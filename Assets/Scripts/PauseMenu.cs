@@ -71,6 +71,8 @@ public class PauseMenuController : MonoBehaviour
 
     private bool isPaused = false;
 
+    private bool canEsc = true;
+
     public bool CanPause { get; set; } = true;
 
     private void Start()
@@ -94,12 +96,12 @@ public class PauseMenuController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape) && CanPause)
             {
-                if (isPaused)
+                if (isPaused && canEsc)
                 {
                     OpenOptions(false);
                     ResumeGame();
                 }
-                else
+                else if (!isPaused)
                 {
                     PauseGame();
                 }
@@ -243,10 +245,16 @@ public class PauseMenuController : MonoBehaviour
     {
         Instructions.SetActive(true);
         InstructionsReturn.SetActive(true);
+        canEsc = false;
     }
 
     public void PlayHitSFX()
     {
         playerMov.gameObject.GetComponent<AudioSource>().PlayOneShot(hitClip);
+    }
+
+    public void CanEscape()
+    {
+        canEsc = true;
     }
 }
