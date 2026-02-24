@@ -21,6 +21,8 @@ public class FadeBlackScreen : MonoBehaviour
     private PauseMenuController pauseMenu;
     [SerializeField]
     private PlayerMovement playerMovement;
+    [SerializeField] 
+    private LevelManager levelManager;
     
 
     private bool inIntro = false;
@@ -39,6 +41,10 @@ public class FadeBlackScreen : MonoBehaviour
         {
             inIntro = false;
             introduction.SetActive(false);
+
+            if (levelManager != null)
+                levelManager.SetLogosCanvasActive(false);
+
             instructions.gameObject.SetActive(true);
             instructions.ActiveFromIntro(true);
             Fade(true);

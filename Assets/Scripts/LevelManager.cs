@@ -90,6 +90,12 @@ public class LevelManager : MonoBehaviour
 
     public bool revolution = false;
 
+    public void SetLogosCanvasActive(bool active)
+    {
+        if (logosCanvas != null)
+            logosCanvas.SetActive(active);
+    }
+
     [SerializeField] private ForceLoadScene forceLoadScene;
 
     [SerializeField]
