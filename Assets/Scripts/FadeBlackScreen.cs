@@ -23,7 +23,10 @@ public class FadeBlackScreen : MonoBehaviour
     private PlayerMovement playerMovement;
     [SerializeField] 
     private LevelManager levelManager;
+    [SerializeField]
+    private GameObject[] mainMenuNPCS;
     
+
 
     private bool inIntro = false;
 
@@ -129,5 +132,19 @@ public class FadeBlackScreen : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         inIntro = intro;
+    }
+
+    public void DisableMainMenuChars()
+    {
+        StartCoroutine(DisableMainMenuCharsCoroutine());
+    }
+
+    private IEnumerator DisableMainMenuCharsCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        foreach (GameObject npc in mainMenuNPCS)
+        {
+            npc.SetActive(false);
+        }
     }
 }
