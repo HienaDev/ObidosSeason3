@@ -173,10 +173,6 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
         if (revolution)
             return;
 
@@ -281,42 +277,6 @@ public class LevelManager : MonoBehaviour
         if (isRunning)
         {
             UpdateTimer();
-        }
-
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            currentLevel = 0;
-            StartLevel(0);
-        }
-
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            currentLevel = 1;
-            StartLevel(1);
-        }
-
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            currentLevel = 2;
-            StartLevel(2);
-        }
-
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            currentLevel = 3;
-            StartLevel(3);
-        }
-
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            currentLevel = 4;
-            StartLevel(4);
-        }
-
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            currentLevel = 5;
-            StartLevel(5);
         }
 
         if (levels[currentLevel].specialLevel)
